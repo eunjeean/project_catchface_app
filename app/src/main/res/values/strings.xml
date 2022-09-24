@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Fersona Application</string>
+
+    <string-array name="wanted_Spinner">
+        <item>선택</item>
+        <item>살인</item>
+        <item>절도</item>
+        <item>사기</item>
+        <item>성범죄</item>
+    </string-array>
+
+
 </resources>

@@ -30,11 +30,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/logo_img"
         android:layout_width="80dp"
         android:layout_height="70dp"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="8dp"
+        android:clickable="true"
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toStartOf="@+id/textView3"
         app:layout_constraintHorizontal_bias="0.0"
@@ -44,11 +45,12 @@
         app:srcCompat="@drawable/logo" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/menu"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
+        android:clickable="true"
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -73,36 +75,37 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/warning1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/subGray"
                 android:padding="4dp"
-                android:text="* 제보와 관계없는 이미지가 등록될 경우, 삭제될 수 있습니다."
+                android:text="@string/warring1"
                 android:textColor="@color/pointOrange"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
 
                 />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/warning2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/subGray"
                 android:padding="4dp"
-                android:text="* 긴급을 필요로하는 제보 도는 신고인 경우, 112(무료)로 연락을 주시기 바랍니다."
+                android:text="@string/warring2"
                 android:textColor="@color/pointOrange"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <LinearLayout
+                android:id="@+id/ll_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/radiobutton1"
+                    android:id="@+id/rd1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -123,7 +126,7 @@
             </LinearLayout>
 
             <RadioButton
-                android:id="@+id/radioButton2"
+                android:id="@+id/rd2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:enabled="false"
@@ -132,7 +135,7 @@
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName"
+                android:id="@+id/report_con_et"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
@@ -140,10 +143,11 @@
                 android:hint="최소 5자, 최대 180자 작성 가능"
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
+                android:textColor="@color/mainNavy"
                 android:textSize="16sp" />
 
             <RadioButton
-                android:id="@+id/radioButton3"
+                android:id="@+id/rd3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:enabled="false"
@@ -152,14 +156,14 @@
                 android:textSize="16sp" />
 
             <DatePicker
-                android:id="@+id/dataPicker"
+                android:id="@+id/rep_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:calendarViewShown="false"
                 android:datePickerMode="spinner" />
 
             <RadioButton
-                android:id="@+id/radioButton4"
+                android:id="@+id/rd4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:enabled="false"
@@ -168,18 +172,20 @@
                 android:textSize="16sp" />
 
             <TimePicker
+                android:id="@+id/rep_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:timePickerMode="spinner" />
 
             <LinearLayout
+                android:id="@+id/ll_2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/radioButton5"
+                    android:id="@+id/rd5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -188,24 +194,26 @@
                     android:textColor="@color/mainNavy"
                     android:textSize="16sp" />
 
-                <ImageView
-                    android:id="@+id/imageView4"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                <ImageButton
+                    android:id="@+id/gallery_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:clickable="true"
-                    android:longClickable="false"
-                    app:srcCompat="@drawable/galary" />
+                    android:backgroundTint="@color/white"
+                    android:padding="0dp"
+                    android:src="@drawable/gallery" />
 
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/radioButton6"
+                    android:id="@+id/rd6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -215,6 +223,7 @@
                     android:textSize="16sp" />
 
                 <Button
+                    android:id="@+id/repAdr_btn"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -228,7 +237,7 @@
             </LinearLayout>
 
             <RadioButton
-                android:id="@+id/radioButton7"
+                android:id="@+id/rd7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:enabled="false"
@@ -237,7 +246,7 @@
                 android:textSize="16sp" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/monMake_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -245,12 +254,12 @@
                 android:backgroundTint="@color/pointOrange"
                 android:text="몽타주 생성"
                 android:textColor="@color/white"
-                android:textSize="16sp"
+                android:textSize="18dp"
                 android:textStyle="bold"
                 app:cornerRadius="30dp" />
 
             <RadioButton
-                android:id="@+id/radiobutton8"
+                android:id="@+id/rd8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:enabled="false"
@@ -259,11 +268,15 @@
                 android:textSize="16sp" />
 
             <LinearLayout
+                android:id="@+id/ll_4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/name_tv1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
@@ -275,6 +288,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/name_tv2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -285,18 +299,22 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/checkBox2"
+                    android:id="@+id/wanted_ck"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="신고내용 공유 동의" />
+                    android:text="신고내용 공유 동의"
+                    app:buttonTint="@color/pointOrange"
+                    android:textSize="14dp"/>
 
                 <Button
+                    android:id="@+id/wantedview_btn"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -307,18 +325,22 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_6"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
                 <CheckBox
-                    android:id="@+id/checkBox"
+                    android:id="@+id/info_ck"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="개인정보 수집 동의" />
+                    android:text="개인정보 수집 동의"
+                    app:buttonTint="@color/pointOrange"
+                    android:textSize="14dp"/>
 
                 <Button
+                    android:id="@+id/infoView_btn"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -329,7 +351,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/submit_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -337,7 +359,8 @@
                 android:layout_marginBottom="8dp"
                 android:backgroundTint="@color/mainNavy"
                 android:text="제출"
-                android:textSize="16sp"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:cornerRadius="30dp" />
 

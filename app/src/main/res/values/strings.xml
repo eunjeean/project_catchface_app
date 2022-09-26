@@ -1,6 +1,11 @@
 <resources>
-    <string name="app_name">Fersona Application</string>
+    <string name="app_name">CatchFace</string>
 
+    <!-- 경고 -->
+    <string name="warring1">* 제보와 관계없는 이미지가 등록될 경우, 삭제될 수 있습니다.</string>
+    <string name="warring2">* 긴급을 필요로하는 제보 도는 신고인 경우, 112(무료)로 연락을 주시기 바랍니다.</string>
+
+    <!--- 범죄유형 -->
     <string-array name="wanted_Spinner">
         <item>선택</item>
         <item>살인</item>

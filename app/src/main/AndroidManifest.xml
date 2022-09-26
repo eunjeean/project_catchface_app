@@ -14,10 +14,22 @@
         android:theme="@style/Theme.FersonaApplication"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".Wanted"
+            android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
+            android:name=".Join"
             android:exported="false" />
         <activity
             android:name=".ReportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Main"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -14,12 +14,13 @@
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/drawable/main_image_report.xml" value="0.1" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/drawable/main_image_wanted.xml" value="0.1" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/drawable/main_menu_button.xml" value="0.1" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/drawable/wanted_image.xml" value="0.366" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/layout/activity_join.xml" value="0.33" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/layout/activity_main2.xml" value="0.1" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/layout/activity_report.xml" value="0.22" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/layout/activity_wanted.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/layout/activity_report.xml" value="0.33" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/layout/activity_wanted.xml" value="0.33" />
       </map>
     </option>
   </component>

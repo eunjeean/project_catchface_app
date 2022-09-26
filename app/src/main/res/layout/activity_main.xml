@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.15" />
+        app:layout_constraintGuide_percent="0.1" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline10"
@@ -48,27 +48,22 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#293241"
         app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline10"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" >
 
-        <Button
-            android:id="@+id/main_menu"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:backgroundTint="@color/mainNavy"
-            android:drawableTop="@drawable/main_image_menubtn"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:paddingTop="11dp"
-            app:cornerRadius="0dp"
-            app:iconPadding="0dp"
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="SpeakableTextPresentCheck" />
+            app:srcCompat="@drawable/menu" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.Guideline
@@ -76,7 +71,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.8" />
+        app:layout_constraintGuide_percent="0.75" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
@@ -89,8 +84,8 @@
 
         <Button
             android:id="@+id/button10"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
+            android:layout_width="185dp"
+            android:layout_height="185dp"
             android:layout_marginEnd="5dp"
             android:backgroundTint="@color/subGray"
             android:drawableTop="@drawable/main_image_report"
@@ -108,8 +103,8 @@
 
         <Button
             android:id="@+id/button11"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
+            android:layout_width="185dp"
+            android:layout_height="185dp"
             android:layout_marginStart="5dp"
             android:backgroundTint="@color/subGray"
             android:drawableTop="@drawable/main_image_wanted"
@@ -125,8 +120,8 @@
 
         <Button
             android:id="@+id/button12"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
+            android:layout_width="185dp"
+            android:layout_height="185dp"
             android:layout_marginEnd="5dp"
             android:backgroundTint="@color/subGray"
             android:drawableTop="@drawable/main_image_alarm"
@@ -142,8 +137,8 @@
 
         <Button
             android:id="@+id/button13"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
+            android:layout_width="185dp"
+            android:layout_height="185dp"
             android:layout_marginStart="5dp"
             android:backgroundTint="@color/subGray"
             android:drawableTop="@drawable/main_image_police"

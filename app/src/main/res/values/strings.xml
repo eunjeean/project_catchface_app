@@ -8,11 +8,18 @@
     <!--- 범죄유형 -->
     <string-array name="wanted_Spinner">
         <item>선택</item>
-        <item>살인</item>
+        <item>뺑소니사건</item>
+        <item>강도</item>
         <item>절도</item>
+        <item>살인</item>
         <item>사기</item>
+        <item>폭력</item>
         <item>성범죄</item>
+        <item>기타</item>
     </string-array>
+
+    <!-- 몽타주생성 -->
+    <string name="monMake">인물에 대한 상세내용을 작성해주세요.</string>
 
 
 </resources>

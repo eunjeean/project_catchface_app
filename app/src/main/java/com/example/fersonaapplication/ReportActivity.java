@@ -82,8 +82,8 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
         switch (view.getId()){
             case R.id.logo_img:
                 Log.d("ReportPage","click_reportLogo");
-                Intent intent = new Intent(ReportActivity.this, MainActivity.class);
-                startActivity(intent);
+                Intent logoIntent = new Intent(ReportActivity.this, MainActivity.class);
+                startActivity(logoIntent);
                 finish();
                 break;
 
@@ -104,7 +104,8 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
 
             case R.id.monMake_btn:
                 Log.d("ReportPage","click_reportMonMake");
-
+                Intent monMakeIntent = new Intent(ReportActivity.this, MonFaceActivity.class);
+                startActivity(monMakeIntent);
                 break;
 
             case R.id.wantedview_btn:

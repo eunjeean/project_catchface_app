@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="0dp"
-    tools:context=".Join">
+    tools:context=".JoinActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -29,11 +29,11 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/monMake_et"
         android:layout_width="0dp"
         android:layout_height="38dp"
         android:layout_margin="10dp"
-        android:background="@drawable/border"
+        android:background="@drawable/subbtn_border"
         android:ems="10"
         android:hint=" ID"
         android:inputType="textPersonName"
@@ -49,7 +49,7 @@
         android:layout_width="0dp"
         android:layout_height="38dp"
         android:layout_margin="10dp"
-        android:background="@drawable/border"
+        android:background="@drawable/subbtn_border"
         android:ems="10"
         android:hint=" PW"
         android:inputType="textPassword"
@@ -57,7 +57,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/monMake_et"
         tools:ignore="TouchTargetSizeCheck" />
 
     <EditText
@@ -65,7 +65,7 @@
         android:layout_width="0dp"
         android:layout_height="38dp"
         android:layout_margin="10dp"
-        android:background="@drawable/border"
+        android:background="@drawable/subbtn_border"
         android:ems="10"
         android:hint=" PW CHECK"
         android:inputType="textPassword"
@@ -87,11 +87,11 @@
         android:text="중복확인"
         android:textSize="14sp"
         app:cornerRadius="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/monMake_et"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName"
+        app:layout_constraintStart_toEndOf="@+id/monMake_et"
+        app:layout_constraintTop_toTopOf="@+id/monMake_et"
         tools:ignore="TouchTargetSizeCheck" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -121,7 +121,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/make_btn"
         android:layout_width="0dp"
         android:layout_height="38dp"
         android:layout_margin="10dp"
@@ -155,7 +155,7 @@
         android:layout_width="0dp"
         android:layout_height="38dp"
         android:layout_margin="10dp"
-        android:background="@drawable/border"
+        android:background="@drawable/subbtn_border"
         android:ems="10"
         android:hint=" 핸드폰 번호"
         android:inputType="textPersonName"
@@ -173,7 +173,7 @@
         android:layout_margin="10dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/border"
+        android:background="@drawable/subbtn_border"
         android:ems="10"
         android:hint=" 인증번호작성"
         android:inputType="textPersonName"
@@ -189,7 +189,7 @@
         android:layout_width="0dp"
         android:layout_height="38dp"
         android:layout_margin="10dp"
-        android:background="@drawable/border"
+        android:background="@drawable/subbtn_border"
         android:ems="10"
         android:hint=" 이름"
         android:inputType="textPersonName"

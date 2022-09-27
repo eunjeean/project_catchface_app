@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/FersonaApplication/app/src/main/res/layout/activity_main.xml" value="0.14235055724417425" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/FersonaApplication/app/src/main/res/layout/activity_mon_face.xml" value="0.2890625" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/FersonaApplication/app/src/main/res/layout/activity_report.xml" value="0.14235055724417425" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/drawable/border.xml" value="0.105" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />

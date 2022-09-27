@@ -2,6 +2,8 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:drawable="@drawable/police"
-        android:width="120dp"
-        android:height="120dp" />
+        android:top="5dp"
+        android:bottom="0dp"
+        android:width="110dp"
+        android:height="110dp" />
 </layer-list>

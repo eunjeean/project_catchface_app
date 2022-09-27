@@ -2,6 +2,8 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:drawable="@drawable/wanted"
-        android:width="120dp"
-        android:height="120dp" />
+        android:top="5dp"
+        android:bottom="5dp"
+        android:width="90dp"
+        android:height="90dp" />
 </layer-list>

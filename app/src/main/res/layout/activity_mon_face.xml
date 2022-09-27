@@ -52,7 +52,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline3">
 
         <EditText
-            android:id="@+id/monMake_et"
+            android:id="@+id/join_id_et"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="8dp"
@@ -101,7 +101,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/make_btn"
+        app:layout_constraintBottom_toTopOf="@+id/wanted2"
         android:weightSum="5"
         android:layout_margin="8dp"
         android:background="@drawable/subbtn_border"
@@ -133,7 +133,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/make_btn"
+        android:id="@+id/wanted2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"

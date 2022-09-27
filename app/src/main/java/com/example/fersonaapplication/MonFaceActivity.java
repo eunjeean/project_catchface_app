@@ -42,9 +42,9 @@ public class MonFaceActivity extends AppCompatActivity implements View.OnClickLi
         }
 
         logo = findViewById(R.id.logo_img);
-        monMake_et = findViewById(R.id.monMake_et);
+        monMake_et = findViewById(R.id.join_id_et);
         voice_btn = findViewById(R.id.voice_btn);
-        make_btn = findViewById(R.id.make_btn);
+        make_btn = findViewById(R.id.wanted2);
 
         logo.setOnClickListener(this);
         monMake_et.setOnClickListener(this);
@@ -77,7 +77,7 @@ public class MonFaceActivity extends AppCompatActivity implements View.OnClickLi
                 finish();
                 break;
 
-            case R.id.monMake_et:
+            case R.id.join_id_et:
                 Log.d("MonFaceActivity","click_monMake");
 
                 break;
@@ -86,7 +86,7 @@ public class MonFaceActivity extends AppCompatActivity implements View.OnClickLi
                 Log.d("MonFaceActivity","click_voice");
                 break;
 
-            case R.id.make_btn:
+            case R.id.wanted2:
                 Log.d("MonFaceActivity","click_makeMake");
                 break;
         }

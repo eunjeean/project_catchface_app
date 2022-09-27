@@ -17,10 +17,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        report_btn = findViewById(R.id.report_btn);
-        wanted_btn = findViewById(R.id.wanted_btn);
-        notice_btn = findViewById(R.id.notice_btn);
-        police_btn = findViewById(R.id.police_btn);
+        report_btn = findViewById(R.id.wanted10);
+        wanted_btn = findViewById(R.id.wanted11);
+        notice_btn = findViewById(R.id.wanted12);
+        police_btn = findViewById(R.id.wanted13);
 
         report_btn.setOnClickListener(this);
         wanted_btn.setOnClickListener(this);
@@ -31,24 +31,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.report_btn:
+            case R.id.wanted10:
                 Log.d("Main","click_report_btn");
                 Intent reportIntent = new Intent(MainActivity.this, ReportActivity.class);
                 startActivity(reportIntent);
                 break;
 
-            case R.id.wanted_btn:
+            case R.id.wanted11:
                 Log.d("Main","click_wanted_btn");
                 Intent wantedIntent = new Intent(MainActivity.this, WantedActivity.class);
                 startActivity(wantedIntent);
                 break;
 
-            case R.id.notice_btn:
+            case R.id.wanted12:
                 Log.d("Main","click_notice_btn");
 
                 break;
 
-            case R.id.police_btn:
+            case R.id.wanted13:
                 Log.d("Main","click_police_btn");
 
                 break;

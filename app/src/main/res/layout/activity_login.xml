@@ -15,7 +15,7 @@
         app:layout_constraintGuide_percent="0.4" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/login_id_et"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/login_pw_et"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -44,10 +44,10 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintTop_toBottomOf="@+id/login_id_et" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/auto_ck"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -58,13 +58,13 @@
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintBottom_toTopOf="@+id/wanted4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline6" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/wanted3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -96,7 +96,7 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/wanted4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"

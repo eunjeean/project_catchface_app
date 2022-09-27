@@ -18,7 +18,7 @@ public class JoinActivity extends AppCompatActivity {
         String[] dongs = {"선택(동)   ▼","동명동","계림동"};
 
         // 2. 시 객체 생성
-        Spinner si = findViewById(R.id.si);
+        Spinner si = findViewById(R.id.si_spin);
 
         // 3. 배열 어뎁터 생성
         ArrayAdapter<String> arrayAdapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, sis);
@@ -30,7 +30,7 @@ public class JoinActivity extends AppCompatActivity {
         si.setAdapter((arrayAdapter1));
 
         // 2. 시 객체 생성
-        Spinner dong = findViewById(R.id.dong);
+        Spinner dong = findViewById(R.id.dong_spin);
 
         // 3. 배열 어뎁터 생성
         ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, dongs);

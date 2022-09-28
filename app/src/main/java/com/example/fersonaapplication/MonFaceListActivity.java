@@ -1,6 +1,8 @@
 package com.example.fersonaapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,10 +18,10 @@ import java.util.ArrayList;
 
 public class MonFaceListActivity extends AppCompatActivity implements View.OnClickListener {
 
-
+    // RecyclerView
+    ArrayList<MonFaceListVO> data;
     private RecyclerView wantedList_rv;
     private MonRAdapter adapter;
-    private ArrayList<MonFaceListVO> data;
 
     ImageView logoImg, watnedImg;
     TextView voiceTv;
@@ -30,10 +32,20 @@ public class MonFaceListActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mon_face_list);
 
+        // 메뉴
+        final DrawerLayout drawerLayout = findViewById(R.id.drawlayout);
+
+        findViewById(R.id.menu).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawerLayout.openDrawer(GravityCompat.END);
+            }
+        });
+
         data = new ArrayList<>();
         wantedList_rv = findViewById(R.id.wantedList_rv);
 
-        logoImg = findViewById(R.id.logo_img);
+        logoImg = findViewById(R.id.logoImg);
         watnedImg = findViewById(R.id.wantedImg);
 
         voiceTv = findViewById(R.id.voice_tv);
@@ -42,6 +54,7 @@ public class MonFaceListActivity extends AppCompatActivity implements View.OnCli
 
         logoImg.setOnClickListener(this);
         reportMoveBtn.setOnClickListener(this);
+
 
         // RecyclerView
         for(int i=0;i<4;i++){
@@ -65,18 +78,10 @@ public class MonFaceListActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.logo_img:
-                Log.d("MonFaceListActivity","click_logo");
+            case R.id.logoImg:
+                Log.d("MonFaceActivity","로고클릭");
                 Intent logoIntent = new Intent(MonFaceListActivity.this, MainActivity.class);
                 startActivity(logoIntent);
-                finish();
-                break;
-
-            case R.id.reportMove_btn:
-                Log.d("MonFaceListActivity","신고하기 페이지로 이동");
-                Intent reportIntent = new Intent(MonFaceListActivity.this, ReportActivity.class);
-                // 데이터 받아서 신고하기 페이지로 이동되어야함
-                startActivity(reportIntent);
                 finish();
                 break;
         }

@@ -1,9 +1,14 @@
 package com.example.fersonaapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -16,10 +21,13 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
+
+import java.io.IOException;
 
 public class ReportActivity extends AppCompatActivity implements View.OnClickListener {
 
-    ImageView logo, menu;
+    ImageView logo, wantedImg;
     RadioButton rd1, rd2, rd3, rd4, rd5,rd6, rd7, rd8;
     Spinner wanted_spin;
     EditText report_et;
@@ -30,6 +38,7 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
     Button repAdr_btn, monMake_btn, wantedView_btn, infoView_btn, submit_btn;
     CheckBox wanted_ck, info_ck;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,9 +47,20 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
 //                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_report);
 
-        //        초기화
-        logo = findViewById(R.id.logo_img);
-        menu = findViewById(R.id.menu);
+        // 메뉴
+        final DrawerLayout drawerLayout = findViewById(R.id.drawlayout);
+
+        findViewById(R.id.menu).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawerLayout.openDrawer(GravityCompat.END);
+            }
+        });
+
+//        초기화
+        logo = findViewById(R.id.logoImg);
+
+        wantedImg = findViewById(R.id.wantedImg);
 
         rd1 = findViewById(R.id.rd1);
         rd2 = findViewById(R.id.rd2);
@@ -68,33 +88,32 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
         info_ck = findViewById(R.id.info_ck);
 
         logo.setOnClickListener(this);
-        menu.setOnClickListener(this);
         galleryBtn.setOnClickListener(this);
         repAdr_btn.setOnClickListener(this);
         monMake_btn.setOnClickListener(this);
         wantedView_btn.setOnClickListener(this);
         infoView_btn.setOnClickListener(this);
         submit_btn.setOnClickListener(this);
+
+
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.logo_img:
+            case R.id.logoImg:
                 Log.d("ReportPage","click_reportLogo");
                 Intent logoIntent = new Intent(ReportActivity.this, MainActivity.class);
                 startActivity(logoIntent);
                 finish();
                 break;
 
-            case R.id.menu:
-                Log.d("ReportPage","click_reportMenu");
-
-                break;
-
             case R.id.gallery_btn:
                 Log.d("ReportPage","click_reportGalary");
-
+                Intent gallery = new Intent(Intent.ACTION_PICK);
+                gallery.setType("image/*");
+                gallery.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(gallery, "이미지를 선택하세요"), 0);
                 break;
 
             case R.id.repAdr_btn:
@@ -124,4 +143,26 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
                 break;
         }
     }
+
+    // 갤러리 사진 선택
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+        //request코드가 0이고 ok를 선택했고 data에 뭔가가 들어있다면
+        if (requestCode == 0 && resultCode == RESULT_OK) {
+            Uri uri = data.getData();
+            Log.d("ReportPage", "uri:" + String.valueOf(uri));
+            try {
+                //Uri파일을 Bitmap으로 만들어서 ImageView에 집어 넣는다.
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                wantedImg.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                Toast.makeText(this, "로딩에 오류가 있습니다😥", Toast.LENGTH_LONG).show();
+                e.printStackTrace();
+            }
+        } else {
+            Toast.makeText(this, "취소 되었습니다.😣", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
 }

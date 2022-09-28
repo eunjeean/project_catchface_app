@@ -2,6 +2,8 @@ package com.example.fersonaapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.Manifest;
 import android.content.Intent;
@@ -35,16 +37,26 @@ public class MonFaceActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mon_face);
 
+        // 메뉴
+        final DrawerLayout drawerLayout = findViewById(R.id.drawlayout);
+
+        findViewById(R.id.menu).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawerLayout.openDrawer(GravityCompat.END);
+            }
+        });
+
         // 안드로이드 6.0버전 이상인지 체크해서 퍼미션 체크
         if (Build.VERSION.SDK_INT >= 23) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.INTERNET,
                     Manifest.permission.RECORD_AUDIO}, PERMISSION);
         }
 
-        logo = findViewById(R.id.logo_img);
-        monMake_et = findViewById(R.id.join_id_et);
+        logo = findViewById(R.id.logoImg);
+        monMake_et = findViewById(R.id.monMake_et);
         voice_btn = findViewById(R.id.voice_btn);
-        make_btn = findViewById(R.id.wanted2);
+        make_btn = findViewById(R.id.make_btn);
 
         logo.setOnClickListener(this);
         monMake_et.setOnClickListener(this);
@@ -64,36 +76,34 @@ public class MonFaceActivity extends AppCompatActivity implements View.OnClickLi
                 mRecognizer.startListening(intent); // 듣기 시작
             }
         });
-
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.logo_img:
-                Log.d("MonFaceActivity","click_logo");
+            case R.id.logoImg:
+                Log.d("MonFaceActivity","로고클릭");
                 Intent logoIntent = new Intent(MonFaceActivity.this, MainActivity.class);
                 startActivity(logoIntent);
                 finish();
                 break;
 
-            case R.id.join_id_et:
-                Log.d("MonFaceActivity","click_monMake");
+            case R.id.monMake_et:
+                Log.d("MonFaceActivity","몽타주만들기");
 
                 break;
 
             case R.id.voice_btn:
-                Log.d("MonFaceActivity","click_voice");
+                Log.d("MonFaceActivity","음성녹음");
                 break;
 
-            case R.id.wanted2:
-                Log.d("MonFaceActivity","click_makeMake");
-                Intent monList = new Intent(MonFaceActivity.this,MonFaceListActivity.class);
-                startActivity(monList);
+            case R.id.make_btn:
+                Log.d("MonFaceActivity","수배자 조회하기");
+                Intent makeIntent = new Intent(MonFaceActivity.this,MonFaceListActivity.class);
+                startActivity(makeIntent);
                 break;
         }
     }
-
 
     private RecognitionListener listener = new RecognitionListener() {
         @Override
@@ -186,5 +196,4 @@ public class MonFaceActivity extends AppCompatActivity implements View.OnClickLi
             // 향후 이벤트를 추가하기 위해 예약
         }
     };
-
 }

@@ -45,12 +45,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.wanted12:
                 Log.d("Main","click_notice_btn");
-
+                Intent noticeIntent = new Intent(MainActivity.this, NoticeActivity.class);
+                startActivity(noticeIntent);
                 break;
 
             case R.id.wanted13:
                 Log.d("Main","click_police_btn");
-
+                Intent policeIntent = new Intent(MainActivity.this, PoliceFindActivity.class);
+                startActivity(policeIntent);
                 break;
         }
     }

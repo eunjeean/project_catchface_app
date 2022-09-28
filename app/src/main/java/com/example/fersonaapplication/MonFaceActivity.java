@@ -88,6 +88,8 @@ public class MonFaceActivity extends AppCompatActivity implements View.OnClickLi
 
             case R.id.wanted2:
                 Log.d("MonFaceActivity","click_makeMake");
+                Intent monList = new Intent(MonFaceActivity.this,MonFaceListActivity.class);
+                startActivity(monList);
                 break;
         }
     }

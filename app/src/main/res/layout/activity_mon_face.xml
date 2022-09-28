@@ -140,7 +140,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="8dp"
-        android:text="생성하기"
+        android:text="수배자 조회하기"
         android:backgroundTint="@color/subGray"
         android:textColor="@color/mainNavy"
         android:textStyle="bold"

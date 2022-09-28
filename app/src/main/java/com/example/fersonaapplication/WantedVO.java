@@ -33,4 +33,5 @@ public class WantedVO {
     public void setResId(int resId) {
         this.resId = resId;
     }
+
 }

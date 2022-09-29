@@ -66,6 +66,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Log.d("MainActivity","파출소찾기");
 //                Intent policeIntent = new Intent(MainActivity.this, PoliceFindActivity.class);
 //                startActivity(policeIntent);
+
+                Intent policeIntent = new Intent(MainActivity.this, MypageActivity.class);
+                startActivity(policeIntent);
                 break;
         }
     }

@@ -30,7 +30,7 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:src="@drawable/logo"
+                android:src="@drawable/logoicon"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -54,7 +54,7 @@
                 android:layout_height="30dp"
                 android:layout_marginEnd="16dp"
                 android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_menu"
+                android:src="@drawable/icon_menu"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -97,7 +97,7 @@
                 android:layout_weight="1"
                 android:background="@color/white"
                 android:padding="4dp"
-                app:srcCompat="@drawable/voice" />
+                app:srcCompat="@drawable/icon_voice" />
 
         </LinearLayout>
 
@@ -120,7 +120,7 @@
             app:layout_constraintBottom_toTopOf="@+id/make_btn"
             android:weightSum="5"
             android:layout_margin="8dp"
-            android:background="@drawable/subbtn_border"
+            android:background="@drawable/btn_sub_border"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout"
             app:layout_constraintStart_toStartOf="@+id/linearLayout"
             app:layout_constraintTop_toBottomOf="@+id/textView">
@@ -132,7 +132,7 @@
                 android:layout_margin="8dp"
                 android:layout_weight="4.8"
                 android:backgroundTint="@color/white"
-                app:srcCompat="@drawable/drawing" />
+                app:srcCompat="@drawable/icon_drawing" />
 
             <TextView
                 android:id="@+id/textView7"
@@ -162,6 +162,7 @@
             android:textStyle="bold"
             android:textSize="30sp"
             app:cornerRadius="30dp"
+            android:outlineProvider="none"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
             app:layout_constraintStart_toStartOf="@+id/linearLayout2" />

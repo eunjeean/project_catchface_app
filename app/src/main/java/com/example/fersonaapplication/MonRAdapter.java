@@ -5,12 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.fersonaapplication.MonFaceListVO;
 
 import java.util.ArrayList;
 
@@ -47,7 +44,7 @@ public class MonRAdapter extends RecyclerView.Adapter<MonRAdapter.ViewHolder>{
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         MonFaceListVO item = mList.get(position);
 
-        holder.wantedItemImg.setImageResource(R.drawable.img1);   // 기본 파일로 이미지 띄움
+        holder.wantedItemImg.setImageResource(R.drawable.wantedimg_list_test);   // 기본 파일로 이미지 띄움
     }
 
     @Override

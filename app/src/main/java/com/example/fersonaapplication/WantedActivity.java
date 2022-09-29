@@ -33,6 +33,7 @@ public class WantedActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wanted);
 
+        // 메뉴
         final DrawerLayout drawerLayout = findViewById(R.id.drawlayout);
 
         findViewById(R.id.menu).setOnClickListener(new View.OnClickListener() {
@@ -55,6 +56,21 @@ public class WantedActivity extends AppCompatActivity implements View.OnClickLis
         adapter.addItem(new WantedVO("3", "신고하기", R.drawable.wantedimg3));
         adapter.addItem(new WantedVO("4", "신고하기", R.drawable.wantedimg4));
         adapter.addItem(new WantedVO("5", "신고하기", R.drawable.wantedimg5));
+        adapter.addItem(new WantedVO("6", "신고하기", R.drawable.wantedimg1));
+        adapter.addItem(new WantedVO("7", "신고하기", R.drawable.wantedimg2));
+        adapter.addItem(new WantedVO("8", "신고하기", R.drawable.wantedimg3));
+        adapter.addItem(new WantedVO("9", "신고하기", R.drawable.wantedimg4));
+        adapter.addItem(new WantedVO("10", "신고하기", R.drawable.wantedimg5));
+        adapter.addItem(new WantedVO("11", "신고하기", R.drawable.wantedimg1));
+        adapter.addItem(new WantedVO("12", "신고하기", R.drawable.wantedimg2));
+        adapter.addItem(new WantedVO("13", "신고하기", R.drawable.wantedimg3));
+        adapter.addItem(new WantedVO("14", "신고하기", R.drawable.wantedimg4));
+        adapter.addItem(new WantedVO("15", "신고하기", R.drawable.wantedimg5));
+        adapter.addItem(new WantedVO("16", "신고하기", R.drawable.wantedimg1));
+        adapter.addItem(new WantedVO("17", "신고하기", R.drawable.wantedimg2));
+        adapter.addItem(new WantedVO("18", "신고하기", R.drawable.wantedimg3));
+        adapter.addItem(new WantedVO("19", "신고하기", R.drawable.wantedimg4));
+        adapter.addItem(new WantedVO("20", "신고하기", R.drawable.wantedimg5));
 
         //리스트뷰에 Adapter 설정
         gridview.setAdapter(adapter);
@@ -103,15 +119,16 @@ public class WantedActivity extends AppCompatActivity implements View.OnClickLis
 
             if(convertView == null) {
                 LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                convertView = inflater.inflate(R.layout.wanted_list, viewGroup, false);
+                convertView = inflater.inflate(R.layout.wanted_ltem, viewGroup, false);
 
 
-                TextView tv_name = (TextView) convertView.findViewById(R.id.tv_name);
-                ImageView iv_icon = (ImageView) convertView.findViewById(R.id.iv_icon);
+                ImageView wantedImg = convertView.findViewById(R.id.wantedItem_img);
+                TextView wantedTv = convertView.findViewById(R.id.wantedItem_tv);
 
 
-                tv_name.setText(bearItem.getName());
-                iv_icon.setImageResource(bearItem.getResId());
+                wantedImg.setImageResource(bearItem.getResId());
+                wantedTv.setText(bearItem.getName());
+
                 Log.d(TAG, "getView() - [ "+position+" ] "+bearItem.getName());
 
             } else {

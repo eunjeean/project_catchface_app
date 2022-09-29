@@ -60,22 +60,14 @@ public class MonFaceActivity extends AppCompatActivity implements View.OnClickLi
 
         logo.setOnClickListener(this);
         monMake_et.setOnClickListener(this);
-//        voice_btn.setOnClickListener(this);
         make_btn.setOnClickListener(this);
+        voice_btn.setOnClickListener(this);
 
         // RecognizerIntent 생성
         intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_CALLING_PACKAGE, getPackageName()); // 여분의 키
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, "ko-KR"); // 언어 설정
 
-        voice_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mRecognizer = SpeechRecognizer.createSpeechRecognizer(MonFaceActivity.this); // 새 SpeechRecognizer 를 만드는 팩토리 메서드
-                mRecognizer.setRecognitionListener(listener); // 리스너 설정
-                mRecognizer.startListening(intent); // 듣기 시작
-            }
-        });
     }
 
     @Override
@@ -95,6 +87,9 @@ public class MonFaceActivity extends AppCompatActivity implements View.OnClickLi
 
             case R.id.voice_btn:
                 Log.d("MonFaceActivity","음성녹음");
+                mRecognizer = SpeechRecognizer.createSpeechRecognizer(MonFaceActivity.this); // 새 SpeechRecognizer 를 만드는 팩토리 메서드
+                mRecognizer.setRecognitionListener(listener); // 리스너 설정
+                mRecognizer.startListening(intent); // 듣기 시작
                 break;
 
             case R.id.make_btn:

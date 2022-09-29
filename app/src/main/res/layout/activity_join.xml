@@ -42,7 +42,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logoicon" />
 
     <ImageView
         android:id="@+id/menu"
@@ -57,7 +57,7 @@
         app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.457"
-        app:srcCompat="@drawable/menu" />
+        app:srcCompat="@drawable/icon_menu" />
 
 
     <ScrollView
@@ -89,7 +89,7 @@
                     android:layout_marginTop="2.5dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginBottom="10dp"
-                    android:background="@drawable/subbtn_border"
+                    android:background="@drawable/btn_sub_border"
                     android:ems="10"
                     android:hint=" ID"
                     android:inputType="textPersonName"
@@ -127,7 +127,7 @@
                 android:layout_width="380dp"
                 android:layout_height="38dp"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/subbtn_border"
+                android:background="@drawable/btn_sub_border"
                 android:ems="10"
                 android:hint=" PW"
                 android:inputType="textPassword"
@@ -143,7 +143,7 @@
                 android:layout_width="380dp"
                 android:layout_height="38dp"
                 android:layout_marginBottom="5dp"
-                android:background="@drawable/subbtn_border"
+                android:background="@drawable/btn_sub_border"
                 android:ems="10"
                 android:hint=" PW CHECK"
                 android:inputType="textPassword"
@@ -172,7 +172,7 @@
                 android:layout_width="380dp"
                 android:layout_height="38dp"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/subbtn_border"
+                android:background="@drawable/btn_sub_border"
                 android:ems="10"
                 android:hint=" 이름"
                 android:inputType="textPersonName"
@@ -272,7 +272,7 @@
                     android:layout_marginTop="2.5dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginBottom="5dp"
-                    android:background="@drawable/subbtn_border"
+                    android:background="@drawable/btn_sub_border"
                     android:ems="10"
                     android:hint=" 핸드폰 번호"
                     android:inputType="textPersonName"
@@ -316,7 +316,7 @@
                     android:layout_height="38dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginBottom="5dp"
-                    android:background="@drawable/subbtn_border"
+                    android:background="@drawable/btn_sub_border"
                     android:ems="10"
                     android:hint=" 인증번호 작성"
                     android:inputType="textPersonName"

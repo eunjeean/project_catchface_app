@@ -45,11 +45,18 @@
 
     <!-- 우리동네알림 동네 선택 -->
     <string-array name="alarm_city_Spinner">
-        <item>동네 선택</item>
-        <item>광주광역시 양림동</item>
-        <item>광주광역시 계림동</item>
-        <item>광주광역시 동명동</item>
-        <item>광주광역시 동명동</item>
+        <item>선택</item>
+        <item>광주광역시</item>
+    </string-array>
+
+    <string-array name="alarm_dong_Spinner">
+        <item>선택</item>
+        <item>양림동</item>
+        <item>계림동</item>
+        <item>동명동</item>
+        <item>양산동</item>
+        <item>주월동</item>
+        <item>봉선동</item>
     </string-array>
 
 

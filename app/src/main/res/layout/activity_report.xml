@@ -250,41 +250,41 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:id="@+id/ll_2"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:weightSum="2">
+<!--                    <LinearLayout-->
+<!--                        android:id="@+id/ll_2"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:orientation="horizontal"-->
+<!--                        android:weightSum="2">-->
 
-                        <RadioButton
-                            android:id="@+id/rd5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.5"
-                            android:enabled="false"
-                            android:text="몽타주이미지 불러오기"
-                            android:textColor="@color/mainNavy"
-                            android:textSize="16sp" />
+<!--                        <RadioButton-->
+<!--                            android:id="@+id/rd5"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_weight="0.5"-->
+<!--                            android:enabled="false"-->
+<!--                            android:text="몽타주이미지 불러오기"-->
+<!--                            android:textColor="@color/mainNavy"-->
+<!--                            android:textSize="16sp" />-->
 
-                        <ImageButton
-                            android:id="@+id/gallery_btn"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="1.5"
-                            android:backgroundTint="@color/white"
-                            android:padding="0dp"
-                            android:src="@drawable/icon_gallery" />
+<!--                        <ImageButton-->
+<!--                            android:id="@+id/gallery_btn"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:layout_gravity="center"-->
+<!--                            android:layout_weight="1.5"-->
+<!--                            android:backgroundTint="@color/white"-->
+<!--                            android:padding="0dp"-->
+<!--                            android:src="@drawable/icon_gallery" />-->
 
-                    </LinearLayout>
+<!--                    </LinearLayout>-->
 
-                    <ImageView
-                        android:id="@+id/wantedImg"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/icon_drawing" />
+<!--                    <ImageView-->
+<!--                        android:id="@+id/wantedImg"-->
+<!--                        android:layout_width="100dp"-->
+<!--                        android:layout_height="100dp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:src="@drawable/icon_drawing" />-->
 
                     <RadioButton
                         android:id="@+id/rd8"

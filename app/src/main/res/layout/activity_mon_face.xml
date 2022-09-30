@@ -101,13 +101,29 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView"
+<!--        <TextView-->
+<!--            android:id="@+id/textView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="4dp"-->
+<!--            android:textSize="12dp"-->
+<!--            android:gravity="start"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/linearLayout"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/linearLayout"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />-->
+
+        <Button
+            android:id="@+id/makeMon_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:textSize="12dp"
-            android:gravity="start"
+            android:backgroundTint="@color/subGray"
+            android:text="몽타주 생성하기"
+            android:textColor="@color/mainNavy"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:cornerRadius="30dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout"
             app:layout_constraintStart_toStartOf="@+id/linearLayout"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
@@ -118,21 +134,64 @@
             android:layout_height="0dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@+id/make_btn"
-            android:weightSum="5"
+            android:weightSum="3"
             android:layout_margin="8dp"
             android:background="@drawable/btn_sub_border"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout"
             app:layout_constraintStart_toStartOf="@+id/linearLayout"
-            app:layout_constraintTop_toBottomOf="@+id/textView">
+            app:layout_constraintTop_toBottomOf="@+id/makeMon_btn">
 
-            <ImageButton
-                android:id="@+id/monMake_btn"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:weightSum="2"
+                android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/monMake1_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_margin="8dp"
-                android:layout_weight="4.8"
+                android:layout_weight="1"
                 android:backgroundTint="@color/white"
                 app:srcCompat="@drawable/icon_drawing" />
+
+                <ImageButton
+                    android:id="@+id/monMake2_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    app:srcCompat="@drawable/icon_drawing" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:weightSum="2"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/monMake3_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    app:srcCompat="@drawable/icon_drawing" />
+
+                <ImageButton
+                    android:id="@+id/monMake4_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    app:srcCompat="@drawable/icon_drawing" />
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/textView7"
@@ -143,12 +202,13 @@
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:textColor="@color/mainNavy"
+                android:layout_marginBottom="8dp"
                 android:layout_weight="0.2"/>
 
 
         </LinearLayout>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/make_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -157,8 +217,8 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="8dp"
             android:text="수배자 조회하기"
-            android:backgroundTint="@color/subGray"
-            android:textColor="@color/mainNavy"
+            android:background="@drawable/btn_main_border"
+            android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="30sp"
             app:cornerRadius="30dp"

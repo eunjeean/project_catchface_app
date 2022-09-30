@@ -62,14 +62,18 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout3"
+        <TextView
+            android:id="@+id/exText"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:gravity="center"
+            android:text="목격한 용의자와 비슷한 수배자를 선택해주세요"
+            android:textColor="@color/mainNavy"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/wantedList_rv"
+            app:layout_constraintEnd_toEndOf="@+id/wantedList_rv"
+            app:layout_constraintStart_toStartOf="@+id/wantedList_rv" />
 
         <TextView
             android:id="@+id/voice_tv"
@@ -101,8 +105,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/reportMove_btn"
             app:layout_constraintEnd_toEndOf="@+id/wantedImg"
             app:layout_constraintStart_toStartOf="@+id/wantedImg"

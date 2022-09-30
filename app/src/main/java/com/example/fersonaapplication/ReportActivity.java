@@ -74,7 +74,7 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
         rd2 = findViewById(R.id.rd2);
         rd3 = findViewById(R.id.rd3);
         rd4 = findViewById(R.id.rd4);
-        rd5 = findViewById(R.id.rd5);
+//        rd5 = findViewById(R.id.rd5);
         rd6 = findViewById(R.id.rd6);
         rd7 = findViewById(R.id.rd7);
         rd8 = findViewById(R.id.rd8);
@@ -85,7 +85,7 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
         repTime = findViewById(R.id.rep_time);
         name_tv = findViewById(R.id.name_tv2);
 
-        galleryBtn = findViewById(R.id.gallery_btn);
+//        galleryBtn = findViewById(R.id.gallery_btn);
         repAdr_btn = findViewById(R.id.repAdr_btn);
         monMake_btn = findViewById(R.id.monMake_btn);
         wantedView_btn = findViewById(R.id.wantedview_btn);
@@ -96,7 +96,7 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
         info_ck = findViewById(R.id.info_ck);
 
         logo.setOnClickListener(this);
-        galleryBtn.setOnClickListener(this);
+//        galleryBtn.setOnClickListener(this);
         repAdr_btn.setOnClickListener(this);
         monMake_btn.setOnClickListener(this);
         wantedView_btn.setOnClickListener(this);
@@ -116,13 +116,13 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
                 finish();
                 break;
 
-            case R.id.gallery_btn:
-                Log.d("ReportPage","click_reportGalary");
-                Intent gallery = new Intent(Intent.ACTION_PICK);
-                gallery.setType("image/*");
-                gallery.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(gallery, "이미지를 선택하세요"), 0);
-                break;
+//            case R.id.gallery_btn:
+//                Log.d("ReportPage","click_reportGalary");
+//                Intent gallery = new Intent(Intent.ACTION_PICK);
+//                gallery.setType("image/*");
+//                gallery.setAction(Intent.ACTION_GET_CONTENT);
+//                startActivityForResult(Intent.createChooser(gallery, "이미지를 선택하세요"), 0);
+//                break;
 
             case R.id.repAdr_btn:
                 Log.d("ReportPage","click_reportAddres");

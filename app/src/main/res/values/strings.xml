@@ -19,7 +19,7 @@
     </string-array>
 
     <!--  회원가입 거주지(시)  -->
-    <string-array name="si_Spinner">
+    <string-array name="city_Spinner">
         <item>선택(시)</item>
         <item>서울</item>
         <item>광주</item>
@@ -43,21 +43,21 @@
     <!-- 몽타주생성 -->
     <string name="monMake">인물에 대한 상세내용을 작성해주세요.</string>
 
-    <!-- 우리동네알림 동네 선택 -->
-    <string-array name="alarm_city_Spinner">
-        <item>선택</item>
-        <item>광주광역시</item>
-    </string-array>
+<!--    &lt;!&ndash; 우리동네알림 동네 선택 &ndash;&gt;-->
+<!--    <string-array name="alarm_city_Spinner">-->
+<!--        <item>선택</item>-->
+<!--        <item>광주광역시</item>-->
+<!--    </string-array>-->
 
-    <string-array name="alarm_dong_Spinner">
-        <item>선택</item>
-        <item>양림동</item>
-        <item>계림동</item>
-        <item>동명동</item>
-        <item>양산동</item>
-        <item>주월동</item>
-        <item>봉선동</item>
-    </string-array>
+<!--    <string-array name="alarm_dong_Spinner">-->
+<!--        <item>선택</item>-->
+<!--        <item>양림동</item>-->
+<!--        <item>계림동</item>-->
+<!--        <item>동명동</item>-->
+<!--        <item>양산동</item>-->
+<!--        <item>주월동</item>-->
+<!--        <item>봉선동</item>-->
+<!--    </string-array>-->
 
 
 </resources>

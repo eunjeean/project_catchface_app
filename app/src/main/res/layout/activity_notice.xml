@@ -78,7 +78,7 @@
                 android:id="@+id/noticeSp1_Cl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:entries="@array/alarm_city_Spinner"
+                android:entries="@array/city_Spinner"
                 android:layout_weight="1"
                 android:layout_margin="4dp"
                 android:textAlignment="center" />
@@ -87,7 +87,7 @@
                 android:id="@+id/noticeSp2_Cl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:entries="@array/alarm_dong_Spinner"
+                android:entries="@array/dong_Spinner"
                 android:layout_weight="1"
                 android:layout_margin="4dp"
                 android:textAlignment="center"/>

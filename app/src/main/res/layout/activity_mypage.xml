@@ -63,154 +63,210 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/mypageSt_Cl"
+        <LinearLayout
+            android:id="@+id/button_ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="8dp"
+            android:layout_margin="4dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/titleCl">
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline9"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/mypage_btn"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.5" />
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_sub_border"
+                android:text="마이페이지"
+                android:textStyle="bold" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/myReport_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_sub_border"
+                android:text="나의신고"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- 마이페이지 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/myPage_cl"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@+id/button_ll">
 
             <!-- 아이디 -->
             <RadioButton
-                android:id="@+id/rd1"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:id="@+id/id_rb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:enabled="false"
                 android:text="ID"
                 android:textColor="@color/mainNavy"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toStartOf="@+id/guideline9"
+                android:textSize="18sp"
+                android:background="@color/subGray"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginLeft="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/idTv"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:background="@color/subGray"
-                android:gravity="center"
-                android:text="TextView"
+                android:id="@+id/myId_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="F.ersona"
                 android:textColor="@color/mainNavy"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/guideline9"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginLeft="4dp"
+                android:gravity="right"
+                android:paddingEnd="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/id_rb"
+                app:layout_constraintStart_toStartOf="@+id/id_rb"
+                app:layout_constraintTop_toBottomOf="@+id/id_rb" />
 
-
-                <!-- 이름 -->
+            <!-- 이름 -->
             <RadioButton
-                android:id="@+id/rd2"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:id="@+id/name_rb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/subGray"
                 android:enabled="false"
                 android:text="이름"
                 android:textColor="@color/mainNavy"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toStartOf="@+id/guideline9"
+                android:textSize="18sp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginLeft="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rd1" />
+                app:layout_constraintTop_toBottomOf="@+id/myId_tv" />
 
             <TextView
                 android:id="@+id/name_tv"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:background="@color/subGray"
-                android:gravity="center"
-                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="페르소나"
                 android:textColor="@color/mainNavy"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/guideline9"
-                app:layout_constraintTop_toBottomOf="@+id/idTv" />
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:gravity="right"
+                android:paddingEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginLeft="4dp"
+                app:layout_constraintEnd_toEndOf="@+id/name_rb"
+                app:layout_constraintStart_toStartOf="@+id/name_rb"
+                app:layout_constraintTop_toBottomOf="@+id/name_rb" />
 
-                <!-- 핸드폰번호 -->
-
+            <!-- 핸드폰번호 -->
             <RadioButton
-                android:id="@+id/rd3"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:id="@+id/phone_rb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/subGray"
                 android:enabled="false"
                 android:text="핸드폰번호"
                 android:textColor="@color/mainNavy"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toStartOf="@+id/phone_tv"
+                android:textSize="18sp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginLeft="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rd2" />
+                app:layout_constraintTop_toBottomOf="@+id/name_tv" />
 
             <TextView
                 android:id="@+id/phone_tv"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:background="@color/subGray"
-                android:gravity="center"
-                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:paddingEnd="8dp"
+                android:text="010-1234-5678"
                 android:textColor="@color/mainNavy"
-                android:textSize="24sp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginLeft="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/guideline9"
-                app:layout_constraintTop_toBottomOf="@+id/name_tv" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/phone_rb" />
 
-                <!-- 주소 -->
+            <!-- 주소 -->
             <RadioButton
-                android:id="@+id/rd4"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
+                android:id="@+id/address_rb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/subGray"
                 android:enabled="false"
                 android:text="주소"
                 android:textColor="@color/mainNavy"
-                android:textSize="24sp"
-                app:layout_constraintEnd_toStartOf="@+id/guideline9"
+                android:textSize="18sp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginLeft="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rd3" />
+                app:layout_constraintTop_toBottomOf="@+id/phone_tv" />
 
             <TextView
                 android:id="@+id/address_tv"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@color/subGray"
-                android:gravity="center"
-                android:text="TextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:paddingEnd="8dp"
+                android:text="광주광역시 남구 송암로 60 광주CGI센터 2층"
                 android:textColor="@color/mainNavy"
-                android:textSize="24sp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginLeft="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/guideline9"
-                app:layout_constraintTop_toBottomOf="@+id/phone_tv" />
-
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/address_rb" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/mypageMr_btn"
+        <!-- 나의신고페이지 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/myReport_cl"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/btn_sub_border"
-            android:drawableRight="@drawable/icon_next"
-            android:gravity="center|left"
-            android:paddingLeft="8dp"
-            android:text="나의신고"
-            android:textColor="@color/mainNavy"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toStartOf="@+id/mypageSt_Cl"
-            app:layout_constraintStart_toStartOf="@+id/mypageSt_Cl"
-            app:layout_constraintTop_toBottomOf="@+id/mypageSt_Cl" />
+            android:layout_height="0dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_ll">
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/wantedList_rv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="8dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,5 +1,6 @@
 package com.example.fersonaapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -10,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -23,9 +25,11 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.android.material.navigation.NavigationView;
+
 import java.io.IOException;
 
-public class ReportActivity extends AppCompatActivity implements View.OnClickListener {
+public class ReportActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
 
     ImageView logo, wantedImg;
     RadioButton rd1, rd2, rd3, rd4, rd5,rd6, rd7, rd8;
@@ -56,6 +60,10 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
                 drawerLayout.openDrawer(GravityCompat.END);
             }
         });
+
+        NavigationView menu_nv = findViewById(R.id.menu_nv);
+        menu_nv.setNavigationItemSelectedListener(this);
+
 
 //        초기화
         logo = findViewById(R.id.logoImg);
@@ -165,4 +173,43 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
     }
 
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu1:
+                Log.d("MainActivity", "우리동네알림");
+                Intent alterIntent = new Intent(this, NoticeActivity.class);
+                startActivity(alterIntent);
+                finish();
+                break;
+            case R.id.menu2:
+                Log.d("MainActivity", "파출소찾기");
+                Intent policeIntent = new Intent(this, PoliceFindActivity.class);
+                startActivity(policeIntent);
+                finish();
+                break;
+            case R.id.menu3:
+                Log.d("MainActivity", "공개수배");
+                Intent wantedIntent = new Intent(this, WantedActivity.class);
+                startActivity(wantedIntent);
+                finish();
+                break;
+            case R.id.menu4:
+                Log.d("MainActivity", "신고하기");
+                Intent reportIntent = new Intent(this, ReportActivity.class);
+                startActivity(reportIntent);
+                finish();
+                break;
+            case R.id.menu5:
+                Log.d("MainActivity", "마이페이지");
+                Intent myIntent = new Intent(this, MypageActivity.class);
+                startActivity(myIntent);
+                finish();
+                break;
+            case R.id.menu6:
+                Log.d("MainActivity", "로그아웃");
+                break;
+        }
+        return true;
+    }
 }

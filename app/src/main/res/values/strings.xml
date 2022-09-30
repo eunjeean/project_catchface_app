@@ -43,21 +43,4 @@
     <!-- 몽타주생성 -->
     <string name="monMake">인물에 대한 상세내용을 작성해주세요.</string>
 
-<!--    &lt;!&ndash; 우리동네알림 동네 선택 &ndash;&gt;-->
-<!--    <string-array name="alarm_city_Spinner">-->
-<!--        <item>선택</item>-->
-<!--        <item>광주광역시</item>-->
-<!--    </string-array>-->
-
-<!--    <string-array name="alarm_dong_Spinner">-->
-<!--        <item>선택</item>-->
-<!--        <item>양림동</item>-->
-<!--        <item>계림동</item>-->
-<!--        <item>동명동</item>-->
-<!--        <item>양산동</item>-->
-<!--        <item>주월동</item>-->
-<!--        <item>봉선동</item>-->
-<!--    </string-array>-->
-
-
 </resources>

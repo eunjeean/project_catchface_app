@@ -212,10 +212,9 @@
                             android:layout_weight="1"
                             android:backgroundTint="@color/subGray"
                             android:text="위치찾기"
+                            android:textColor="@color/mainNavy"
                             android:textSize="18sp"
                             android:textStyle="bold"
-                            android:textColor="@color/mainNavy"
-                            android:outlineProvider="none"
                             app:cornerRadius="30dp" />
 
                     </LinearLayout>

@@ -23,16 +23,16 @@
             android:name=".MonFaceListActivity"
             android:exported="false" />
         <activity
-            android:name=".JoinActivity"
+            android:name=".NoticeActivity"
             android:exported="false" />
         <activity
             android:name=".PoliceFindActivity"
             android:exported="false" />
         <activity
-            android:name=".NoticeActivity"
+            android:name=".WantedActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".MypageActivity"
@@ -41,13 +41,13 @@
             android:name=".ReportActivity"
             android:exported="false" />
         <activity
-            android:name=".WantedActivity"
+            android:name=".JoinActivity"
             android:exported="false" />
         <activity
             android:name=".MonFaceActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

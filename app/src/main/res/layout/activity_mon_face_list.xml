@@ -110,16 +110,19 @@
             app:layout_constraintStart_toStartOf="@+id/wantedImg"
             app:layout_constraintTop_toBottomOf="@+id/wantedImg" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/reportMove_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:layout_marginBottom="32dp"
-            android:background="@drawable/btn_sub_border"
             android:text="신고하기페이지 이동"
+            android:background="@drawable/btn_main_border"
+            android:textColor="@color/white"
             android:textStyle="bold"
             android:textSize="30sp"
+            app:cornerRadius="30dp"
+            android:outlineProvider="none"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/wantedList_rv"
             app:layout_constraintStart_toStartOf="@+id/wantedList_rv" />

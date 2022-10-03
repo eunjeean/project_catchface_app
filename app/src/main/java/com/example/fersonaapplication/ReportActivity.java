@@ -1,10 +1,12 @@
 package com.example.fersonaapplication;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -33,14 +35,14 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
 
     ImageView logo, wantedImg;
     RadioButton rd1, rd2, rd3, rd4, rd5,rd6, rd7, rd8;
-    Spinner wanted_spin;
-    EditText report_et;
+    Spinner wantedSpin;
+    EditText reportConEt;
     DatePicker repDate;
     TimePicker repTime;
     ImageButton galleryBtn;
-    TextView name_tv;
-    Button repAdr_btn, monMake_btn, wantedView_btn, infoView_btn, submit_btn;
-    CheckBox wanted_ck, info_ck;
+    TextView nameTv;
+    Button repAdrBtn, monMakeBtn, wantedviewBtn, infoViewBtn, submitBtn;
+    CheckBox wantedCk, infoCk;
 
 
     @Override
@@ -61,8 +63,8 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
             }
         });
 
-        NavigationView menu_nv = findViewById(R.id.menu_nv);
-        menu_nv.setNavigationItemSelectedListener(this);
+        NavigationView menuNv = findViewById(R.id.menuNv);
+        menuNv.setNavigationItemSelectedListener(this);
 
 
 //        초기화
@@ -79,29 +81,29 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
         rd7 = findViewById(R.id.rd7);
         rd8 = findViewById(R.id.rd8);
 
-        wanted_spin = findViewById(R.id.wanted_spin);
-        report_et = findViewById(R.id.report_con_et);
-        repDate = findViewById(R.id.rep_date);
-        repTime = findViewById(R.id.rep_time);
-        name_tv = findViewById(R.id.name_tv2);
+        wantedSpin = findViewById(R.id.wantedSpin);
+        reportConEt = findViewById(R.id.reportConEt);
+        repDate = findViewById(R.id.repDate);
+        repTime = findViewById(R.id.repTime);
+        nameTv = findViewById(R.id.nameTv2);
 
 //        galleryBtn = findViewById(R.id.gallery_btn);
-        repAdr_btn = findViewById(R.id.repAdr_btn);
-        monMake_btn = findViewById(R.id.monMake_btn);
-        wantedView_btn = findViewById(R.id.wantedview_btn);
-        infoView_btn = findViewById(R.id.infoView_btn);
-        submit_btn = findViewById(R.id.submit_btn);
+        repAdrBtn = findViewById(R.id.repAdrBtn);
+        monMakeBtn = findViewById(R.id.monMakeBtn);
+        wantedviewBtn = findViewById(R.id.wantedviewBtn);
+        infoViewBtn = findViewById(R.id.infoViewBtn);
+        submitBtn = findViewById(R.id.submitBtn);
 
-        wanted_ck = findViewById(R.id.wanted_ck);
-        info_ck = findViewById(R.id.info_ck);
+        wantedCk = findViewById(R.id.wantedCk);
+        infoCk = findViewById(R.id.infoCk);
 
         logo.setOnClickListener(this);
 //        galleryBtn.setOnClickListener(this);
-        repAdr_btn.setOnClickListener(this);
-        monMake_btn.setOnClickListener(this);
-        wantedView_btn.setOnClickListener(this);
-        infoView_btn.setOnClickListener(this);
-        submit_btn.setOnClickListener(this);
+        repAdrBtn.setOnClickListener(this);
+        monMakeBtn.setOnClickListener(this);
+        wantedviewBtn.setOnClickListener(this);
+        infoViewBtn.setOnClickListener(this);
+        submitBtn.setOnClickListener(this);
 
 
     }
@@ -110,7 +112,7 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.logoImg:
-                Log.d("ReportPage","click_reportLogo");
+                Log.d("ReportPage","로고");
                 Intent logoIntent = new Intent(ReportActivity.this, MainActivity.class);
                 startActivity(logoIntent);
                 finish();
@@ -124,29 +126,65 @@ public class ReportActivity extends AppCompatActivity implements View.OnClickLis
 //                startActivityForResult(Intent.createChooser(gallery, "이미지를 선택하세요"), 0);
 //                break;
 
-            case R.id.repAdr_btn:
-                Log.d("ReportPage","click_reportAddres");
-
+            case R.id.repAdrBtn:
+                Log.d("ReportPage","위치찾기");
+                new AlertDialog.Builder(this)
+                        .setTitle("위치찾기")
+                        .setMessage("지도API 보여줄 예정😁")
+                        // positive : 긍정 , setNegativeButton : 부정, setNeutralButton : 긍정도 부정도 아닌
+                        .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dlg, int sumthin) {
+                            }
+                        })
+                        .setNeutralButton("닫기", new DialogInterface.OnClickListener(){
+                            public void onClick(DialogInterface dialog, int which){
+                            }
+                        })
+                        .show(); // 팝업창 보여줌
                 break;
 
-            case R.id.monMake_btn:
-                Log.d("ReportPage","click_reportMonMake");
+            case R.id.monMakeBtn:
+                Log.d("ReportPage","몽타주생성");
                 Intent monMakeIntent = new Intent(ReportActivity.this, MonFaceActivity.class);
                 startActivity(monMakeIntent);
                 break;
 
-            case R.id.wantedview_btn:
-                Log.d("ReportPage","click_reportWantedView");
-
+            case R.id.wantedviewBtn:
+                Log.d("ReportPage","신고내용 공유동의");
+                new AlertDialog.Builder(this)
+                        .setTitle("신고내용동의서")
+                        .setMessage("신고내용동의 내용 작성예정😁")
+                        // positive : 긍정 , setNegativeButton : 부정, setNeutralButton : 긍정도 부정도 아닌
+                        .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dlg, int sumthin) {
+                            }
+                        })
+                        .setNeutralButton("닫기", new DialogInterface.OnClickListener(){
+                            public void onClick(DialogInterface dialog, int which){
+                            }
+                        })
+                        .show(); // 팝업창 보여줌
                 break;
 
-            case R.id.infoView_btn:
-                Log.d("ReportPage","click_reportInfoView");
-
+            case R.id.infoViewBtn:
+                Log.d("ReportPage","개인정보 수집동의");
+                new AlertDialog.Builder(this)
+                        .setTitle("개인정보 수집동의")
+                        .setMessage("개인정보 수집동의 내용 작성예정😁")
+                        // positive : 긍정 , setNegativeButton : 부정, setNeutralButton : 긍정도 부정도 아닌
+                        .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dlg, int sumthin) {
+                            }
+                        })
+                        .setNeutralButton("닫기", new DialogInterface.OnClickListener(){
+                            public void onClick(DialogInterface dialog, int which){
+                            }
+                        })
+                        .show(); // 팝업창 보여줌
                 break;
 
-            case R.id.submit_btn:
-                Log.d("ReportPage","click_reportSubmit");
+            case R.id.submitBtn:
+                Log.d("ReportPage","제출하기");
 
                 break;
         }

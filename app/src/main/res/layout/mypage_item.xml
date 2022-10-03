@@ -9,7 +9,7 @@
     >
 
     <TextView
-        android:id="@+id/myreportNum_tv"
+        android:id="@+id/myreportNumTv"
         android:text="1"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -18,7 +18,7 @@
         android:layout_weight="1"/>
 
     <TextView
-        android:id="@+id/myreportCate_tv"
+        android:id="@+id/myreportCateTv"
         android:text="신고유형"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -28,7 +28,7 @@
         />
 
     <TextView
-        android:id="@+id/myreportDate_tv"
+        android:id="@+id/myreportDateTv"
         android:text="신고날짜"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"

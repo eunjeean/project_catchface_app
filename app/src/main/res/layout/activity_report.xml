@@ -125,7 +125,7 @@
                             android:textSize="16sp" />
 
                         <Spinner
-                            android:id="@+id/wanted_spin"
+                            android:id="@+id/wantedSpin"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
@@ -145,7 +145,7 @@
                         android:textSize="16sp" />
 
                     <EditText
-                        android:id="@+id/report_con_et"
+                        android:id="@+id/reportConEt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="4dp"
@@ -166,7 +166,7 @@
                         android:textSize="16sp" />
 
                     <DatePicker
-                        android:id="@+id/rep_date"
+                        android:id="@+id/repDate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:calendarViewShown="false"
@@ -182,7 +182,7 @@
                         android:textSize="16sp" />
 
                     <TimePicker
-                        android:id="@+id/rep_time"
+                        android:id="@+id/repTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -205,7 +205,7 @@
                             android:textSize="16sp" />
 
                         <Button
-                            android:id="@+id/repAdr_btn"
+                            android:id="@+id/repAdrBtn"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="8dp"
@@ -236,7 +236,7 @@
                             android:textSize="16sp" />
 
                         <Button
-                            android:id="@+id/monMake_btn"
+                            android:id="@+id/monMakeBtn"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="8dp"
@@ -304,7 +304,7 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/name_tv1"
+                            android:id="@+id/nameTv1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="8dp"
@@ -316,7 +316,7 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/name_tv2"
+                            android:id="@+id/nameTv2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -333,7 +333,7 @@
                         android:orientation="horizontal">
 
                         <CheckBox
-                            android:id="@+id/wanted_ck"
+                            android:id="@+id/wantedCk"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -342,7 +342,7 @@
                             app:buttonTint="@color/pointOrange" />
 
                         <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/wantedview_btn"
+                            android:id="@+id/wantedviewBtn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="4dp"
@@ -362,7 +362,7 @@
                         android:orientation="horizontal">
 
                         <CheckBox
-                            android:id="@+id/info_ck"
+                            android:id="@+id/infoCk"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -371,7 +371,7 @@
                             app:buttonTint="@color/pointOrange" />
 
                         <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/infoView_btn"
+                            android:id="@+id/infoViewBtn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="4dp"
@@ -385,7 +385,7 @@
                     </LinearLayout>
 
                     <Button
-                        android:id="@+id/submit_btn"
+                        android:id="@+id/submitBtn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="15dp"
@@ -403,7 +403,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/menu_nv"
+        android:id="@+id/menuNv"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="end"

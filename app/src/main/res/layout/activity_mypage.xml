@@ -37,7 +37,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/titleTv"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -75,7 +75,7 @@
             app:layout_constraintTop_toBottomOf="@+id/titleCl">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/mypage_btn"
+                android:id="@+id/mypageBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="4dp"
@@ -85,7 +85,7 @@
                 android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/myReport_btn"
+                android:id="@+id/myReportBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="4dp"
@@ -97,7 +97,7 @@
 
         <!-- 마이페이지 -->
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/myPage_cl"
+            android:id="@+id/myPageCl"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -124,7 +124,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/myId_tv"
+                android:id="@+id/myIdTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="F.ersona"
@@ -155,10 +155,10 @@
                 android:layout_marginLeft="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/myId_tv" />
+                app:layout_constraintTop_toBottomOf="@+id/myIdTv" />
 
             <TextView
-                android:id="@+id/name_tv"
+                android:id="@+id/nameTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="페르소나"
@@ -189,10 +189,10 @@
                 android:layout_marginLeft="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/name_tv" />
+                app:layout_constraintTop_toBottomOf="@+id/nameTv" />
 
             <TextView
-                android:id="@+id/phone_tv"
+                android:id="@+id/phoneTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right"
@@ -223,10 +223,10 @@
                 android:layout_marginLeft="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/phone_tv" />
+                app:layout_constraintTop_toBottomOf="@+id/phoneTv" />
 
             <TextView
-                android:id="@+id/address_tv"
+                android:id="@+id/addressTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="right"
@@ -246,7 +246,7 @@
 
         <!-- 나의신고페이지 -->
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/myReport_cl"
+            android:id="@+id/myReportCl"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:visibility="visible"
@@ -256,7 +256,7 @@
             app:layout_constraintTop_toBottomOf="@+id/button_ll">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/wantedList_rv"
+                android:id="@+id/wantedListRv"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_margin="8dp"
@@ -271,7 +271,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/menu_nv"
+        android:id="@+id/menuNv"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="end"

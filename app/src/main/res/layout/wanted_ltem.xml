@@ -15,14 +15,14 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/wantedItem_img"
+            android:id="@+id/wantedItemImg"
             android:layout_width="match_parent"
             android:layout_height="140dp"
             android:background="@color/subGray"
             android:padding="3dp" />
 
         <TextView
-            android:id="@+id/wantedItem_tv"
+            android:id="@+id/wantedItemTv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="50"

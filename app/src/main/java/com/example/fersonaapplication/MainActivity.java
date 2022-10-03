@@ -34,15 +34,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        NavigationView menu_nv = findViewById(R.id.menu_nv);
-        menu_nv.setNavigationItemSelectedListener(this);
+        NavigationView menuNv = findViewById(R.id.menuNv);
+        menuNv.setNavigationItemSelectedListener(this);
 
         reportBtn = findViewById(R.id.reportBtn);
         wantedBtn = findViewById(R.id.wantedBtn);
         noticebtn = findViewById(R.id.noticeBtn);
         policeBtn = findViewById(R.id.policeBtn);
 
-        noticeNumtv = findViewById(R.id.noticeNumtv);
+        noticeNumtv = findViewById(R.id.noticeNumTv);
 
         reportBtn.setOnClickListener(this);
         wantedBtn.setOnClickListener(this);
@@ -70,10 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.policeBtn:
                 Log.d("MainActivity","파출소찾기");
-//                Intent policeIntent = new Intent(MainActivity.this, PoliceFindActivity.class);
-//                startActivity(policeIntent);
-
-                Intent policeIntent = new Intent(MainActivity.this, MypageActivity.class);
+                Intent policeIntent = new Intent(MainActivity.this, PoliceFindActivity.class);
                 startActivity(policeIntent);
                 break;
         }

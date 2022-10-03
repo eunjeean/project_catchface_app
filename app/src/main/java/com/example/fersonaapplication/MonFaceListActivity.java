@@ -24,7 +24,7 @@ public class MonFaceListActivity extends AppCompatActivity implements View.OnCli
 
     // RecyclerView
     ArrayList<MonFaceListVO> data;
-    private RecyclerView wantedList_rv;
+    private RecyclerView wantedListRv;
     private MonRAdapter adapter;
 
     ImageView logoImg, watnedImg;
@@ -46,18 +46,18 @@ public class MonFaceListActivity extends AppCompatActivity implements View.OnCli
             }
         });
 
-        NavigationView menu_nv = findViewById(R.id.menu_nv);
-        menu_nv.setNavigationItemSelectedListener(this);
+        NavigationView menuNv = findViewById(R.id.menuNv);
+        menuNv.setNavigationItemSelectedListener(this);
 
         data = new ArrayList<>();
-        wantedList_rv = findViewById(R.id.wantedList_rv);
+        wantedListRv = findViewById(R.id.wantedListRv);
 
         logoImg = findViewById(R.id.logoImg);
         watnedImg = findViewById(R.id.wantedImg);
 
-        voiceTv = findViewById(R.id.voice_tv);
+        voiceTv = findViewById(R.id.voiceTv);
 
-        reportMoveBtn = findViewById(R.id.reportMove_btn);
+        reportMoveBtn = findViewById(R.id.reportMoveBtn);
 
         logoImg.setOnClickListener(this);
         reportMoveBtn.setOnClickListener(this);
@@ -69,8 +69,8 @@ public class MonFaceListActivity extends AppCompatActivity implements View.OnCli
         }
 
         adapter = new MonRAdapter(data);
-        wantedList_rv.setAdapter(adapter);
-        wantedList_rv.setLayoutManager(new LinearLayoutManager(this,RecyclerView.HORIZONTAL, false));
+        wantedListRv.setAdapter(adapter);
+        wantedListRv.setLayoutManager(new LinearLayoutManager(this,RecyclerView.HORIZONTAL, false));
 
     }
 

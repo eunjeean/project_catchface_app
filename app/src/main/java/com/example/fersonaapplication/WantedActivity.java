@@ -47,8 +47,8 @@ public class WantedActivity extends AppCompatActivity implements View.OnClickLis
             }
         });
 
-        NavigationView menu_nv = findViewById(R.id.menu_nv);
-        menu_nv.setNavigationItemSelectedListener(this);
+        NavigationView menuNv = findViewById(R.id.menuNv);
+        menuNv.setNavigationItemSelectedListener(this);
 
         logo = findViewById(R.id.logoImg);
         gridview = findViewById(R.id.wnatedGv);
@@ -72,12 +72,6 @@ public class WantedActivity extends AppCompatActivity implements View.OnClickLis
         adapter.addItem(new WantedVO("12", "신고하기", R.drawable.wantedimg2));
         adapter.addItem(new WantedVO("13", "신고하기", R.drawable.wantedimg3));
         adapter.addItem(new WantedVO("14", "신고하기", R.drawable.wantedimg4));
-        adapter.addItem(new WantedVO("15", "신고하기", R.drawable.wantedimg5));
-        adapter.addItem(new WantedVO("16", "신고하기", R.drawable.wantedimg1));
-        adapter.addItem(new WantedVO("17", "신고하기", R.drawable.wantedimg2));
-        adapter.addItem(new WantedVO("18", "신고하기", R.drawable.wantedimg3));
-        adapter.addItem(new WantedVO("19", "신고하기", R.drawable.wantedimg4));
-        adapter.addItem(new WantedVO("20", "신고하기", R.drawable.wantedimg5));
 
         //리스트뷰에 Adapter 설정
         gridview.setAdapter(adapter);
@@ -169,8 +163,8 @@ public class WantedActivity extends AppCompatActivity implements View.OnClickLis
                 convertView = inflater.inflate(R.layout.wanted_ltem, viewGroup, false);
 
 
-                ImageView wantedImg = convertView.findViewById(R.id.wantedItem_img);
-                TextView wantedTv = convertView.findViewById(R.id.wantedItem_tv);
+                ImageView wantedImg = convertView.findViewById(R.id.wantedItemImg);
+                TextView wantedTv = convertView.findViewById(R.id.wantedItemTv);
 
 
                 wantedImg.setImageResource(bearItem.getResId());

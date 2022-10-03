@@ -36,7 +36,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/titleTv"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -78,7 +78,7 @@
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
             <EditText
-                android:id="@+id/monMake_et"
+                android:id="@+id/monMakeEt"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
@@ -90,7 +90,7 @@
                 android:padding="4dp" />
 
             <ImageButton
-                android:id="@+id/voice_btn"
+                android:id="@+id/voiceBtn"
                 android:layout_width="20dp"
                 android:layout_height="match_parent"
                 android:layout_margin="4dp"
@@ -113,7 +113,7 @@
 <!--            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />-->
 
         <Button
-            android:id="@+id/makeMon_btn"
+            android:id="@+id/makeMonBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/subGray"
@@ -133,13 +133,13 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@+id/make_btn"
+            app:layout_constraintBottom_toTopOf="@+id/makeBtn"
             android:weightSum="3"
             android:layout_margin="8dp"
             android:background="@drawable/btn_sub_border"
             app:layout_constraintEnd_toEndOf="@+id/linearLayout"
             app:layout_constraintStart_toStartOf="@+id/linearLayout"
-            app:layout_constraintTop_toBottomOf="@+id/makeMon_btn">
+            app:layout_constraintTop_toBottomOf="@+id/makeMonBtn">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -149,7 +149,7 @@
                 android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/monMake1_btn"
+                android:id="@+id/monMake1Btn"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="8dp"
@@ -158,7 +158,7 @@
                 app:srcCompat="@drawable/icon_drawing" />
 
                 <ImageButton
-                    android:id="@+id/monMake2_btn"
+                    android:id="@+id/monMake2Btn"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
@@ -175,7 +175,7 @@
                 android:orientation="horizontal">
 
                 <ImageButton
-                    android:id="@+id/monMake3_btn"
+                    android:id="@+id/monMake3Btn"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
@@ -184,7 +184,7 @@
                     app:srcCompat="@drawable/icon_drawing" />
 
                 <ImageButton
-                    android:id="@+id/monMake4_btn"
+                    android:id="@+id/monMake4Btn"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
@@ -209,7 +209,7 @@
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/make_btn"
+            android:id="@+id/makeBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -232,7 +232,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/menu_nv"
+        android:id="@+id/menuNv"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="end"

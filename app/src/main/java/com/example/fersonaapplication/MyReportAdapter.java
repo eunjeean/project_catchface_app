@@ -14,15 +14,15 @@ import java.util.ArrayList;
 public class MyReportAdapter  extends RecyclerView.Adapter<MyReportAdapter.ViewHolder>{
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView myreportNumtv;
-        TextView myreportCatetv;
-        TextView myreportDatetv;
+        TextView myreportNumTv;
+        TextView myreportCateTv;
+        TextView myreportDateTv;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            myreportNumtv = itemView.findViewById(R.id.myreportNum_tv);
-            myreportCatetv = itemView.findViewById(R.id.myreportCate_tv);
-            myreportDatetv = itemView.findViewById(R.id.myreportDate_tv);
+            myreportNumTv = itemView.findViewById(R.id.myreportNumTv);
+            myreportCateTv = itemView.findViewById(R.id.myreportCateTv);
+            myreportDateTv = itemView.findViewById(R.id.myreportDateTv);
         }
     }
 
@@ -47,9 +47,9 @@ public class MyReportAdapter  extends RecyclerView.Adapter<MyReportAdapter.ViewH
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         MyReportListVO item = mList.get(position);
-        holder.myreportNumtv.setText("1");
-        holder.myreportCatetv.setText("사기");
-        holder.myreportDatetv.setText("22.09.20");
+        holder.myreportNumTv.setText("1");
+        holder.myreportCateTv.setText("사기");
+        holder.myreportDateTv.setText("22.09.20");
     }
 
 

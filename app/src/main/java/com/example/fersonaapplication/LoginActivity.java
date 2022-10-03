@@ -10,31 +10,31 @@ import android.widget.Button;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button login_btn, join_btn;
+    Button loginBtn, joinBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        login_btn = findViewById(R.id.login_btn);
-        join_btn = findViewById(R.id.join_btn);
+        loginBtn = findViewById(R.id.loginBtn);
+        joinBtn = findViewById(R.id.joinBtn);
 
-        login_btn.setOnClickListener(this);
-        join_btn.setOnClickListener(this);
+        loginBtn.setOnClickListener(this);
+        joinBtn.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.login_btn:
-                Log.d("login","click_login_btn");
+            case R.id.loginBtn:
+                Log.d("login","click_loginBtn");
                 Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(mainIntent);
                 break;
 
-            case R.id.join_btn:
-                Log.d("login","click_join_btn");
+            case R.id.joinBtn:
+                Log.d("login","click_joinBtn");
                 Intent joinIntent = new Intent(LoginActivity.this, JoinActivity.class);
                 startActivity(joinIntent);
                 break;

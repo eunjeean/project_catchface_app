@@ -66,17 +66,19 @@
             android:id="@+id/exText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:layout_marginBottom="4dp"
             android:gravity="center"
             android:text="목격한 용의자와 비슷한 수배자를 선택해주세요"
             android:textColor="@color/mainNavy"
             android:textSize="12sp"
-            app:layout_constraintBottom_toTopOf="@+id/wantedList_rv"
-            app:layout_constraintEnd_toEndOf="@+id/wantedList_rv"
-            app:layout_constraintStart_toStartOf="@+id/wantedList_rv" />
+            app:layout_constraintBottom_toTopOf="@+id/wantedListRv"
+            app:layout_constraintEnd_toEndOf="@+id/wantedListRv"
+            app:layout_constraintStart_toStartOf="@+id/wantedListRv"
+            app:layout_constraintTop_toBottomOf="@+id/wantedImg" />
 
         <TextView
-            android:id="@+id/voice_tv"
+            android:id="@+id/voiceTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="8dp"
@@ -97,21 +99,21 @@
             android:padding="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/voice_tv"
+            app:layout_constraintTop_toBottomOf="@+id/voiceTv"
             app:srcCompat="@drawable/text_border" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/wantedList_rv"
+            android:id="@+id/wantedListRv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/reportMove_btn"
+            app:layout_constraintBottom_toTopOf="@+id/reportMoveBtn"
             app:layout_constraintEnd_toEndOf="@+id/wantedImg"
             app:layout_constraintStart_toStartOf="@+id/wantedImg"
             app:layout_constraintTop_toBottomOf="@+id/wantedImg" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/reportMove_btn"
+            android:id="@+id/reportMoveBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
@@ -124,14 +126,14 @@
             app:cornerRadius="30dp"
             android:outlineProvider="none"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/wantedList_rv"
-            app:layout_constraintStart_toStartOf="@+id/wantedList_rv" />
+            app:layout_constraintEnd_toEndOf="@+id/wantedListRv"
+            app:layout_constraintStart_toStartOf="@+id/wantedListRv" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/menu_nv"
+        android:id="@+id/menuNv"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="end"

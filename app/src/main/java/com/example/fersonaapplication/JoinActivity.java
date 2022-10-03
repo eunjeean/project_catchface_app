@@ -2,6 +2,7 @@ package com.example.fersonaapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,40 +10,45 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 public class JoinActivity extends AppCompatActivity implements View.OnClickListener {
 
-    TextView passwordCk_tv,phoneTime_tv;
-    EditText id_et, pw_et, pwck_et, name_et, phone_et,phoneck_et;
-    Button idck_btn, phoneck_btn,join_btm;
-    DatePicker joindate;
+    TextView passwordCkTv,phoneTimeTv;
+    EditText joinIdEt, joinPwEt, joinPwCkEt,joinNameEt, phoneEt,phoneCkEt;
+    Button idCheckBtn, phoneBtn, submitBtn;
+    DatePicker joinDate;
+    ImageView logoImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join);
 
-        passwordCk_tv = findViewById(R.id.passwordCk_tv);
-        phoneTime_tv = findViewById(R.id.phoneTime_tv);
+        logoImg = findViewById(R.id.logoImg);
 
-        id_et = findViewById(R.id.joinId_et);
-        pw_et = findViewById(R.id.joinPw_et);
-        pwck_et = findViewById(R.id.joinPwCK_et);
-        name_et = findViewById(R.id.joinName_et);
-        phone_et = findViewById(R.id.phone_et);
-        phoneck_et = findViewById(R.id.phoneCk_et);
+        passwordCkTv = findViewById(R.id.passwordCkTv);
+        phoneTimeTv = findViewById(R.id.phoneTimeTv);
 
-        joindate = findViewById(R.id.join_date);
+        joinIdEt = findViewById(R.id.joinIdEt);
+        joinPwEt = findViewById(R.id.joinPwEt);
+        joinPwCkEt = findViewById(R.id.joinPwCkEt);
+        joinNameEt = findViewById(R.id.joinNameEt);
+        phoneEt = findViewById(R.id.phoneEt);
+        phoneCkEt = findViewById(R.id.phoneCkEt);
 
-        idck_btn = findViewById(R.id.check_btn);
-        phoneck_btn = findViewById(R.id.phone_btn);
-        join_btm = findViewById(R.id.submit_btn);
+        joinDate = findViewById(R.id.joinDate);
 
-        idck_btn.setOnClickListener(this);
-        phoneck_btn.setOnClickListener(this);
-        join_btm.setOnClickListener(this);
+        idCheckBtn = findViewById(R.id.idCheckBtn);
+        phoneBtn = findViewById(R.id.phoneBtn);
+        submitBtn = findViewById(R.id.submitBtn);
+
+        logoImg.setOnClickListener(this);
+        idCheckBtn.setOnClickListener(this);
+        phoneBtn.setOnClickListener(this);
+        submitBtn.setOnClickListener(this);
 
 
     }
@@ -50,13 +56,19 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.check_btn:
+            case R.id.logoImg:
+                Log.d("Join","로고클릭");
+                Intent logoIntent = new Intent(this, LoginActivity.class);
+                startActivity(logoIntent);
+                finish();
+                break;
+            case R.id.idCheckBtn:
                 Log.d("Join","아이디체크");
                 break;
-            case R.id.phone_btn:
+            case R.id.phoneCkEt:
                 Log.d("Join","핸드폰인증");
                 break;
-            case R.id.submit_btn:
+            case R.id.submitBtn:
                 Log.d("Join","회원가입");
                 break;
         }

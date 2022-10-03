@@ -29,10 +29,10 @@ import java.util.ArrayList;
 public class MonFaceActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
 
     ImageView logo;
-    EditText monMake_et; // 여기에 녹음 내용 써지게 하기!
-    Button make_btn;
+    EditText monMakeEt; // 여기에 녹음 내용 써지게 하기!
+    Button makeBtn;
     Intent intent;
-    ImageButton voice_btn;
+    ImageButton voiceBtn;
     final int PERMISSION = 1;
     SpeechRecognizer mRecognizer;
 
@@ -51,8 +51,8 @@ public class MonFaceActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
 
-        NavigationView menu_nv = findViewById(R.id.menu_nv);
-        menu_nv.setNavigationItemSelectedListener(this);
+        NavigationView menuNv = findViewById(R.id.menuNv);
+        menuNv.setNavigationItemSelectedListener(this);
 
         // 안드로이드 6.0버전 이상인지 체크해서 퍼미션 체크
         if (Build.VERSION.SDK_INT >= 23) {
@@ -61,14 +61,14 @@ public class MonFaceActivity extends AppCompatActivity implements View.OnClickLi
         }
 
         logo = findViewById(R.id.logoImg);
-        monMake_et = findViewById(R.id.monMake_et);
-        voice_btn = findViewById(R.id.voice_btn);
-        make_btn = findViewById(R.id.make_btn);
+        monMakeEt = findViewById(R.id.monMakeEt);
+        voiceBtn = findViewById(R.id.voiceBtn);
+        makeBtn = findViewById(R.id.makeBtn);
 
         logo.setOnClickListener(this);
-        monMake_et.setOnClickListener(this);
-        make_btn.setOnClickListener(this);
-        voice_btn.setOnClickListener(this);
+        monMakeEt.setOnClickListener(this);
+        makeBtn.setOnClickListener(this);
+        voiceBtn.setOnClickListener(this);
 
         // RecognizerIntent 생성
         intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -87,19 +87,19 @@ public class MonFaceActivity extends AppCompatActivity implements View.OnClickLi
                 finish();
                 break;
 
-            case R.id.monMake_et:
+            case R.id.monMakeEt:
                 Log.d("MonFaceActivity","몽타주만들기");
 
                 break;
 
-            case R.id.voice_btn:
+            case R.id.voiceBtn:
                 Log.d("MonFaceActivity","음성녹음");
                 mRecognizer = SpeechRecognizer.createSpeechRecognizer(MonFaceActivity.this); // 새 SpeechRecognizer 를 만드는 팩토리 메서드
                 mRecognizer.setRecognitionListener(listener); // 리스너 설정
                 mRecognizer.startListening(intent); // 듣기 시작
                 break;
 
-            case R.id.make_btn:
+            case R.id.makeBtn:
                 Log.d("MonFaceActivity","수배자 조회하기");
                 Intent makeIntent = new Intent(MonFaceActivity.this,MonFaceListActivity.class);
                 startActivity(makeIntent);
@@ -184,7 +184,7 @@ public class MonFaceActivity extends AppCompatActivity implements View.OnClickLi
 
             for(int i = 0; i < matches.size() ; i++){
 //                textView.setText(matches.get(i));
-                monMake_et.setText(matches.get(i));
+                monMakeEt.setText(matches.get(i));
             }
         }
 

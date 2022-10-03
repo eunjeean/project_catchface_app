@@ -33,8 +33,8 @@ public class MyReportListActivity extends AppCompatActivity implements Navigatio
             }
         });
 
-        NavigationView menu_nv = findViewById(R.id.menu_nv);
-        menu_nv.setNavigationItemSelectedListener(this);
+        NavigationView menuNv = findViewById(R.id.menuNv);
+        menuNv.setNavigationItemSelectedListener(this);
 
         logo = findViewById(R.id.logoImg);
 

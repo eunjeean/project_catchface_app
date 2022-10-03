@@ -19,14 +19,14 @@
         android:layout_width="0dp"
         android:layout_height="150dp"
         android:src="@drawable/logo_white"
-        app:layout_constraintBottom_toTopOf="@+id/login_id_et"
-        app:layout_constraintEnd_toEndOf="@+id/login_id_et"
-        app:layout_constraintStart_toStartOf="@+id/login_id_et"
+        app:layout_constraintBottom_toTopOf="@+id/loginIdEt"
+        app:layout_constraintEnd_toEndOf="@+id/loginIdEt"
+        app:layout_constraintStart_toStartOf="@+id/loginIdEt"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <EditText
-        android:id="@+id/login_id_et"
+        android:id="@+id/loginIdEt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -43,7 +43,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/login_pw_et"
+        android:id="@+id/loginPwEt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -57,10 +57,10 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_id_et" />
+        app:layout_constraintTop_toBottomOf="@+id/loginIdEt" />
 
     <CheckBox
-        android:id="@+id/auto_ck"
+        android:id="@+id/loginAutoCk"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:buttonTint="#FFFFFF"
@@ -68,8 +68,8 @@
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/login_pw_et"
-        app:layout_constraintTop_toBottomOf="@+id/login_pw_et" />
+        app:layout_constraintEnd_toEndOf="@+id/loginPwEt"
+        app:layout_constraintTop_toBottomOf="@+id/loginPwEt" />
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -80,7 +80,7 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <Button
-        android:id="@+id/join_btn"
+        android:id="@+id/joinBtn"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:layout_margin="10dp"
@@ -90,13 +90,13 @@
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/login_btn"
+        app:layout_constraintBottom_toBottomOf="@+id/loginBtn"
         app:layout_constraintEnd_toStartOf="@+id/guideline6"
-        app:layout_constraintStart_toStartOf="@+id/login_pw_et"
-        app:layout_constraintTop_toTopOf="@+id/login_btn" />
+        app:layout_constraintStart_toStartOf="@+id/loginPwEt"
+        app:layout_constraintTop_toTopOf="@+id/loginBtn" />
 
     <Button
-        android:id="@+id/login_btn"
+        android:id="@+id/loginBtn"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:layout_margin="10dp"
@@ -106,8 +106,8 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/auto_ck"
+        app:layout_constraintEnd_toEndOf="@+id/loginAutoCk"
         app:layout_constraintStart_toStartOf="@+id/guideline6"
-        app:layout_constraintTop_toBottomOf="@+id/auto_ck" />
+        app:layout_constraintTop_toBottomOf="@+id/loginAutoCk" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

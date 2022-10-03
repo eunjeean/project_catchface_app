@@ -36,7 +36,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/titleTv"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -82,7 +82,7 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <EditText
-                        android:id="@+id/joinId_et"
+                        android:id="@+id/joinIdEt"
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
                         android:layout_marginRight="4dp"
@@ -94,7 +94,7 @@
                         android:textSize="15sp" />
 
                     <Button
-                        android:id="@+id/check_btn"
+                        android:id="@+id/idCheckBtn"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1.5"
@@ -112,7 +112,7 @@
                 <!-- 비밀번호 -->
 
                 <EditText
-                    android:id="@+id/joinPw_et"
+                    android:id="@+id/joinPwEt"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginStart="4dp"
@@ -129,7 +129,7 @@
                 <!-- 비밀번호 확인 -->
 
                 <EditText
-                    android:id="@+id/joinPwCK_et"
+                    android:id="@+id/joinPwCkEt"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginStart="4dp"
@@ -139,12 +139,12 @@
                     android:hint="Password Check"
                     android:paddingStart="8dp"
                     android:textSize="15sp"
-                    app:layout_constraintEnd_toEndOf="@+id/joinPw_et"
-                    app:layout_constraintStart_toStartOf="@+id/joinPw_et"
-                    app:layout_constraintTop_toBottomOf="@+id/joinPw_et" />
+                    app:layout_constraintEnd_toEndOf="@+id/joinPwEt"
+                    app:layout_constraintStart_toStartOf="@+id/joinPwEt"
+                    app:layout_constraintTop_toBottomOf="@+id/joinPwEt" />
 
                 <TextView
-                    android:id="@+id/passwordCk_tv"
+                    android:id="@+id/passwordCkTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="4dp"
@@ -155,12 +155,12 @@
                     android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/joinPwCK_et" />
+                    app:layout_constraintTop_toBottomOf="@+id/joinPwCkEt" />
 
                 <!-- 비밀번호 확인 -->
 
                 <EditText
-                    android:id="@+id/joinName_et"
+                    android:id="@+id/joinNameEt"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginStart="4dp"
@@ -170,9 +170,9 @@
                     android:hint="이름"
                     android:paddingStart="8dp"
                     android:textSize="15sp"
-                    app:layout_constraintEnd_toEndOf="@+id/joinPwCK_et"
-                    app:layout_constraintStart_toStartOf="@+id/passwordCk_tv"
-                    app:layout_constraintTop_toBottomOf="@+id/passwordCk_tv" />
+                    app:layout_constraintEnd_toEndOf="@+id/joinPwCkEt"
+                    app:layout_constraintStart_toStartOf="@+id/passwordCkTv"
+                    app:layout_constraintTop_toBottomOf="@+id/passwordCkTv" />
 
                 <RadioButton
                     android:id="@+id/dateRb"
@@ -183,12 +183,12 @@
                     android:textColor="@color/mainNavy"
                     android:textSize="15sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="@+id/joinName_et"
-                    app:layout_constraintStart_toStartOf="@+id/joinName_et"
-                    app:layout_constraintTop_toBottomOf="@+id/joinName_et" />
+                    app:layout_constraintEnd_toEndOf="@+id/joinNameEt"
+                    app:layout_constraintStart_toStartOf="@+id/joinNameEt"
+                    app:layout_constraintTop_toBottomOf="@+id/joinNameEt" />
 
                 <DatePicker
-                    android:id="@+id/join_date"
+                    android:id="@+id/joinDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:calendarViewShown="false"
@@ -206,9 +206,9 @@
                     android:textColor="@color/mainNavy"
                     android:textSize="15sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="@+id/join_date"
-                    app:layout_constraintStart_toStartOf="@+id/join_date"
-                    app:layout_constraintTop_toBottomOf="@+id/join_date" />
+                    app:layout_constraintEnd_toEndOf="@+id/joinDate"
+                    app:layout_constraintStart_toStartOf="@+id/joinDate"
+                    app:layout_constraintTop_toBottomOf="@+id/joinDate" />
 
                 <LinearLayout
                     android:id="@+id/live_ll"
@@ -223,7 +223,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/liveRb">
 
                     <Spinner
-                        android:id="@+id/city_spin"
+                        android:id="@+id/citySpin"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginEnd="4dp"
@@ -233,7 +233,7 @@
                         android:textAlignment="center" />
 
                     <Spinner
-                        android:id="@+id/dong_spin"
+                        android:id="@+id/dongSpin"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -255,7 +255,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/live_ll">
 
                     <EditText
-                        android:id="@+id/phone_et"
+                        android:id="@+id/phoneEt"
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
                         android:layout_margin="4dp"
@@ -267,7 +267,7 @@
                         android:textSize="15sp" />
 
                     <Button
-                        android:id="@+id/phone_btn"
+                        android:id="@+id/phoneBtn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
@@ -295,7 +295,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/phone_ll">
 
                     <EditText
-                        android:id="@+id/phoneCk_et"
+                        android:id="@+id/phoneCkEt"
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
                         android:layout_margin="4dp"
@@ -307,7 +307,7 @@
                         android:textSize="15sp" />
 
                     <TextView
-                        android:id="@+id/phoneTime_tv"
+                        android:id="@+id/phoneTimeTv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -323,14 +323,19 @@
 
                 </LinearLayout>
 
-                <Button
-                    android:id="@+id/submit_btn"
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/submitBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
                     android:text="회원가입"
                     android:textSize="30sp"
                     android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/btn_main_border"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/linearLayout6"
                     app:layout_constraintStart_toStartOf="@+id/linearLayout6"

@@ -20,12 +20,12 @@ public class MypageActivity extends AppCompatActivity implements View.OnClickLis
 
     // RecyclerView
     ArrayList<MyReportListVO> data;
-    private RecyclerView wantedList_rv;
+    private RecyclerView wantedListRv;
     private MyReportAdapter adapter;
 
     ImageView logo;
-    Button myPagebtn, myReportbtn;
-    ConstraintLayout myPage_cl,myReport_cl;
+    Button mypageBtn, myReportBtn;
+    ConstraintLayout myPageCl,myReportCl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,21 +42,21 @@ public class MypageActivity extends AppCompatActivity implements View.OnClickLis
         });
 
         data = new ArrayList<>();
-        wantedList_rv = findViewById(R.id.wantedList_rv);
+        wantedListRv = findViewById(R.id.wantedListRv);
 
         logo = findViewById(R.id.logoImg);
-        myPagebtn = findViewById(R.id.mypage_btn);
-        myReportbtn = findViewById(R.id.myReport_btn);
+        mypageBtn = findViewById(R.id.mypageBtn);
+        myReportBtn = findViewById(R.id.myReportBtn);
 
-        myPage_cl = findViewById(R.id.myPage_cl);
-        myReport_cl = findViewById(R.id.myReport_cl);
+        myPageCl = findViewById(R.id.myPageCl);
+        myReportCl = findViewById(R.id.myReportCl);
 
-        myPage_cl.setVisibility(View.VISIBLE);
-        wantedList_rv.setVisibility(View.INVISIBLE);
+        myPageCl.setVisibility(View.VISIBLE);
+        wantedListRv.setVisibility(View.INVISIBLE);
 
         logo.setOnClickListener(this);
-        myPagebtn.setOnClickListener(this);
-        myReportbtn.setOnClickListener(this);
+        mypageBtn.setOnClickListener(this);
+        myReportBtn.setOnClickListener(this);
 
         // RecyclerView
         for(int i=0;i<5;i++){
@@ -64,8 +64,8 @@ public class MypageActivity extends AppCompatActivity implements View.OnClickLis
         }
 
         adapter = new MyReportAdapter(data);
-        wantedList_rv.setAdapter(adapter);
-        wantedList_rv.setLayoutManager(new LinearLayoutManager(this));
+        wantedListRv.setAdapter(adapter);
+        wantedListRv.setLayoutManager(new LinearLayoutManager(this));
     }
 
     public void addItem(String reportCate, String reportDate){
@@ -86,22 +86,22 @@ public class MypageActivity extends AppCompatActivity implements View.OnClickLis
                 startActivity(logoIntent);
                 finish();
                 break;
-            case R.id.mypage_btn:
+            case R.id.mypageBtn:
                 Log.d("ReportPage","click_내정보");
-                wantedList_rv.setVisibility(View.INVISIBLE);
-                if(myPage_cl.getVisibility()==View.VISIBLE){
-                    wantedList_rv.setVisibility(View.INVISIBLE);
+                wantedListRv.setVisibility(View.INVISIBLE);
+                if(myPageCl.getVisibility()==View.VISIBLE){
+                    wantedListRv.setVisibility(View.INVISIBLE);
                 }else{
-                    myPage_cl.setVisibility(View.VISIBLE);
+                    myPageCl.setVisibility(View.VISIBLE);
                 }
                 break;
-            case R.id.myReport_btn:
+            case R.id.myReportBtn:
                 Log.d("ReportPage","click_나의신고");
-                myPage_cl.setVisibility(View.INVISIBLE);
-                if(wantedList_rv.getVisibility()==View.VISIBLE){
-                    myPage_cl.setVisibility(View.INVISIBLE);
+                myPageCl.setVisibility(View.INVISIBLE);
+                if(wantedListRv.getVisibility()==View.VISIBLE){
+                    myPageCl.setVisibility(View.INVISIBLE);
                 }else{
-                    wantedList_rv.setVisibility(View.VISIBLE);
+                    wantedListRv.setVisibility(View.VISIBLE);
                 }
                 break;
         }

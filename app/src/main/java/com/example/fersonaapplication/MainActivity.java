@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        NavigationView menuNv = findViewById(R.id.menuNv);
+        NavigationView menuNv = findViewById(R.id.menuNv2);
         menuNv.setNavigationItemSelectedListener(this);
 
         reportBtn = findViewById(R.id.reportBtn);

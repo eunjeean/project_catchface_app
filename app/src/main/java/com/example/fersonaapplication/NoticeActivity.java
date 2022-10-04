@@ -33,7 +33,7 @@ public class NoticeActivity extends AppCompatActivity implements View.OnClickLis
             }
         });
 
-        NavigationView menuNv = findViewById(R.id.menuNv);
+        NavigationView menuNv = findViewById(R.id.menuNv2);
         menuNv.setNavigationItemSelectedListener(this);
 
         logo = findViewById(R.id.logoImg);

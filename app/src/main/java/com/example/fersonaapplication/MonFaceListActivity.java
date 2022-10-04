@@ -46,7 +46,7 @@ public class MonFaceListActivity extends AppCompatActivity implements View.OnCli
             }
         });
 
-        NavigationView menuNv = findViewById(R.id.menuNv);
+        NavigationView menuNv = findViewById(R.id.menuNv2);
         menuNv.setNavigationItemSelectedListener(this);
 
         data = new ArrayList<>();

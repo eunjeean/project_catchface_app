@@ -51,7 +51,7 @@ public class MonFaceActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
 
-        NavigationView menuNv = findViewById(R.id.menuNv);
+        NavigationView menuNv = findViewById(R.id.menuNv2);
         menuNv.setNavigationItemSelectedListener(this);
 
         // 안드로이드 6.0버전 이상인지 체크해서 퍼미션 체크

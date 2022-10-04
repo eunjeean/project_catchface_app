@@ -26,6 +26,9 @@
             android:name=".NoticeActivity"
             android:exported="false" />
         <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".PoliceFindActivity"
             android:exported="false" />
         <activity
@@ -47,7 +50,7 @@
             android:name=".MonFaceActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".ReportActivity2"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

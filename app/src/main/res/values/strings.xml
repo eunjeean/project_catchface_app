@@ -42,5 +42,7 @@
 
     <!-- 몽타주생성 -->
     <string name="monMake">인물에 대한 상세내용을 작성해주세요.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

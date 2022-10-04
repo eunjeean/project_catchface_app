@@ -8,6 +8,7 @@
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/drawable/border.xml" value="0.105" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/drawable/btn_join_whitecolor.xml" value="0.158" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/drawable/btn_my_border.xml" value="0.1" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/drawable/custom_selector.xml" value="0.1" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/drawable/ic_menu.xml" value="0.1145" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/drawable/main_city_border.xml" value="0.158" />
@@ -16,7 +17,7 @@
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/drawable/notice_spinner.xml" value="0.158" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/drawable/text_border.xml" value="0.105" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/layout/activity_join.xml" value="0.33" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/layout/activity_login.xml" value="0.34322916666666664" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/layout/activity_main1.xml" value="0.34322916666666664" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/layout/activity_mon_face.xml" value="0.25" />

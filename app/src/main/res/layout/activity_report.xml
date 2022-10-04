@@ -121,6 +121,7 @@
                             android:layout_weight="1"
                             android:enabled="false"
                             android:text="범죄유형"
+                            android:buttonTint="@color/btnGray"
                             android:textColor="@color/mainNavy"
                             android:textSize="16sp" />
 
@@ -131,7 +132,8 @@
                             android:layout_gravity="center"
                             android:layout_weight="1"
                             android:entries="@array/wanted_Spinner"
-                            android:gravity="center" />
+                            android:gravity="center"
+                            />
 
                     </LinearLayout>
 
@@ -141,6 +143,7 @@
                         android:layout_height="wrap_content"
                         android:enabled="false"
                         android:text="신고내용"
+                        android:buttonTint="@color/btnGray"
                         android:textColor="@color/mainNavy"
                         android:textSize="16sp" />
 
@@ -151,19 +154,37 @@
                         android:layout_marginLeft="4dp"
                         android:layout_marginRight="8dp"
                         android:hint="최소 5자, 최대 180자 작성 가능"
+                        android:maxLength="180"
                         android:inputType="textPersonName"
                         android:minHeight="48dp"
                         android:textColor="@color/mainNavy"
                         android:textSize="16sp" />
 
-                    <RadioButton
-                        android:id="@+id/rd3"
+                    <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:enabled="false"
-                        android:text="사건발생일자"
-                        android:textColor="@color/mainNavy"
-                        android:textSize="16sp" />
+                        android:weightSum="2">
+                        <RadioButton
+                            android:id="@+id/rd3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:enabled="false"
+                            android:text="사건발생일자"
+                            android:buttonTint="@color/btnGray"
+                            android:textColor="@color/mainNavy"
+                            android:textSize="16sp"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:id="@+id/dateTv"
+                            android:hint="2022.10.00"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:layout_weight="1"/>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
 
                     <DatePicker
                         android:id="@+id/repDate"
@@ -172,15 +193,32 @@
                         android:calendarViewShown="false"
                         android:datePickerMode="spinner" />
 
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2">
+
                     <RadioButton
                         android:id="@+id/rd4"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:enabled="false"
                         android:text="사건발생시간"
+                        android:buttonTint="@color/btnGray"
                         android:textColor="@color/mainNavy"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        android:layout_weight="1"/>
 
+                        <TextView
+                            android:id="@+id/timeTv"
+                            android:hint="2022.10.00"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:layout_weight="1"/>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
                     <TimePicker
                         android:id="@+id/repTime"
                         android:layout_width="wrap_content"
@@ -201,6 +239,7 @@
                             android:layout_weight="1"
                             android:enabled="false"
                             android:text="신고발생위치"
+                            android:buttonTint="@color/btnGray"
                             android:textColor="@color/mainNavy"
                             android:textSize="16sp" />
 
@@ -232,6 +271,7 @@
                             android:layout_weight="1"
                             android:enabled="false"
                             android:text="몽타주 생성하기"
+                            android:buttonTint="@color/btnGray"
                             android:textColor="@color/mainNavy"
                             android:textSize="16sp" />
 
@@ -292,6 +332,7 @@
                         android:layout_height="wrap_content"
                         android:enabled="false"
                         android:text="인적사항"
+                        android:buttonTint="@color/btnGray"
                         android:textColor="@color/mainNavy"
                         android:textSize="16sp" />
 

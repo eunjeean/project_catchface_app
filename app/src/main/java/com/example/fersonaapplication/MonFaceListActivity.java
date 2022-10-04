@@ -91,6 +91,13 @@ public class MonFaceListActivity extends AppCompatActivity implements View.OnCli
                 startActivity(logoIntent);
                 finish();
                 break;
+
+            case R.id.reportMoveBtn:
+                Log.d("MonFaceActivity","신고하기페이지 이동");
+                Intent monfaceIntent = new Intent(this, ReportActivity.class);
+                startActivity(monfaceIntent);
+                finish();
+                break;
         }
 
     }

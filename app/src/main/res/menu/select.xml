@@ -4,14 +4,17 @@
     <item
         android:id="@+id/tab1"
         android:icon="@android:drawable/btn_star"
+        android:enabled="true"
         android:title="공개수배" />
     <item
         android:id="@+id/tab2"
+        android:enabled="true"
         android:icon="@android:drawable/ic_menu_add"
         android:title="신고하기" />
     <item
         android:id="@+id/tab3"
         android:icon="@android:drawable/ic_menu_add"
+        android:enabled="true"
         android:title="내 정보" />
 
 

@@ -36,14 +36,13 @@ public class MonRAdapter extends RecyclerView.Adapter<MonRAdapter.ViewHolder>{
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         View view = inflater.inflate(R.layout.monlist_item, parent, false);
-        MonRAdapter.ViewHolder vh = new MonRAdapter.ViewHolder(view);
-        return vh;
+        MonRAdapter.ViewHolder holder = new MonRAdapter.ViewHolder(view);
+        return holder;
     }
     // position에 해당하는 데이터를 뷰홀더의 아이템뷰에 표시
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         MonFaceListVO item = mList.get(position);
-
         holder.wantedItemImg.setImageResource(R.drawable.wantedimg_list_test);   // 기본 파일로 이미지 띄움
     }
 

@@ -45,4 +45,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="map">위치찾기😀</string>
+    <string name="share">신고내용공유동의🤩</string>
+    <string name="info">개인정보수집동의Test😀</string>
+
 </resources>

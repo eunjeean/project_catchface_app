@@ -50,7 +50,7 @@
         android:background="@drawable/background_white"
         android:ems="10"
         android:hint="PW를 입력해주세요"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         android:minHeight="48dp"
         android:padding="4dp"
         android:textColor="@color/black"

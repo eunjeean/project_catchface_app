@@ -32,6 +32,8 @@ public class FragmentWanted extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    // GridView
+    ArrayList<WantedVO> data = new ArrayList<>();
     private GridView gridview;
     private GridViewAdapter adapter;
 
@@ -75,26 +77,53 @@ public class FragmentWanted extends Fragment {
         adapter = new GridViewAdapter();
 
         //Adapter 안에 아이템의 정보 담기
-        adapter.addItem(new WantedVO("1", "신고하기", R.drawable.wantedimg1));
-        adapter.addItem(new WantedVO("2", "신고하기", R.drawable.wantedimg2));
-        adapter.addItem(new WantedVO("3", "신고하기", R.drawable.wantedimg3));
-        adapter.addItem(new WantedVO("4", "신고하기", R.drawable.wantedimg4));
-        adapter.addItem(new WantedVO("5", "신고하기", R.drawable.wantedimg5));
-        adapter.addItem(new WantedVO("6", "신고하기", R.drawable.wantedimg1));
-        adapter.addItem(new WantedVO("7", "신고하기", R.drawable.wantedimg2));
-        adapter.addItem(new WantedVO("8", "신고하기", R.drawable.wantedimg3));
-        adapter.addItem(new WantedVO("9", "신고하기", R.drawable.wantedimg4));
-        adapter.addItem(new WantedVO("10", "신고하기", R.drawable.wantedimg5));
-        adapter.addItem(new WantedVO("11", "신고하기", R.drawable.wantedimg1));
-        adapter.addItem(new WantedVO("12", "신고하기", R.drawable.wantedimg2));
-        adapter.addItem(new WantedVO("13", "신고하기", R.drawable.wantedimg3));
-        adapter.addItem(new WantedVO("14", "신고하기", R.drawable.wantedimg4));
+//        adapter.addItem(new WantedVO("1", "신고하기", R.drawable.wantedimg1));
+//        adapter.addItem(new WantedVO("2", "신고하기", R.drawable.wantedimg2));
+//        adapter.addItem(new WantedVO("3", "신고하기", R.drawable.wantedimg3));
+//        adapter.addItem(new WantedVO("4", "신고하기", R.drawable.wantedimg4));
+//        adapter.addItem(new WantedVO("5", "신고하기", R.drawable.wantedimg5));
+//        adapter.addItem(new WantedVO("6", "신고하기", R.drawable.wantedimg1));
+//        adapter.addItem(new WantedVO("7", "신고하기", R.drawable.wantedimg2));
+//        adapter.addItem(new WantedVO("8", "신고하기", R.drawable.wantedimg3));
+//        adapter.addItem(new WantedVO("9", "신고하기", R.drawable.wantedimg4));
+//        adapter.addItem(new WantedVO("10", "신고하기", R.drawable.wantedimg5));
+//        adapter.addItem(new WantedVO("11", "신고하기", R.drawable.wantedimg1));
+//        adapter.addItem(new WantedVO("12", "신고하기", R.drawable.wantedimg2));
+//        adapter.addItem(new WantedVO("13", "신고하기", R.drawable.wantedimg3));
+//        adapter.addItem(new WantedVO("14", "신고하기", R.drawable.wantedimg4));
+
+        // GridView
+        for (int i = 0; i < data.size(); i++) {
+            Log.d("FragmentReport","GridView for문");
+            if(data != null){
+                Log.d("FragmentReport","GridView data not null");
+                addItem("num","imgName",i);
+            }else{
+                Log.d("FragmentReport","GridView data null");
+                Log.d("FragmentReport","item null");
+            }
+        }
 
         //리스트뷰에 Adapter 설정
         gridview.setAdapter(adapter);
 
         return view;
     }
+
+    public void addItem(String num, String imgName, int id) {
+        WantedVO item = new WantedVO("num","imgName",id);
+        item.setNum(num);
+        item.setName(imgName);
+        item.setResId(id);
+
+        if(item != null){
+            data.add(item);
+        }else{
+            Log.d("FragmentWanted","item null");
+        }
+
+    }
+
     /* 그리드뷰 어댑터 */
     class GridViewAdapter extends BaseAdapter {
         ArrayList<WantedVO> items = new ArrayList<WantedVO>();

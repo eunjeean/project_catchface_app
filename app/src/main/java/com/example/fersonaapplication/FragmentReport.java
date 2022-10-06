@@ -193,7 +193,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
             if(data != null){
                 addItem("img");
             }else{
-                Log.d("Fragment","item null");
+                Log.d("FragmentReport","item null");
             }
         }
 
@@ -241,7 +241,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         if(item != null){
             data.add(item);
         }else{
-            Log.d("Fragment","item null");
+            Log.d("FragmentReport","item null");
         }
     }
 

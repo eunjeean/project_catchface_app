@@ -38,7 +38,7 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
     RequestQueue requestQueue;
     Spinner citySpin, dongSpin;
     RadioButton dateRb, liveRb;
-    public static String id, pw, name, yy, mm, dd, date, city, dong, phone;
+    public static String id, pw, name, yy, mm, dd, date, city, dong, phone, date2;
     public static boolean check=false;
 
     @Override
@@ -128,13 +128,13 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
                         if(mm.length()==1){ mm = "0"+mm; }
                         dd = Integer.toString(i2);
                         if(dd.length()==1){ dd = "0"+dd; }
-                        dd = Integer.toString(i2);
                         check=true;
-                        date = yy+"."+mm+"."+dd+".";
+                        date = yy + mm + dd;
+                        date2 = yy+"."+mm+"."+dd+".";
                         joinTv.setVisibility(View.VISIBLE);
                         dateRb.setChecked(true);
                         dateRb.setButtonTintList(getResources().getColorStateList(R.color.pointOrange));
-                        joinTv.setText(date);
+                        joinTv.setText(date2);
                     }
                 });
     }
@@ -218,7 +218,6 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
         id = joinIdEt.getText().toString();
         pw = joinPwEt.getText().toString();
         name = joinNameEt.getText().toString();
-        date = yy + mm + dd;
         city = citySpin.getSelectedItem().toString();
         dong = dongSpin.getSelectedItem().toString();
         phone = phoneEt.getText().toString();

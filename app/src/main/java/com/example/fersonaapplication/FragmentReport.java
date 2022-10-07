@@ -70,7 +70,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
     EditText monMakeEt, reportConEt;
     Button step1Btn, step2Btn, step3Btn, repAdrBtn, step4Btn, wantedviewBtn, infoViewBtn, step5Btn, submitBtn;
     ImageButton monMake1Btn, monMake2Btn, monMake3Btn, monMake4Btn, voiceBtn;
-    ImageView wantedImg, monResultImg;
+    ImageView wantedImg, monResultImg, policeImg;
     RadioButton rd1, rd2, rd3, rd4, rd5, rd6, rd7;
     Spinner wantedSpin;
     TextView dateTv, timeTv, nameTv, phoneTv, wantedcontentTv;
@@ -147,6 +147,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
 
         wantedImg = view.findViewById(R.id.wantedImg); // step3 > 몽타주 이미지
         monResultImg = view.findViewById(R.id.monResultImg);
+        policeImg = view.findViewById(R.id.policeImg);
 
         rd1 = view.findViewById(R.id.rd1);
         rd2 = view.findViewById(R.id.rd2);
@@ -314,14 +315,17 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.policeImg:
+                Log.d("FragmentReport", "policeImg");
+                break;
             case R.id.voiceBtn:
-                Log.d("ReportAcitivity2", "음성녹음");
+                Log.d("FragmentReport", "음성녹음");
                 mRecognizer = SpeechRecognizer.createSpeechRecognizer(getActivity().getApplicationContext()); // 새 SpeechRecognizer 를 만드는 팩토리 메서드
                 mRecognizer.setRecognitionListener(listener); // 리스너 설정
                 mRecognizer.startListening(intent); // 듣기 시작
                 break;
             case R.id.step1Btn:
-                Log.d("ReportAcitivity2", "step1");
+                Log.d("FragmentReport", "step1");
                 step2Ll.setVisibility(View.GONE);
                 step3Ll.setVisibility(View.GONE);
                 step4Ll.setVisibility(View.GONE);
@@ -336,7 +340,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.step2Btn:
-                Log.d("ReportAcitivity2", "step2");
+                Log.d("FragmentReport", "step2");
                 step1Ll.setVisibility(View.GONE);
                 step3Ll.setVisibility(View.GONE);
                 step4Ll.setVisibility(View.GONE);
@@ -351,7 +355,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.step3Btn:
-                Log.d("ReportAcitivity2", "step3");
+                Log.d("FragmentReport", "step3");
                 step1Ll.setVisibility(View.GONE);
                 step2Ll.setVisibility(View.GONE);
                 step4Ll.setVisibility(View.GONE);
@@ -366,7 +370,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.step4Btn:
-                Log.d("ReportAcitivity2", "step4");
+                Log.d("FragmentReport", "step4");
                 step1Ll.setVisibility(View.GONE);
                 step2Ll.setVisibility(View.GONE);
                 step3Ll.setVisibility(View.GONE);
@@ -381,7 +385,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.step5Btn:
-                Log.d("ReportAcitivity2", "step5");
+                Log.d("FragmentReport", "step5");
                 step1Ll.setVisibility(View.GONE);
                 step2Ll.setVisibility(View.GONE);
                 step3Ll.setVisibility(View.GONE);
@@ -415,21 +419,21 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.repAdrBtn:
-                Log.d("ReportPage", "위치찾기");
+                Log.d("FragmentReport", "위치찾기");
                 Bundle adrargs = new Bundle();
                 PopupDialog adrPopup = new PopupDialog ("위치정보",R.string.map);
                 adrPopup.setArguments(adrargs);
                 adrPopup.show(getActivity().getSupportFragmentManager(), "위치정보");
                 break;
             case R.id.wantedviewBtn:
-                Log.d("ReportPage", "신고내용 공유동의");
+                Log.d("FragmentReport", "신고내용 공유동의");
                 Bundle shareargs = new Bundle();
                 PopupDialog sharePopup = new PopupDialog ("신고내용 공유동의",R.string.share);
                 sharePopup.setArguments(shareargs);
                 sharePopup.show(getActivity().getSupportFragmentManager(), "신고내용공유동의");
                 break;
             case R.id.infoViewBtn:
-                Log.d("ReportPage", "개인정보 수집동의");
+                Log.d("FragmentReport", "개인정보 수집동의");
                 Bundle infoargs = new Bundle();
                 PopupDialog infoPopup = new PopupDialog ("개인정보 수집동의",R.string.info);
                 infoPopup.setArguments(infoargs);

@@ -176,18 +176,32 @@
                     app:layout_constraintStart_toStartOf="@+id/passwordCkTv"
                     app:layout_constraintTop_toBottomOf="@+id/passwordCkTv" />
 
-                <RadioButton
-                    android:id="@+id/dateRb"
+                <LinearLayout
+                    android:id="@+id/linearLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:enabled="false"
-                    android:text="생년월일"
-                    android:textColor="@color/mainNavy"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="@+id/joinNameEt"
-                    app:layout_constraintStart_toStartOf="@+id/joinNameEt"
-                    app:layout_constraintTop_toBottomOf="@+id/joinNameEt" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/joinNameEt">
+
+                    <RadioButton
+                        android:id="@+id/dateRb"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        android:text="생년월일"
+                        android:textColor="@color/mainNavy"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/joinTv"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:hint="2022.10.00"
+                        android:visibility="gone" />
+                </LinearLayout>
 
                 <DatePicker
                     android:id="@+id/joinDate"
@@ -195,9 +209,9 @@
                     android:layout_height="wrap_content"
                     android:calendarViewShown="false"
                     android:datePickerMode="spinner"
-                    app:layout_constraintEnd_toEndOf="@+id/dateRb"
-                    app:layout_constraintStart_toStartOf="@+id/dateRb"
-                    app:layout_constraintTop_toBottomOf="@+id/dateRb" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
                 <RadioButton
                     android:id="@+id/liveRb"

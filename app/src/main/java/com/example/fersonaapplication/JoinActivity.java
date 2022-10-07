@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,13 +30,14 @@ import java.util.Map;
 
 public class JoinActivity extends AppCompatActivity implements View.OnClickListener {
 
-    TextView passwordCkTv,phoneTimeTv;
+    TextView passwordCkTv,phoneTimeTv,joinTv;
     EditText joinIdEt, joinPwEt, joinPwCkEt,joinNameEt, phoneEt,phoneCkEt;
     Button idCheckBtn, phoneBtn, submitBtn;
     DatePicker joinDate;
     ImageView logoImg;
     RequestQueue requestQueue;
     Spinner citySpin, dongSpin;
+    RadioButton dateRb, liveRb;
     public static String id, pw, name, yy, mm, dd, date, city, dong, phone;
     public static boolean check=false;
 
@@ -47,6 +50,7 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
 
         passwordCkTv = findViewById(R.id.passwordCkTv);
         phoneTimeTv = findViewById(R.id.phoneTimeTv);
+        joinTv = findViewById(R.id.joinTv);
 
         joinIdEt = findViewById(R.id.joinIdEt);
         joinPwEt = findViewById(R.id.joinPwEt);
@@ -63,21 +67,17 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
         phoneBtn = findViewById(R.id.phoneBtn);
         submitBtn = findViewById(R.id.submitBtn);
 
+        dateRb = findViewById(R.id.dateRb);
+        liveRb = findViewById(R.id.liveRb);
+
         logoImg.setOnClickListener(this);
         idCheckBtn.setOnClickListener(this);
         phoneBtn.setOnClickListener(this);
         submitBtn.setOnClickListener(this);
 
-        joinDate.init(joinDate.getYear(), joinDate.getMonth(), joinDate.getDayOfMonth(),
-                new DatePicker.OnDateChangedListener() {
-                    @Override
-                    public void onDateChanged(DatePicker datePicker, int i, int i1, int i2) {
-                        yy = Integer.toString(i);
-                        mm = Integer.toString(i1+1); // 핸드폰 연결해서 확인해봐야 함!
-                        dd = Integer.toString(i2);
-                        check=true;
-                    }
-                });
+        joinDate_show(); // 회원생년월일 스피너
+
+        liveAdr_show(); // 회원주소 스피너
 
         password_check(); // 비밀번호 동일한지 확인
 
@@ -87,6 +87,8 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
+
+
 
     @Override
     public void onClick(View view) {
@@ -113,6 +115,50 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
 
+    }
+
+    // 회원생년월일 스피너
+    private void joinDate_show() {
+        joinDate.init(joinDate.getYear(), joinDate.getMonth(), joinDate.getDayOfMonth(),
+                new DatePicker.OnDateChangedListener() {
+                    @Override
+                    public void onDateChanged(DatePicker datePicker, int i, int i1, int i2) {
+                        yy = Integer.toString(i);
+                        mm = Integer.toString(i1+1); // 핸드폰 연결해서 확인해봐야 함!
+                        if(mm.length()==1){ mm = "0"+mm; }
+                        dd = Integer.toString(i2);
+                        if(dd.length()==1){ dd = "0"+dd; }
+                        dd = Integer.toString(i2);
+                        check=true;
+                        date = yy+"."+mm+"."+dd+".";
+                        joinTv.setVisibility(View.VISIBLE);
+                        dateRb.setChecked(true);
+                        dateRb.setButtonTintList(getResources().getColorStateList(R.color.pointOrange));
+                        joinTv.setText(date);
+                    }
+                });
+    }
+
+    // 회원주소 스피너
+    private void liveAdr_show() {
+        citySpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                if(!citySpin.getSelectedItem().toString().equals("선택(시)") && !dongSpin.getSelectedItem().toString().equals("선택(동)")){
+                    liveRb.setChecked(true);
+                    liveRb.setButtonTintList(getResources().getColorStateList(R.color.pointOrange));
+                }else{
+                    liveRb.setChecked(false);
+                    liveRb.setButtonTintList(getResources().getColorStateList(R.color.btnGray));
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
     // 아이디 중복 확인

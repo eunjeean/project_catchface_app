@@ -2,47 +2,51 @@ package com.example.fersonaapplication;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Color;
+import android.content.Intent;
+import android.text.Layout;
 import android.util.Log;
-import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class MonRAdapter extends RecyclerView.Adapter<MonRAdapter.ViewHolder> {
+public class WantedAdapter extends RecyclerView.Adapter<WantedAdapter.ViewHolder>{
     private int selectedPosition = -1;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        LinearLayout wantedLl,wantedItemLl;
         ImageView wantedItemImg;
+        TextView wantedItemTv;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            wantedLl = itemView.findViewById(R.id.wantedLl);
+            wantedItemLl = itemView.findViewById(R.id.wantedItemLl);
             wantedItemImg = itemView.findViewById(R.id.wantedItemImg);
+            wantedItemTv = itemView.findViewById(R.id.wantedItemTv);
         }
     }
-
-    private ArrayList<MonFaceListVO> mList = null;
-
-    public MonRAdapter(ArrayList<MonFaceListVO> mList) {
+    private ArrayList<WantedVO> mList = null;
+    public WantedAdapter(ArrayList<WantedVO> mList) {
         this.mList = mList;
     }
 
-    // 아이템 뷰를 위한 뷰홀더 객체를 생성하여 리턴
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        View view = inflater.inflate(R.layout.monlist_item, parent, false);
-        MonRAdapter.ViewHolder vh = new MonRAdapter.ViewHolder(view);
+        View view = inflater.inflate(R.layout.wanted_ltem, parent, false);
+        WantedAdapter.ViewHolder vh = new WantedAdapter.ViewHolder(view);
         return vh;
     }
 
@@ -50,25 +54,26 @@ public class MonRAdapter extends RecyclerView.Adapter<MonRAdapter.ViewHolder> {
     @SuppressLint("RecyclerView")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        MonFaceListVO item = mList.get(position);
-        holder.wantedItemImg.setImageResource(R.drawable.wantedimg_list_test);   // 기본 파일로 이미지 띄움
+        WantedVO item = mList.get(position);
+
+        holder.wantedItemImg.setImageResource(mList.get(position).getResId());  // 위치에 해당 이미지 적용
+        Log.d("테스트","position : "+mList.get(position).getResId());
+        holder.wantedItemTv.setText("신고하기");
 
         if (selectedPosition == position) {
-            holder.wantedItemImg.setBackgroundResource(R.color.pointOrange);
+            holder.wantedItemLl.setBackgroundResource(R.color.pointOrange);
         } else {
-            holder.wantedItemImg.setBackgroundResource(R.color.white);
+            holder.wantedItemLl.setBackgroundResource(R.color.white);
         }
 
         holder.wantedItemImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 selectedPosition = position;
                 notifyDataSetChanged();
 
             }
         });//End
-
     }
 
     @Override

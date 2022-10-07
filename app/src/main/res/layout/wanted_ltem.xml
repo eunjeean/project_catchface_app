@@ -2,31 +2,36 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:id="@+id/wantedLl"
     android:weightSum="3"
     android:padding="5dp">
 
     <LinearLayout
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/wantedItemLl"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
         android:layout_gravity="center"
+        android:padding="5dp"
         android:orientation="vertical">
 
         <ImageView
             android:id="@+id/wantedItemImg"
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="200dp"
             android:background="@color/subGray"
-            android:padding="3dp" />
+            android:layout_weight="2"
+            android:src="@drawable/wantedimg1"
+            />
 
         <TextView
             android:id="@+id/wantedItemTv"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="50"
+            android:layout_height="wrap_content"
             android:background="@color/subGray"
+            android:layout_weight="0.1"
             android:gravity="center"
             android:text="신고하기"
             android:textColor="@color/mainNavy"

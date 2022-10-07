@@ -13,6 +13,10 @@ public class WantedVO {
         this.resId = resId;
     }
 
+    public WantedVO(String num, int imgId) {
+        this.num = num;
+    }
+
     public String getNum() {
         return num;
     }

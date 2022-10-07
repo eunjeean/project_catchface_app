@@ -36,6 +36,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -172,6 +174,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         wantedCk = view.findViewById(R.id.wantedCk);
         infoCk = view.findViewById(R.id.infoCk);
 
+        policeImg.setOnClickListener(this);
         step1Btn.setOnClickListener(this);
         step2Btn.setOnClickListener(this);
         step3Btn.setOnClickListener(this);
@@ -317,6 +320,8 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         switch (view.getId()) {
             case R.id.policeImg:
                 Log.d("FragmentReport", "policeImg");
+                Intent policeIntent = new Intent(getActivity().getApplicationContext(), MapActivity.class);
+                startActivity(policeIntent);
                 break;
             case R.id.voiceBtn:
                 Log.d("FragmentReport", "음성녹음");

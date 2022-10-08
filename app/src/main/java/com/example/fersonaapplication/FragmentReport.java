@@ -39,6 +39,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -68,11 +69,12 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
 
 
     ScrollView scrollView;
+    FragmentMypage fragmentMypage;
     LinearLayout mainLl, step1Ll, step2Ll, step3Ll, step4Ll, step5Ll;
     EditText monMakeEt, reportConEt;
     Button step1Btn, step2Btn, step3Btn, repAdrBtn, step4Btn, wantedviewBtn, infoViewBtn, step5Btn, submitBtn;
     ImageButton monMake1Btn, monMake2Btn, monMake3Btn, monMake4Btn, voiceBtn;
-    ImageView wantedImg, monResultImg, policeImg;
+    ImageView wantedImg, monResultImg, userImg;
     RadioButton rd1, rd2, rd3, rd4, rd5, rd6, rd7;
     Spinner wantedSpin;
     TextView dateTv, timeTv, nameTv, phoneTv, wantedcontentTv;
@@ -85,24 +87,6 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
     SpeechRecognizer mRecognizer;
     String reportCont = null;
     String reportWanted = null;
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Fragment2.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static FragmentReport newInstance(String param1, String param2) {
-        FragmentReport fragment = new FragmentReport();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -149,7 +133,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
 
         wantedImg = view.findViewById(R.id.wantedImg); // step3 > 몽타주 이미지
         monResultImg = view.findViewById(R.id.monResultImg);
-        policeImg = view.findViewById(R.id.policeImg);
+        userImg = view.findViewById(R.id.userImg);
 
         rd1 = view.findViewById(R.id.rd1);
         rd2 = view.findViewById(R.id.rd2);
@@ -174,7 +158,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         wantedCk = view.findViewById(R.id.wantedCk);
         infoCk = view.findViewById(R.id.infoCk);
 
-        policeImg.setOnClickListener(this);
+        userImg.setOnClickListener(this);
         step1Btn.setOnClickListener(this);
         step2Btn.setOnClickListener(this);
         step3Btn.setOnClickListener(this);
@@ -191,6 +175,8 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         monMake2Btn.setOnClickListener(this);
         monMake3Btn.setOnClickListener(this);
         monMake4Btn.setOnClickListener(this);
+
+
 
         // RecyclerView
         for (int i = 0; i < 4; i++) {
@@ -236,6 +222,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         ReportTime();
 
         submitBtn.setVisibility(View.GONE);
+
         return view;
     }
 
@@ -318,10 +305,11 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.policeImg:
-                Log.d("FragmentReport", "policeImg");
-                Intent policeIntent = new Intent(getActivity().getApplicationContext(), MapActivity.class);
-                startActivity(policeIntent);
+            case R.id.userImg:
+                Log.d("FragmentReport", "userImg");
+
+                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fl, new FragmentMypage()).commit();
+
                 break;
             case R.id.voiceBtn:
                 Log.d("FragmentReport", "음성녹음");
@@ -591,4 +579,5 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
             Toast.makeText(getActivity().getApplicationContext(), "취소 되었습니다.😣", Toast.LENGTH_SHORT).show();
         }
     }
+
 }

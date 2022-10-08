@@ -2,15 +2,18 @@ package com.example.fersonaapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-public class MainActivity2 extends AppCompatActivity {
+public class MainActivity2 extends AppCompatActivity{
 
     BottomNavigationView bnv;
     FrameLayout fl;
@@ -22,7 +25,6 @@ public class MainActivity2 extends AppCompatActivity {
 
         bnv = findViewById(R.id.bnv);
         fl = findViewById(R.id.fl);
-
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fl, new FragmentReport()).commit();
 
@@ -38,11 +40,11 @@ public class MainActivity2 extends AppCompatActivity {
                         break;
                     case R.id.tab2:
 //                        Toast.makeText(MainActivity2.this, "신고하기", Toast.LENGTH_SHORT).show();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fl, new FragmentReport()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fl,new FragmentReport()).commit();
                         break;
                     case R.id.tab3:
-//                        Toast.makeText(MainActivity2.this, "내 정보", Toast.LENGTH_SHORT).show();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fl, new FragmentMypage()).commit();
+//                        Toast.makeText(MainActivity2.this, "지도", Toast.LENGTH_SHORT).show();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fl, new FragmentMap()).commit();
                         break;
                 }
 
@@ -52,4 +54,5 @@ public class MainActivity2 extends AppCompatActivity {
 
 
     }
+
 }

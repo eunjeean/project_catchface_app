@@ -1,5 +1,6 @@
 package com.example.fersonaapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -12,8 +13,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 
 public class FragmentMypage extends Fragment implements View.OnClickListener {
@@ -35,6 +44,10 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
     ImageView logo;
     Button mypageBtn, myReportBtn;
     ConstraintLayout myPageCl,myReportCl;
+    TextView myIdTv, phoneTv;
+    EditText nameTv, addressTv;
+    public static String a, id, pw, name, date, city, dong, phone;
+
 
     public FragmentMypage() {
         // Required empty public constructor
@@ -63,6 +76,11 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
         myPageCl = view.findViewById(R.id.myPageCl);
         myReportCl = view.findViewById(R.id.myReportCl);
 
+        myIdTv = view.findViewById(R.id.myIdTv);
+        nameTv = view.findViewById(R.id.nameTv);
+        phoneTv = view.findViewById(R.id.phoneTv);
+        addressTv = view.findViewById(R.id.addressTv);
+
         myPageCl.setVisibility(View.INVISIBLE);
         wantedListRv.setVisibility(View.VISIBLE);
 
@@ -73,6 +91,8 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
         for(int i=0;i<5;i++){
             addItem("reportCate","reportDate");
         }
+
+
 
         adapter = new MyReportAdapter(data);
         wantedListRv.setAdapter(adapter);

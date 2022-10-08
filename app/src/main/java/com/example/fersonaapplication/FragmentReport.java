@@ -82,6 +82,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
     SpeechRecognizer mRecognizer;
     String reportCont = null;
     String reportWanted = null;
+    public static String a;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -167,11 +168,19 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         infoViewBtn.setOnClickListener(this);
         submitBtn.setOnClickListener(this);
 
+
+
+
+
+
+
         // 몽타주 4개 이미지 리스트
         monMake1Btn.setOnClickListener(this);
         monMake2Btn.setOnClickListener(this);
         monMake3Btn.setOnClickListener(this);
         monMake4Btn.setOnClickListener(this);
+
+
 
 
 
@@ -387,9 +396,36 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                     step2Ll.setVisibility(View.GONE);
                     step3Ll.setVisibility(View.GONE);
                     step4Ll.setVisibility(View.GONE);
+
+//                    Bundle bundle = this.getArguments();
+//                    if(bundle != null) {
+//                        bundle = getArguments();
+//                        String id = bundle.getString("id");
+//                        String phone = bundle.getString("phone");
+//                        nameTv.setText(id);
+//                        phoneTv.setText(phone);
+//                        Toast.makeText(getActivity(),id + " : " + phone,Toast.LENGTH_SHORT).show();
+//                        Log.d("report",id + " : " + phone);
+//                    }
+
+
+
+
+
                 } else {
                     step5Ll.setVisibility(View.VISIBLE);
                 }
+
+                Bundle extra = this.getArguments();
+                if(extra != null) {
+                    extra = getArguments();
+                    String response = extra.getString("response");
+                    String id = extra.getString("id");
+                    String pw = extra.getString("pw");
+                    Toast.makeText(getActivity(),id + " : " + pw,Toast.LENGTH_SHORT).show();
+                    Log.d("report",id + " : " + pw);
+                }
+
 
                 // 인적사항
                 // nameTv, phoneTv

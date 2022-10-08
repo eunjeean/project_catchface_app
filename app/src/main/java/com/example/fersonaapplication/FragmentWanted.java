@@ -27,7 +27,7 @@ import java.util.List;
  * Use the {@link FragmentWanted#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentWanted extends Fragment {
+public class FragmentWanted extends Fragment implements View.OnClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -48,6 +48,8 @@ public class FragmentWanted extends Fragment {
     private RecyclerView wantedRv;
     private WantedAdapter wadapter;
     private GridLayoutManager gManager;
+
+    ImageView userImg;
 
 
     public FragmentWanted() {
@@ -93,6 +95,8 @@ public class FragmentWanted extends Fragment {
         gManager = new GridLayoutManager(getActivity().getApplicationContext(), numberOfColumns);
         wantedRv.setLayoutManager(gManager);
 
+        userImg = view.findViewById(R.id.userImg);
+
         wList.add(new WantedVO("1", R.drawable.wantedimg1));
         wList.add(new WantedVO("2", R.drawable.wantedimg2));
         wList.add(new WantedVO("3", R.drawable.wantedimg3));
@@ -136,6 +140,7 @@ public class FragmentWanted extends Fragment {
         wantedRv.setAdapter(wadapter);
         Log.d("FragmentWanted","WantedAdapter 연결");
 
+        userImg.setOnClickListener(this);
         return view;
     }
 
@@ -149,6 +154,18 @@ public class FragmentWanted extends Fragment {
             wList.add(item);
         }else{
             Log.d("FragmentWanted","item null");
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.userImg:
+                Log.d("FragmentWanted", "userImg");
+
+                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fl, new FragmentMypage()).commit();
+
+                break;
         }
     }
 

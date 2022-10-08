@@ -48,5 +48,29 @@
     <string name="map">위치찾기😀</string>
     <string name="share">신고내용공유동의🤩</string>
     <string name="info">개인정보수집동의Test😀</string>
+    <string name="title_activity_map2">MapActivity2</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <!--  파출소 선택  -->
+    <string-array name="police_Spin">
+        <item>경찰서를 선택해주세요</item>
+        <item>광주광산경찰서</item>
+        <item>광주동부경찰서</item>
+        <item>광주서부경찰서</item>
+        <item>광주남부경찰서</item>
+        <item>광주북부경찰서</item>
+    </string-array>
+
+    <string name="policeSelect">경찰서를 선택해주세요</string>
+
+    <!-- kakao api key -->
+    <string name="restapi_key">KakaoAK b25397b4b2cbb55f3e408c5926f6dbd0</string>
 
 </resources>

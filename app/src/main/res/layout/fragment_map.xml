@@ -8,14 +8,32 @@
     tools:context=".FragmentMap"
     >
 
-<!--    <Spinner-->
-<!--        android:id="@+id/mapSpin"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="top|center"-->
-<!--        android:layout_weight="1"-->
-<!--        android:entries="@array/wanted_Spinner"-->
-<!--        android:gravity="center" />-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:hint="검색할 장소를 입력 후 선택해주세요"
+            android:id="@+id/map_et_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            />
+
+        <Spinner
+            android:id="@+id/policeSpin"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:entries="@array/police_Spin"
+            android:textAlignment="center"
+            android:layout_gravity="center" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/map_recyclerview"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/mapView"
@@ -25,5 +43,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </LinearLayout>
 
 </FrameLayout>

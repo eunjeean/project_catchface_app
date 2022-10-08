@@ -16,4 +16,13 @@
         <!-- 타이틀바 없애기 -->
         <item name="windowNoTitle">true</item>
     </style>
+
+    <style name="Theme.FersonaApplication.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.FersonaApplication.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.FersonaApplication.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

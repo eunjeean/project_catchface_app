@@ -552,6 +552,27 @@
                 </LinearLayout>
 
                 <RadioButton
+                    android:id="@+id/rd8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/pointOrange"
+                    android:checked="true"
+                    android:enabled="false"
+                    android:text="신고내용"
+                    android:textColor="@color/mainNavy"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/reportGetTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="신고내용이 작성됩니다."
+                    android:padding="4dp"
+                    android:textColor="@color/mainNavy"
+                    android:textSize="15sp" />
+
+                <RadioButton
                     android:id="@+id/rd7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

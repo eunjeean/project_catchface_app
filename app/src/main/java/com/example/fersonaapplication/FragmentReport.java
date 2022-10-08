@@ -46,11 +46,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FragmentReport#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class FragmentReport extends Fragment implements View.OnClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -75,9 +70,9 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
     Button step1Btn, step2Btn, step3Btn, repAdrBtn, step4Btn, wantedviewBtn, infoViewBtn, step5Btn, submitBtn;
     ImageButton monMake1Btn, monMake2Btn, monMake3Btn, monMake4Btn, voiceBtn;
     ImageView wantedImg, monResultImg, userImg;
-    RadioButton rd1, rd2, rd3, rd4, rd5, rd6, rd7;
+    RadioButton rd1, rd2, rd3, rd4, rd5, rd6, rd7,rd8;
     Spinner wantedSpin;
-    TextView dateTv, timeTv, nameTv, phoneTv, wantedcontentTv;
+    TextView dateTv, timeTv, nameTv, phoneTv, wantedcontentTv, reportGetTv;
     DatePicker repDate;
     TimePicker repTime;
     CheckBox wantedCk, infoCk;
@@ -142,6 +137,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         rd5 = view.findViewById(R.id.rd5);
         rd6 = view.findViewById(R.id.rd6);
         rd7 = view.findViewById(R.id.rd7);
+        rd8 = view.findViewById(R.id.rd8);
 
         wantedSpin = view.findViewById(R.id.wantedSpin); // 범죄유형
 
@@ -150,6 +146,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         nameTv = view.findViewById(R.id.nameTv);
         phoneTv = view.findViewById(R.id.phoneTv);
         wantedcontentTv = view.findViewById(R.id.wantedcontentTv);
+        reportGetTv = view.findViewById(R.id.reportGetTv);
 
         repDate = view.findViewById(R.id.repDate); // 사건발생일자
 
@@ -225,6 +222,8 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
 
         return view;
     }
+
+
 
     public void addItem(String imgName) {
         MonFaceListVO item = new MonFaceListVO();
@@ -396,8 +395,9 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                 // nameTv, phoneTv
                 // DB연결되면 사용자 정보 불러오기
 
+                // 신고내용
+                reportGetTv.setText(reportConEt.getText().toString());
                 // 목격내용
-//                wantedcontentTv.getText().toString().equals(monMakeEt);
                 wantedcontentTv.setText(monMakeEt.getText().toString());
                 // 몽타주
                 // monMake1Btn monMake2Btn monMake3Btn monMake4Btn

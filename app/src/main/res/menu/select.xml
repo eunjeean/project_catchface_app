@@ -18,7 +18,7 @@
 <!--        android:title="내 정보" />-->
     <item
         android:id="@+id/tab3"
-        android:icon="@android:drawable/ic_menu_add"
+        android:icon="@drawable/icon_menu_map"
         android:enabled="true"
         android:title="파출소" />
 

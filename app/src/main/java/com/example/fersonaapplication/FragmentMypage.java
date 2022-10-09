@@ -91,25 +91,8 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
         myReportBtn.setOnClickListener(this);
 
 
-        SharedPreferences sharedPreferences = getContext().getSharedPreferences(shared, Context.MODE_PRIVATE);
-        id = sharedPreferences.getString("id", "");
-        pw = sharedPreferences.getString("pw", "");
-        name = sharedPreferences.getString("name", "");
-        date = sharedPreferences.getString("date", "");
-        city = sharedPreferences.getString("city", "");
-        dong = sharedPreferences.getString("dong", "");
-        phone = sharedPreferences.getString("phone", "");
-        myIdTv.setText(id);
-        nameTv.setText(name);
-        phoneTv.setText(phone);
-        addressTv.setText(city + " " + dong);
-
-
-
-
-
-
-
+        // LoginActivity에서 로그인 정보 불러오기
+        loginContext();
 
 
         // RecyclerView
@@ -124,6 +107,22 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
         wantedListRv.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
 
         return view;
+    }
+
+    // LoginActivity에서 로그인 정보 불러오기
+    private void loginContext() {
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences(shared, Context.MODE_PRIVATE);
+        id = sharedPreferences.getString("id", "");
+        pw = sharedPreferences.getString("pw", "");
+        name = sharedPreferences.getString("name", "");
+        date = sharedPreferences.getString("date", "");
+        city = sharedPreferences.getString("city", "");
+        dong = sharedPreferences.getString("dong", "");
+        phone = sharedPreferences.getString("phone", "");
+        myIdTv.setText(id);
+        nameTv.setText(name);
+        phoneTv.setText(phone);
+        addressTv.setText(city + " " + dong);
     }
 
     public void addItem(String reportCate, String reportDate){

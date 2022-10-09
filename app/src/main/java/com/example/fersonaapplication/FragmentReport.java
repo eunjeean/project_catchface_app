@@ -178,7 +178,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
     }
 
 
-    // LoginActivity에서 로그인 정보 불러오기 & Mypage로 값 넘기기
+    // LoginActivity에서 로그인 정보 불러오기
     private void loginContent() {
         SharedPreferences sharedPreferences = getContext().getSharedPreferences(shared, Context.MODE_PRIVATE);
         id = sharedPreferences.getString("id", "");

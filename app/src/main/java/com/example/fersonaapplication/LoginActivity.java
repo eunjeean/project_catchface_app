@@ -38,7 +38,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     EditText loginIdEt, loginPwEt;
     Button loginBtn, joinBtn;
     RequestQueue requestQueue;
-    public static String id, pw, url, name, date, city, dong, phone;
+    public static String loginAll, id, pw, url, name, date, city, dong, phone;
+    public static String shared = "fersona";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,26 +65,21 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         switch (view.getId()){
             case R.id.loginBtn:
                 Log.d("login","click_loginBtn");
-
                 id = loginIdEt.getText().toString();
                 pw = loginPwEt.getText().toString();
-
                 url = "http://121.147.52.96:5000/login";
 
-
-
                 StringRequest request = new StringRequest(
-                        Request.Method.POST,
-                        url,
+                        Request.Method.POST, url,
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
                                 Toast.makeText(LoginActivity.this, "연결성공😊", Toast.LENGTH_SHORT).show();
                                 Intent reportIntent = new Intent(LoginActivity.this, MainActivity2.class);
 //                                reportIntent.putExtra("response", response);
-
                                 try {
                                     JSONArray array = new JSONArray(response);
+                                    loginAll = response;
                                     id = array.getString(0);
                                     pw = array.getString(1);
                                     name = array.getString(2);
@@ -91,23 +87,21 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                     city = array.getString(4);
                                     dong = array.getString(5);
                                     phone = array.getString(6);
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
+                                } catch (JSONException e) {  e.printStackTrace(); }
 
-                                SharedPreferences sharedPreferences = getSharedPreferences("test", MODE_PRIVATE);    // test 이름의 기본모드 설정
+                                SharedPreferences sharedPreferences = getSharedPreferences(shared, MODE_PRIVATE);    // test 이름의 기본모드 설정
                                 SharedPreferences.Editor editor = sharedPreferences.edit(); //sharedPreferences를 제어할 editor를 선언
-                                editor.putString("id", id); // key,value 형식으로 저장
-                                editor.putString("pw", pw); // key,value 형식으로 저장
-                                editor.putString("name", name); // key,value 형식으로 저장
-                                editor.putString("date", date); // key,value 형식으로 저장
-                                editor.putString("city", city); // key,value 형식으로 저장
-                                editor.putString("dong", dong); // key,value 형식으로 저장
-                                editor.putString("phone", phone); // key,value 형식으로 저장
+                                editor.putString("loginALl", loginAll);
+                                editor.putString("id", id);
+                                editor.putString("pw", pw);
+                                editor.putString("name", name);
+                                editor.putString("date", date);
+                                editor.putString("city", city);
+                                editor.putString("dong", dong);
+                                editor.putString("phone", phone);
                                 editor.commit();    //최종 커밋. 커밋을 해야 저장이 된다.
-
-//                                FragmentView(1);
                                 startActivity(reportIntent);
+//                                FragmentView(1);
 
                             }
                         },
@@ -157,14 +151,5 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         }
     }
-    // 로그아웃시 프라그먼트1로 가기
-    private void FragmentView(int i) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        switch (i){
-            case 1:
-                FragmentReport fragment1 = new FragmentReport();
-                transaction.replace(R.id.fl,fragment1);
-                transaction.commit();
-        }
-    }
+
 }

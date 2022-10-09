@@ -3,13 +3,16 @@ package com.example.fersonaapplication;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
@@ -40,8 +43,12 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -82,7 +89,8 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
     SpeechRecognizer mRecognizer;
     String reportCont = null;
     String reportWanted = null;
-    public static String a;
+    public static String loginAll, id, pw, name, date, city, dong, phone;
+    public static String shared = "fersona";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -98,63 +106,8 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_report, container, false);
 
-        scrollView = view.findViewById(R.id.scrollView);
-        wantedListRv = view.findViewById(R.id.wantedListRv); // 수배자 4명 리스트
-
-        mainLl = view.findViewById(R.id.mainLl);
-        step1Ll = view.findViewById(R.id.step1Ll);
-        step2Ll = view.findViewById(R.id.step2Ll);
-        step3Ll = view.findViewById(R.id.step3Ll);
-        step4Ll = view.findViewById(R.id.step4Ll);
-        step5Ll = view.findViewById(R.id.step5Ll);
-
-        monMakeEt = view.findViewById(R.id.monMakeEt); // 목격한 인물 내용 작성
-        reportConEt = view.findViewById(R.id.reportConEt); // 신고내용 작성
-
-        step1Btn = view.findViewById(R.id.step1Btn);
-        step2Btn = view.findViewById(R.id.step2Btn);
-        step3Btn = view.findViewById(R.id.step3Btn);
-        repAdrBtn = view.findViewById(R.id.repAdrBtn); // 신고발생 위치찾기 버튼
-        step4Btn = view.findViewById(R.id.step4Btn);
-        wantedviewBtn = view.findViewById(R.id.wantedviewBtn);
-        infoViewBtn = view.findViewById(R.id.infoViewBtn);
-        step5Btn = view.findViewById(R.id.step5Btn);
-        submitBtn = view.findViewById(R.id.submitBtn);
-
-        monMake1Btn = view.findViewById(R.id.monMake1Btn);
-        monMake2Btn = view.findViewById(R.id.monMake2Btn);
-        monMake3Btn = view.findViewById(R.id.monMake3Btn);
-        monMake4Btn = view.findViewById(R.id.monMake4Btn);
-        voiceBtn = view.findViewById(R.id.voiceBtn); // 음성녹음 버튼
-
-        wantedImg = view.findViewById(R.id.wantedImg); // step3 > 몽타주 이미지
-        monResultImg = view.findViewById(R.id.monResultImg);
-        userImg = view.findViewById(R.id.userImg);
-
-        rd1 = view.findViewById(R.id.rd1);
-        rd2 = view.findViewById(R.id.rd2);
-        rd3 = view.findViewById(R.id.rd3);
-        rd4 = view.findViewById(R.id.rd4);
-        rd5 = view.findViewById(R.id.rd5);
-        rd6 = view.findViewById(R.id.rd6);
-        rd7 = view.findViewById(R.id.rd7);
-        rd8 = view.findViewById(R.id.rd8);
-
-        wantedSpin = view.findViewById(R.id.wantedSpin); // 범죄유형
-
-        dateTv = view.findViewById(R.id.dateTv);
-        timeTv = view.findViewById(R.id.timeTv);
-        nameTv = view.findViewById(R.id.nameTv);
-        phoneTv = view.findViewById(R.id.phoneTv);
-        wantedcontentTv = view.findViewById(R.id.wantedcontentTv);
-        reportGetTv = view.findViewById(R.id.reportGetTv);
-
-        repDate = view.findViewById(R.id.repDate); // 사건발생일자
-
-        repTime = view.findViewById(R.id.repTime); // 사건발생시간
-
-        wantedCk = view.findViewById(R.id.wantedCk);
-        infoCk = view.findViewById(R.id.infoCk);
+        // viewFindViewById 너무너무 길어서 메소드 만들어버려썽용! 맨 밑에 있습니당!ㅎㅎ
+        viewFindViewById(view);
 
         userImg.setOnClickListener(this);
         step1Btn.setOnClickListener(this);
@@ -169,19 +122,14 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         submitBtn.setOnClickListener(this);
 
 
-
-
-
-
+        // LoginActivity에서 로그인 정보 불러오기
+        loginContent();
 
         // 몽타주 4개 이미지 리스트
         monMake1Btn.setOnClickListener(this);
         monMake2Btn.setOnClickListener(this);
         monMake3Btn.setOnClickListener(this);
         monMake4Btn.setOnClickListener(this);
-
-
-
 
 
         // RecyclerView
@@ -221,17 +169,29 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
             }
         });
 
-        // 사건발생일자
-        ReportDate();
-
-        // 사건발생시간
-        ReportTime();
+        ReportDate(); // 사건발생일자
+        ReportTime(); // 사건발생시간
 
         submitBtn.setVisibility(View.GONE);
 
         return view;
     }
 
+
+    // LoginActivity에서 로그인 정보 불러오기 & Mypage로 값 넘기기
+    private void loginContent() {
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences(shared, Context.MODE_PRIVATE);
+        id = sharedPreferences.getString("id", "");
+        pw = sharedPreferences.getString("pw", "");
+        name = sharedPreferences.getString("name", "");
+        date = sharedPreferences.getString("date", "");
+        city = sharedPreferences.getString("city", "");
+        dong = sharedPreferences.getString("dong", "");
+        phone = sharedPreferences.getString("phone", "");
+        nameTv.setText(name);
+        phoneTv.setText(phone);
+
+    }
 
 
     public void addItem(String imgName) {
@@ -291,7 +251,6 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                 timeTv.setVisibility(View.VISIBLE);
                 rd4.setChecked(true);
                 rd4.setButtonTintList(ColorStateList.valueOf(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.pointOrange)));
-
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     hour = repTime.getHour();
                     min = repTime.getMinute();
@@ -299,7 +258,6 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                     hour = repTime.getCurrentHour();
                     min = repTime.getCurrentMinute();
                 }
-
                 if (hour >= 12) {
                     timeTv.setText(String.format("PM " + "%d : %d", hour, min));
                 } else {
@@ -315,9 +273,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         switch (view.getId()) {
             case R.id.userImg:
                 Log.d("FragmentReport", "userImg");
-
                 requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fl, new FragmentMypage()).commit();
-
                 break;
             case R.id.voiceBtn:
                 Log.d("FragmentReport", "음성녹음");
@@ -397,39 +353,9 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                     step3Ll.setVisibility(View.GONE);
                     step4Ll.setVisibility(View.GONE);
 
-//                    Bundle bundle = this.getArguments();
-//                    if(bundle != null) {
-//                        bundle = getArguments();
-//                        String id = bundle.getString("id");
-//                        String phone = bundle.getString("phone");
-//                        nameTv.setText(id);
-//                        phoneTv.setText(phone);
-//                        Toast.makeText(getActivity(),id + " : " + phone,Toast.LENGTH_SHORT).show();
-//                        Log.d("report",id + " : " + phone);
-//                    }
-
-
-
-
-
                 } else {
                     step5Ll.setVisibility(View.VISIBLE);
                 }
-
-                Bundle extra = this.getArguments();
-                if(extra != null) {
-                    extra = getArguments();
-                    String response = extra.getString("response");
-                    String id = extra.getString("id");
-                    String pw = extra.getString("pw");
-                    Toast.makeText(getActivity(),id + " : " + pw,Toast.LENGTH_SHORT).show();
-                    Log.d("report",id + " : " + pw);
-                }
-
-
-                // 인적사항
-                // nameTv, phoneTv
-                // DB연결되면 사용자 정보 불러오기
 
                 // 신고내용
                 reportGetTv.setText(reportConEt.getText().toString());
@@ -502,6 +428,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         }
     }
 
+    // 음성 인식
     private RecognitionListener listener = new RecognitionListener() {
         @Override
         public void onReadyForSpeech(Bundle params) {
@@ -511,8 +438,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         }
 
         @Override
-        public void onBeginningOfSpeech() {
-            // 말하기 시작했을 때 호출
+        public void onBeginningOfSpeech() { // 말하기 시작했을 때 호출
         }
 
         @Override
@@ -614,6 +540,67 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         } else {
             Toast.makeText(getActivity().getApplicationContext(), "취소 되었습니다.😣", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    // viewFindViewById 너무너무 길어서 메소드 만들어버려썽용!
+    private void viewFindViewById(View view) {
+        scrollView = view.findViewById(R.id.scrollView);
+        wantedListRv = view.findViewById(R.id.wantedListRv); // 수배자 4명 리스트
+
+        mainLl = view.findViewById(R.id.mainLl);
+        step1Ll = view.findViewById(R.id.step1Ll);
+        step2Ll = view.findViewById(R.id.step2Ll);
+        step3Ll = view.findViewById(R.id.step3Ll);
+        step4Ll = view.findViewById(R.id.step4Ll);
+        step5Ll = view.findViewById(R.id.step5Ll);
+
+        monMakeEt = view.findViewById(R.id.monMakeEt); // 목격한 인물 내용 작성
+        reportConEt = view.findViewById(R.id.reportConEt); // 신고내용 작성
+
+        step1Btn = view.findViewById(R.id.step1Btn);
+        step2Btn = view.findViewById(R.id.step2Btn);
+        step3Btn = view.findViewById(R.id.step3Btn);
+        repAdrBtn = view.findViewById(R.id.repAdrBtn); // 신고발생 위치찾기 버튼
+        step4Btn = view.findViewById(R.id.step4Btn);
+        wantedviewBtn = view.findViewById(R.id.wantedviewBtn);
+        infoViewBtn = view.findViewById(R.id.infoViewBtn);
+        step5Btn = view.findViewById(R.id.step5Btn);
+        submitBtn = view.findViewById(R.id.submitBtn);
+
+        monMake1Btn = view.findViewById(R.id.monMake1Btn);
+        monMake2Btn = view.findViewById(R.id.monMake2Btn);
+        monMake3Btn = view.findViewById(R.id.monMake3Btn);
+        monMake4Btn = view.findViewById(R.id.monMake4Btn);
+        voiceBtn = view.findViewById(R.id.voiceBtn); // 음성녹음 버튼
+
+        wantedImg = view.findViewById(R.id.wantedImg); // step3 > 몽타주 이미지
+        monResultImg = view.findViewById(R.id.monResultImg);
+        userImg = view.findViewById(R.id.userImg);
+
+        rd1 = view.findViewById(R.id.rd1);
+        rd2 = view.findViewById(R.id.rd2);
+        rd3 = view.findViewById(R.id.rd3);
+        rd4 = view.findViewById(R.id.rd4);
+        rd5 = view.findViewById(R.id.rd5);
+        rd6 = view.findViewById(R.id.rd6);
+        rd7 = view.findViewById(R.id.rd7);
+        rd8 = view.findViewById(R.id.rd8);
+
+        wantedSpin = view.findViewById(R.id.wantedSpin); // 범죄유형
+
+        dateTv = view.findViewById(R.id.dateTv);
+        timeTv = view.findViewById(R.id.timeTv);
+        nameTv = view.findViewById(R.id.nameTv);
+        phoneTv = view.findViewById(R.id.phoneTv);
+        wantedcontentTv = view.findViewById(R.id.wantedcontentTv);
+        reportGetTv = view.findViewById(R.id.reportGetTv);
+
+        repDate = view.findViewById(R.id.repDate); // 사건발생일자
+
+        repTime = view.findViewById(R.id.repTime); // 사건발생시간
+
+        wantedCk = view.findViewById(R.id.wantedCk);
+        infoCk = view.findViewById(R.id.infoCk);
     }
 
 }

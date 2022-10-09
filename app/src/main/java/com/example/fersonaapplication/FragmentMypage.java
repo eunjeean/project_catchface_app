@@ -1,6 +1,8 @@
 package com.example.fersonaapplication;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -47,6 +49,7 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
     TextView myIdTv, phoneTv;
     EditText nameTv, addressTv;
     public static String a, id, pw, name, date, city, dong, phone;
+    public static String shared = "fersona";
 
 
     public FragmentMypage() {
@@ -86,6 +89,28 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
 
         mypageBtn.setOnClickListener(this);
         myReportBtn.setOnClickListener(this);
+
+
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences(shared, Context.MODE_PRIVATE);
+        id = sharedPreferences.getString("id", "");
+        pw = sharedPreferences.getString("pw", "");
+        name = sharedPreferences.getString("name", "");
+        date = sharedPreferences.getString("date", "");
+        city = sharedPreferences.getString("city", "");
+        dong = sharedPreferences.getString("dong", "");
+        phone = sharedPreferences.getString("phone", "");
+        myIdTv.setText(id);
+        nameTv.setText(name);
+        phoneTv.setText(phone);
+        addressTv.setText(city + " " + dong);
+
+
+
+
+
+
+
+
 
         // RecyclerView
         for(int i=0;i<5;i++){

@@ -3,7 +3,7 @@
 
 
     <!--  선택했을 때의 색깔  -->
-    <item android:color="#48A7F4" android:state_selected="true"/>
+    <item android:color="#FF9800" android:state_selected="true"/>
 
     <!--  선택하지 않았을 때의 색깔  -->
     <item android:color="#BDBDBD" android:state_selected="false"/>

@@ -3,24 +3,24 @@
 
     <item
         android:id="@+id/tab1"
-        android:icon="@android:drawable/btn_star"
         android:enabled="true"
+        android:icon="@android:drawable/ic_menu_my_calendar"
         android:title="공개수배" />
     <item
         android:id="@+id/tab2"
         android:enabled="true"
-        android:icon="@android:drawable/ic_menu_add"
+        android:icon="@android:drawable/ic_menu_upload"
         android:title="신고하기" />
-<!--    <item-->
-<!--        android:id="@+id/tab3"-->
-<!--        android:icon="@android:drawable/ic_menu_add"-->
-<!--        android:enabled="true"-->
-<!--        android:title="내 정보" />-->
     <item
         android:id="@+id/tab3"
-        android:icon="@drawable/icon_menu_map"
         android:enabled="true"
-        android:title="파출소" />
+        android:icon="@drawable/icon_menu_map"
+        android:title="위치보기" />
 
+    <!--    <item-->
+    <!--        android:id="@+id/tab3"-->
+    <!--        android:icon="@android:drawable/ic_menu_add"-->
+    <!--        android:enabled="true"-->
+    <!--        android:title="내 정보" />-->
 
 </menu>

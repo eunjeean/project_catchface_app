@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -75,8 +76,8 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
     LinearLayout mainLl, step1Ll, step2Ll, step3Ll, step4Ll, step5Ll;
     EditText monMakeEt, reportConEt;
     Button step1Btn, step2Btn, step3Btn, repAdrBtn, step4Btn, wantedviewBtn, infoViewBtn, step5Btn, submitBtn;
-    ImageButton monMake1Btn, monMake2Btn, monMake3Btn, monMake4Btn, voiceBtn;
-    ImageView wantedImg, monResultImg, userImg;
+    ImageButton voiceBtn;
+    ImageView wantedImg, monResultImg, userImg, monMake1Img, monMake2Img, monMake3Img, monMake4Img;
     RadioButton rd1, rd2, rd3, rd4, rd5, rd6, rd7,rd8;
     Spinner wantedSpin;
     TextView dateTv, timeTv, nameTv, phoneTv, wantedcontentTv, reportGetTv;
@@ -126,10 +127,10 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         loginContent();
 
         // 몽타주 4개 이미지 리스트
-        monMake1Btn.setOnClickListener(this);
-        monMake2Btn.setOnClickListener(this);
-        monMake3Btn.setOnClickListener(this);
-        monMake4Btn.setOnClickListener(this);
+        monMake1Img.setOnClickListener(this);
+        monMake2Img.setOnClickListener(this);
+        monMake3Img.setOnClickListener(this);
+        monMake4Img.setOnClickListener(this);
 
 
         // RecyclerView
@@ -310,6 +311,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                 } else {
                     step2Ll.setVisibility(View.VISIBLE);
                 }
+
                 break;
             case R.id.step3Btn:
                 Log.d("FragmentReport", "step3");
@@ -363,13 +365,13 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                 wantedcontentTv.setText(monMakeEt.getText().toString());
                 // 몽타주
                 // monMake1Btn monMake2Btn monMake3Btn monMake4Btn
-                if(monMake1Btn.isSelected()==true){
+                if(monMake1Img.isSelected()==true){
                     // 몽타주 1번째 이미지 보여주기
-                }else if(monMake2Btn.isSelected()==true){
+                }else if(monMake2Img.isSelected()==true){
                     // 몽타주 2번째 이미지 보여주기
-                }else if(monMake3Btn.isSelected()==true){
+                }else if(monMake3Img.isSelected()==true){
                     // 몽타주 3번째 이미지 보여주기
-                }else if(monMake4Btn.isSelected()==true){
+                }else if(monMake4Img.isSelected()==true){
                     // 몽타주 4번째 이미지 보여주기
                 }
                 break;
@@ -416,13 +418,28 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                 break;
 
 //                몽타주 이미지 클릭
-            case R.id.monMake1Btn:
+            case R.id.monMake1Img:
+                Log.d("몽타주 이미지 클릭","monMake1Img");
+                if(monMake1Img.isSelected()==false){
+                    monMake1Img.setBackgroundResource(R.color.pointOrange);
+                    monMake2Img.setColorFilter(Color.parseColor("#55293241"));
+                    monMake3Img.setColorFilter(Color.parseColor("#55293241"));
+                    monMake4Img.setColorFilter(Color.parseColor("#55293241"));
+                }else{
+                    monMake1Img.setBackgroundResource(R.color.white);
+                    monMake2Img.setBackgroundResource(R.color.white);
+                    monMake3Img.setBackgroundResource(R.color.white);
+                    monMake4Img.setBackgroundResource(R.color.white);
+                }
                 break;
-            case R.id.monMake2Btn:
+            case R.id.monMake2Img:
+                Log.d("몽타주 이미지 클릭","monMake2Img");
                 break;
-            case R.id.monMake3Btn:
+            case R.id.monMake3Img:
+                Log.d("몽타주 이미지 클릭","monMake3Img");
                 break;
-            case R.id.monMake4Btn:
+            case R.id.monMake4Img:
+                Log.d("몽타주 이미지 클릭","monMake4Img");
                 break;
 
         }
@@ -567,11 +584,13 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         step5Btn = view.findViewById(R.id.step5Btn);
         submitBtn = view.findViewById(R.id.submitBtn);
 
-        monMake1Btn = view.findViewById(R.id.monMake1Btn);
-        monMake2Btn = view.findViewById(R.id.monMake2Btn);
-        monMake3Btn = view.findViewById(R.id.monMake3Btn);
-        monMake4Btn = view.findViewById(R.id.monMake4Btn);
         voiceBtn = view.findViewById(R.id.voiceBtn); // 음성녹음 버튼
+
+        // 몽타주 4개 이미지
+        monMake1Img = view.findViewById(R.id.monMake1Img);
+        monMake2Img = view.findViewById(R.id.monMake2Img);
+        monMake3Img = view.findViewById(R.id.monMake3Img);
+        monMake4Img = view.findViewById(R.id.monMake4Img);
 
         wantedImg = view.findViewById(R.id.wantedImg); // step3 > 몽타주 이미지
         monResultImg = view.findViewById(R.id.monResultImg);

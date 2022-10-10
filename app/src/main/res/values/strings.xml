@@ -4,6 +4,8 @@
     <!-- 경고 -->
     <string name="warring1">* 제보와 관계없는 이미지가 등록될 경우, 삭제될 수 있습니다.</string>
     <string name="warring2">* 긴급을 필요로하는 제보 도는 신고인 경우, 112(무료)로 연락을 주시기 바랍니다.</string>
+    <!-- 공개수배 안내 문구 -->
+    <string name="wantedNotice">수배자를 길게 눌러주시면 신고하기로 연결됩니다.</string>
 
     <!--- 범죄유형 -->
     <string-array name="wanted_Spinner">
@@ -72,5 +74,6 @@
 
     <!-- kakao api key -->
     <string name="restapi_key">KakaoAK b25397b4b2cbb55f3e408c5926f6dbd0</string>
+
 
 </resources>

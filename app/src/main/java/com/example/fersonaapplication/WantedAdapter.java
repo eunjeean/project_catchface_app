@@ -57,6 +57,7 @@ public class WantedAdapter extends RecyclerView.Adapter<WantedAdapter.ViewHolder
         WantedVO item = mList.get(position);
 
         holder.wantedItemImg.setImageResource(mList.get(position).getResId());  // 위치에 해당 이미지 적용
+//        holder.wantedItemImg.setImageResource(R.drawable.wantedimg_list_test);
         Log.d("테스트","position : "+mList.get(position).getResId());
         holder.wantedItemTv.setText("신고하기");
 
@@ -74,6 +75,20 @@ public class WantedAdapter extends RecyclerView.Adapter<WantedAdapter.ViewHolder
 
             }
         });//End
+
+        holder.wantedItemImg.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                Log.d("WantedAdapter","onLongClick");
+                selectedPosition = position;
+                notifyDataSetChanged();
+//                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fl, new FragmentReport()).commit();
+
+                return true;
+            }
+        }); //End
+
+
     }
 
     @Override

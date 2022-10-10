@@ -126,7 +126,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
                     android:gravity="center"
-                    android:text="몽타주 생성 및 제작"
+                    android:text="목격한 인물과 비슷한 몽타주를 선택해주세요"
                     android:textColor="@color/pointOrange"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -147,21 +147,25 @@
                         android:orientation="horizontal"
                         android:weightSum="2">
 
-                        <ImageButton
-                            android:id="@+id/monMake1Btn"
+                        <ImageView
+                            android:id="@+id/monMake1Img"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="150dp"
+                            android:layout_gravity="center"
                             android:layout_margin="8dp"
                             android:layout_weight="1"
                             android:backgroundTint="@color/white"
+                            android:padding="8dp"
                             app:srcCompat="@drawable/icon_drawing" />
 
-                        <ImageButton
-                            android:id="@+id/monMake2Btn"
+                        <ImageView
+                            android:id="@+id/monMake2Img"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="150dp"
+                            android:layout_gravity="center"
                             android:layout_margin="8dp"
                             android:layout_weight="1"
+                            android:padding="8dp"
                             android:backgroundTint="@color/white"
                             app:srcCompat="@drawable/icon_drawing" />
                     </LinearLayout>
@@ -173,21 +177,25 @@
                         android:orientation="horizontal"
                         android:weightSum="2">
 
-                        <ImageButton
-                            android:id="@+id/monMake3Btn"
+                        <ImageView
+                            android:id="@+id/monMake3Img"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="150dp"
+                            android:layout_gravity="center"
                             android:layout_margin="8dp"
                             android:layout_weight="1"
+                            android:padding="8dp"
                             android:backgroundTint="@color/white"
                             app:srcCompat="@drawable/icon_drawing" />
 
-                        <ImageButton
-                            android:id="@+id/monMake4Btn"
+                        <ImageView
+                            android:id="@+id/monMake4Img"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_height="150dp"
+                            android:layout_gravity="center"
                             android:layout_margin="8dp"
                             android:layout_weight="1"
+                            android:padding="8dp"
                             android:backgroundTint="@color/white"
                             app:srcCompat="@drawable/icon_drawing" />
                     </LinearLayout>

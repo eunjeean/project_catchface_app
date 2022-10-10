@@ -20,11 +20,6 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".MapActivity2"
-            android:exported="false"
-            android:label="@string/title_activity_map2"
-            android:theme="@style/Theme.FersonaApplication.NoActionBar" />
-        <activity
             android:name=".FragmentMap"
             android:exported="false" />
         <activity
@@ -40,7 +35,7 @@
             android:name=".MypageActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity2"
+            android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".MyReportListActivity"
@@ -76,7 +71,7 @@
             android:name=".ReportActivity2"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".MainActivity2"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

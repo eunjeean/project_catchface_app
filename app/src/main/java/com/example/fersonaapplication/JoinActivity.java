@@ -165,7 +165,7 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
     private void id_check() {
         id = joinIdEt.getText().toString();
 
-        String url = "http://211.227.224.250:5000/idCheck";
+        String url = "http://121.147.52.96:5000/idCheck";
 
         StringRequest request = new StringRequest(
                 Request.Method.POST,

@@ -48,11 +48,20 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class FragmentReport extends Fragment implements View.OnClickListener {
 
@@ -70,14 +79,20 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
     private RecyclerView wantedListRv;
     private MonRAdapter adapter;
 
-
+    RequestQueue requestQueue;
     ScrollView scrollView;
     FragmentMypage fragmentMypage;
     LinearLayout mainLl, step1Ll, step2Ll, step3Ll, step4Ll, step5Ll;
     EditText monMakeEt, reportConEt, repAdrET;
     Button step1Btn, step2Btn, step3Btn, step4Btn, wantedviewBtn, infoViewBtn, step5Btn, submitBtn;
     ImageButton voiceBtn;
-    ImageView wantedImg, monResultImg, userImg, monMake1Img, monMake2Img, monMake3Img, monMake4Img;
+    ImageView wantedImg;
+    ImageView monResultImg;
+    ImageView userImg;
+    ImageView monMake1Img;
+    ImageView monMake2Img;
+    ImageView monMake3Img;
+    ImageView monMake4Img;
     RadioButton rd1, rd2, rd3, rd4, rd5, rd6, rd7, rd8, rd9;
     Spinner wantedSpin;
     TextView dateTv, timeTv, nameTv, phoneTv, wantedcontentTv, reportGetTv, reportGetAdrTv;
@@ -92,6 +107,11 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
     String reportWanted = null;
     public static String loginAll, id, pw, name, date, city, dong, phone;
     public static String shared = "fersona";
+    public static String mon_id = "00";
+    public static String rep_pro = "접수대기";
+    public static String want_id = "want1";
+    public static String rep_cate, rep_con, rep_date,rep_time, mem_id, rep_adr;
+    StringRequest request;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -197,7 +217,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         phone = sharedPreferences.getString("phone", "");
         nameTv.setText(name);
         phoneTv.setText(phone);
-
+        mem_id = id;
     }
 
 
@@ -222,6 +242,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                     rd1.setChecked(true);
                     rd1.setButtonTintList(ColorStateList.valueOf(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.pointOrange)));
                     reportWanted = (String) wantedSpin.getItemAtPosition(position);
+                    rep_cate = reportWanted;
                     Log.d("ReportActivity", "범죄유형 선택 = " + reportWanted);
                 } else {
                     rd1.setChecked(false);
@@ -246,6 +267,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                 rd3.setChecked(true);
                 rd3.setButtonTintList(ColorStateList.valueOf(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.pointOrange)));
                 dateTv.setText(String.format("%d/%d/%d", year, month + 1, day));
+                rep_date = String.format("%d/%d/%d", year, month + 1, day);
             }
         });
     }
@@ -266,10 +288,12 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                     min = repTime.getCurrentMinute();
                 }
                 if (hour >= 12) {
-                    timeTv.setText(String.format("PM " + "%d : %d", hour, min));
+                    rep_time = String.format("PM " + "%d : %d", hour, min);
                 } else {
-                    timeTv.setText(String.format("AM " + "%d : %d", hour, min));
+                    rep_time =String.format("AM " + "%d : %d", hour, min);
                 }
+                timeTv.setText(rep_time);
+
 
             }
         });
@@ -371,21 +395,28 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                 }
 
                 // 신고내용
-                reportGetTv.setText(reportConEt.getText().toString());
-                // 목격내용
+                rep_con = reportConEt.getText().toString();
+                reportGetTv.setText(rep_con);
+                // 목격내용 <- 몽타주에 대한 설명, 몽타주 상세 내용
                 wantedcontentTv.setText(monMakeEt.getText().toString());
                 // 신고발생 위치
-                reportGetAdrTv.setText(repAdrET.getText().toString());
+                rep_adr = repAdrET.getText().toString();
+                reportGetAdrTv.setText(rep_adr);
                 // 몽타주
                 // monMake1Btn monMake2Btn monMake3Btn monMake4Btn
+
                 if (monMake1Img.isSelected() == true) {
                     // 몽타주 1번째 이미지 보여주기
+//                    mon_id = monMake1Img.toString();
                 } else if (monMake2Img.isSelected() == true) {
                     // 몽타주 2번째 이미지 보여주기
+//                    mon_id = monMake2Img.toString();
                 } else if (monMake3Img.isSelected() == true) {
                     // 몽타주 3번째 이미지 보여주기
+//                    mon_id = monMake3Img.toString();
                 } else if (monMake4Img.isSelected() == true) {
                     // 몽타주 4번째 이미지 보여주기
+//                    mon_id = monMake4Img.toString();
                 }
                 break;
             case R.id.wantedviewBtn:
@@ -442,7 +473,51 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
 
                 }else{
                     submitBtn.setBackgroundResource(R.color.pointOrange);
+
+                    String url = "http://121.147.52.96:5000/report";
+
+                    // 요청 만들기
+                    request = new StringRequest(
+                            Request.Method.POST,
+                            url,
+                            new Response.Listener<String>() {
+                                @Override
+                                public void onResponse(String response) {
+                                    Toast.makeText(getActivity().getApplicationContext(), "신고하기 연결 성공😊", Toast.LENGTH_SHORT).show();
+                                    Log.d("신고", "성공");
+                                }
+                            },
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    Toast.makeText(getActivity().getApplicationContext(), "신고하기 연결 실패😣", Toast.LENGTH_SHORT).show();
+                                    Log.d("신고", "실패");
+                                }
+                            }
+                    ){ // getParams 라는 메서드 오버라이딩 : alt + insert
+                        @Override
+                        protected Map<String, String> getParams() throws AuthFailureError {
+                            Map<String, String> params = new HashMap<>();
+                            params.put("rep_cate", rep_cate);
+                            Log.d("신고", rep_cate);
+                            params.put("rep_con", rep_con);
+                            params.put("rep_date", rep_date);
+                            params.put("rep_time", rep_time);
+                            params.put("mem_id", mem_id);
+                            params.put("rep_adr", rep_adr);
+                            params.put("mon_id", mon_id);
+                            params.put("want_id", want_id);
+                            params.put("rep_pro", rep_pro);
+                            return params;
+                        }
+                    };
                     Toast.makeText(getActivity().getApplicationContext(), "제출😊", Toast.LENGTH_SHORT).show();
+
+                    request.setShouldCache(false);
+                    requestQueue.add(request);
+//                    finish();
+
+
                 }
 
                 break;

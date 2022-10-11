@@ -74,13 +74,13 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
     ScrollView scrollView;
     FragmentMypage fragmentMypage;
     LinearLayout mainLl, step1Ll, step2Ll, step3Ll, step4Ll, step5Ll;
-    EditText monMakeEt, reportConEt;
-    Button step1Btn, step2Btn, step3Btn, repAdrBtn, step4Btn, wantedviewBtn, infoViewBtn, step5Btn, submitBtn;
+    EditText monMakeEt, reportConEt, repAdrET;
+    Button step1Btn, step2Btn, step3Btn, step4Btn, wantedviewBtn, infoViewBtn, step5Btn, submitBtn;
     ImageButton voiceBtn;
     ImageView wantedImg, monResultImg, userImg, monMake1Img, monMake2Img, monMake3Img, monMake4Img;
-    RadioButton rd1, rd2, rd3, rd4, rd5, rd6, rd7,rd8;
+    RadioButton rd1, rd2, rd3, rd4, rd5, rd6, rd7, rd8, rd9;
     Spinner wantedSpin;
-    TextView dateTv, timeTv, nameTv, phoneTv, wantedcontentTv, reportGetTv;
+    TextView dateTv, timeTv, nameTv, phoneTv, wantedcontentTv, reportGetTv, reportGetAdrTv;
     DatePicker repDate;
     TimePicker repTime;
     CheckBox wantedCk, infoCk;
@@ -117,7 +117,6 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         step4Btn.setOnClickListener(this);
         step5Btn.setOnClickListener(this);
         voiceBtn.setOnClickListener(this);
-        repAdrBtn.setOnClickListener(this);
         wantedviewBtn.setOnClickListener(this);
         infoViewBtn.setOnClickListener(this);
         submitBtn.setOnClickListener(this);
@@ -135,10 +134,10 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
 
         // RecyclerView
         for (int i = 0; i < 4; i++) {
-            if(data != null){
+            if (data != null) {
                 addItem("img");
-            }else{
-                Log.d("FragmentReport","item null");
+            } else {
+                Log.d("FragmentReport", "item null");
             }
         }
 
@@ -164,7 +163,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         reportConEt.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {
-                Log.d("FragmentReport","신고내용 포커스 이벤트 발생");
+                Log.d("FragmentReport", "신고내용 포커스 이벤트 발생");
                 rd2.setChecked(true);
                 rd2.setButtonTintList(ColorStateList.valueOf(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.pointOrange)));
             }
@@ -172,12 +171,19 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
 
         ReportDate(); // 사건발생일자
         ReportTime(); // 사건발생시간
+        // 신고발생위치 작성
+        repAdrET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                rd5.setChecked(true);
+                rd5.setButtonTintList(ColorStateList.valueOf(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.pointOrange)));
+            }
+        });
 
         submitBtn.setVisibility(View.GONE);
 
         return view;
     }
-
 
     // LoginActivity에서 로그인 정보 불러오기
     private void loginContent() {
@@ -198,10 +204,10 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
     public void addItem(String imgName) {
         MonFaceListVO item = new MonFaceListVO();
         item.setMonList(imgName);
-        if(item != null){
+        if (item != null) {
             data.add(item);
-        }else{
-            Log.d("FragmentReport","item null");
+        } else {
+            Log.d("FragmentReport", "item null");
         }
     }
 
@@ -295,6 +301,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                     step5Ll.setVisibility(View.GONE);
                 } else {
                     step1Ll.setVisibility(View.VISIBLE);
+                    step5Btn.setVisibility(view.VISIBLE);
                 }
                 break;
             case R.id.step2Btn:
@@ -310,6 +317,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                     step5Ll.setVisibility(View.GONE);
                 } else {
                     step2Ll.setVisibility(View.VISIBLE);
+                    step5Btn.setVisibility(view.VISIBLE);
                 }
 
                 break;
@@ -326,6 +334,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                     step5Ll.setVisibility(View.GONE);
                 } else {
                     step3Ll.setVisibility(View.VISIBLE);
+                    step5Btn.setVisibility(view.VISIBLE);
                 }
                 break;
             case R.id.step4Btn:
@@ -341,6 +350,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                     step5Ll.setVisibility(View.GONE);
                 } else {
                     step4Ll.setVisibility(View.VISIBLE);
+                    step5Btn.setVisibility(view.VISIBLE);
                 }
                 break;
             case R.id.step5Btn:
@@ -354,78 +364,98 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                     step2Ll.setVisibility(View.GONE);
                     step3Ll.setVisibility(View.GONE);
                     step4Ll.setVisibility(View.GONE);
-
                 } else {
                     step5Ll.setVisibility(View.VISIBLE);
+                    submitBtn.setVisibility(view.VISIBLE);
+                    step5Btn.setVisibility(view.GONE);
                 }
 
                 // 신고내용
                 reportGetTv.setText(reportConEt.getText().toString());
                 // 목격내용
                 wantedcontentTv.setText(monMakeEt.getText().toString());
+                // 신고발생 위치
+                reportGetAdrTv.setText(repAdrET.getText().toString());
                 // 몽타주
                 // monMake1Btn monMake2Btn monMake3Btn monMake4Btn
-                if(monMake1Img.isSelected()==true){
+                if (monMake1Img.isSelected() == true) {
                     // 몽타주 1번째 이미지 보여주기
-                }else if(monMake2Img.isSelected()==true){
+                } else if (monMake2Img.isSelected() == true) {
                     // 몽타주 2번째 이미지 보여주기
-                }else if(monMake3Img.isSelected()==true){
+                } else if (monMake3Img.isSelected() == true) {
                     // 몽타주 3번째 이미지 보여주기
-                }else if(monMake4Img.isSelected()==true){
+                } else if (monMake4Img.isSelected() == true) {
                     // 몽타주 4번째 이미지 보여주기
                 }
-                break;
-            case R.id.repAdrBtn:
-                Log.d("FragmentReport", "위치찾기");
-                Bundle adrargs = new Bundle();
-                PopupDialog adrPopup = new PopupDialog ("위치정보",R.string.map);
-                adrPopup.setArguments(adrargs);
-                adrPopup.show(getActivity().getSupportFragmentManager(), "위치정보");
                 break;
             case R.id.wantedviewBtn:
                 Log.d("FragmentReport", "신고내용 공유동의");
                 Bundle shareargs = new Bundle();
-                PopupDialog sharePopup = new PopupDialog ("신고내용 공유동의",R.string.share);
+                PopupDialog sharePopup = new PopupDialog("신고내용 공유동의", R.string.share);
                 sharePopup.setArguments(shareargs);
                 sharePopup.show(getActivity().getSupportFragmentManager(), "신고내용공유동의");
                 break;
             case R.id.infoViewBtn:
                 Log.d("FragmentReport", "개인정보 수집동의");
                 Bundle infoargs = new Bundle();
-                PopupDialog infoPopup = new PopupDialog ("개인정보 수집동의",R.string.info);
+                PopupDialog infoPopup = new PopupDialog("개인정보 수집동의", R.string.info);
                 infoPopup.setArguments(infoargs);
                 infoPopup.show(getActivity().getSupportFragmentManager(), "개인정보 수집동의");
-                // 팝업창 ok 되면 제출버튼 나오도록
-                // 아래코드 if문 안에 작성하면 됨
-                if(infoCk.isChecked()==true&&wantedCk.isChecked()==true){
-                    submitBtn.setVisibility(View.VISIBLE);
-                }else{
-                    submitBtn.setVisibility(View.GONE);
-                }
                 break;
             case R.id.submitBtn:
-                reportCont = reportConEt.getText().toString();
+//                reportCont = reportConEt.getText().toString();
                 Log.d("ReportPage submitBtn", "" + reportWanted + " , " + reportCont + " , " + dateTv.getText() + " , " + timeTv.getText());
+//                submitBtn.setBackgroundResource(R.color.subGray);
+
+                // 신고내용, 목격한 상세내용, 신고발생 위치, 몽타주 이미지, 신고내용 공유동의, 개인정보 수집동의
+                if(reportGetTv.length()<5 || monMakeEt.length()<5 || repAdrET.length()<5 || infoCk.isChecked() == false || wantedCk.isChecked() == false){
                     //신고내용
-                    if (reportConEt.getText().toString().length() < 5) {
+                    if (reportGetTv.length() < 5) {
                         rd2.setButtonTintList(ColorStateList.valueOf(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.red)));
-                        Toast.makeText(getActivity().getApplicationContext(), "신고내용을 다시 작성해주세요😊", Toast.LENGTH_SHORT).show();
-                    }else{
-                        Log.d("ReportActivity", "신고내용 : " + reportCont);
+                        Toast.makeText(getActivity().getApplicationContext(), "신고내용을 작성해주세요😊", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Log.d("FragmentReport", "신고내용 : " + reportCont);
                     }
 
-                Toast.makeText(getActivity().getApplicationContext(), "제출😊", Toast.LENGTH_SHORT).show();
+                    // 목격한 상세내용
+                    if(monMakeEt.length()<5){
+                        Toast.makeText(getActivity().getApplicationContext(), "Step1의 진술내용을 작성해 주세요", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Log.d("FragmentReport", "목격한 상세내용 : " + monMakeEt);
+                    }
+
+                    // 신고발생 위치
+                    if(repAdrET.length()<5 ){
+                        Toast.makeText(getActivity().getApplicationContext(), "Step4의 신고발생위치를 작성해주세요", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Log.d("FragmentReport", "목격한 상세내용 : " + monMakeEt);
+                    }
+
+                    //몽타주 이미지
+
+                    // 신고내용 및 개인정보 수집 동의 내용
+                    if (infoCk.isChecked() == true && wantedCk.isChecked() == true) {
+                        Log.d("FragmentReport", "check success");
+                    } else {
+                        Toast.makeText(getActivity().getApplicationContext(), "모든항목을 입력 및 선택해주세요", Toast.LENGTH_SHORT).show();
+                    }
+
+                }else{
+                    submitBtn.setBackgroundResource(R.color.pointOrange);
+                    Toast.makeText(getActivity().getApplicationContext(), "제출😊", Toast.LENGTH_SHORT).show();
+                }
+
                 break;
 
 //                몽타주 이미지 클릭
             case R.id.monMake1Img:
-                Log.d("몽타주 이미지 클릭","monMake1Img");
-                if(monMake1Img.isSelected()==false){
+                Log.d("몽타주 이미지 클릭", "monMake1Img");
+                if (monMake1Img.isSelected() == false) {
                     monMake1Img.setBackgroundResource(R.color.pointOrange);
                     monMake2Img.setColorFilter(Color.parseColor("#55293241"));
                     monMake3Img.setColorFilter(Color.parseColor("#55293241"));
                     monMake4Img.setColorFilter(Color.parseColor("#55293241"));
-                }else{
+                } else {
                     monMake1Img.setBackgroundResource(R.color.white);
                     monMake2Img.setBackgroundResource(R.color.white);
                     monMake3Img.setBackgroundResource(R.color.white);
@@ -433,13 +463,13 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.monMake2Img:
-                Log.d("몽타주 이미지 클릭","monMake2Img");
+                Log.d("몽타주 이미지 클릭", "monMake2Img");
                 break;
             case R.id.monMake3Img:
-                Log.d("몽타주 이미지 클릭","monMake3Img");
+                Log.d("몽타주 이미지 클릭", "monMake3Img");
                 break;
             case R.id.monMake4Img:
-                Log.d("몽타주 이미지 클릭","monMake4Img");
+                Log.d("몽타주 이미지 클릭", "monMake4Img");
                 break;
 
         }
@@ -573,11 +603,11 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
 
         monMakeEt = view.findViewById(R.id.monMakeEt); // 목격한 인물 내용 작성
         reportConEt = view.findViewById(R.id.reportConEt); // 신고내용 작성
+        repAdrET = view.findViewById(R.id.repAdrET); // 신고발생위치 작성
 
         step1Btn = view.findViewById(R.id.step1Btn);
         step2Btn = view.findViewById(R.id.step2Btn);
         step3Btn = view.findViewById(R.id.step3Btn);
-        repAdrBtn = view.findViewById(R.id.repAdrBtn); // 신고발생 위치찾기 버튼
         step4Btn = view.findViewById(R.id.step4Btn);
         wantedviewBtn = view.findViewById(R.id.wantedviewBtn);
         infoViewBtn = view.findViewById(R.id.infoViewBtn);
@@ -604,6 +634,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         rd6 = view.findViewById(R.id.rd6);
         rd7 = view.findViewById(R.id.rd7);
         rd8 = view.findViewById(R.id.rd8);
+        rd9 = view.findViewById(R.id.rd9);
 
         wantedSpin = view.findViewById(R.id.wantedSpin); // 범죄유형
 
@@ -613,6 +644,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         phoneTv = view.findViewById(R.id.phoneTv);
         wantedcontentTv = view.findViewById(R.id.wantedcontentTv);
         reportGetTv = view.findViewById(R.id.reportGetTv);
+        reportGetAdrTv = view.findViewById(R.id.reportGetAdrTv);
 
         repDate = view.findViewById(R.id.repDate); // 사건발생일자
 

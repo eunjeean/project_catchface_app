@@ -429,12 +429,6 @@
                     android:layout_gravity="center"
                     android:timePickerMode="spinner" />
 
-                <LinearLayout
-                    android:id="@+id/ll_3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
                     <RadioButton
                         android:id="@+id/rd5"
                         android:layout_width="match_parent"
@@ -446,20 +440,16 @@
                         android:textColor="@color/mainNavy"
                         android:textSize="16sp" />
 
-                    <Button
-                        android:id="@+id/repAdrBtn"
+                    <EditText
+                        android:id="@+id/repAdrET"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="8dp"
-                        android:layout_weight="1"
-                        android:backgroundTint="@color/subGray"
-                        android:text="위치찾기"
+                        android:hint="예시 )광주광역시 광주CGI센터"
+                        android:textSize="16sp"
                         android:textColor="@color/mainNavy"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        app:cornerRadius="30dp" />
-
-                </LinearLayout>
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        />
 
             </LinearLayout>
 
@@ -575,8 +565,31 @@
                     android:id="@+id/reportGetTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="신고내용이 작성됩니다."
+                    android:hint="신고시 작성한 신고내용이 작성됩니다."
                     android:padding="4dp"
+                    android:textColor="@color/mainNavy"
+                    android:layout_marginLeft="4dp"
+                    android:textSize="15sp" />
+
+                <RadioButton
+                    android:id="@+id/rd9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/pointOrange"
+                    android:checked="true"
+                    android:enabled="false"
+                    android:text="신고발생위치"
+                    android:textColor="@color/mainNavy"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/reportGetAdrTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="신고시 작성한 발생위치가 작성됩니다."
+                    android:padding="4dp"
+                    android:layout_marginLeft="4dp"
                     android:textColor="@color/mainNavy"
                     android:textSize="15sp" />
 

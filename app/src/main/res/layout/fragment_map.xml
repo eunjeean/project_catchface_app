@@ -13,14 +13,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <EditText
-            android:hint="검색할 장소를 입력 후 선택해주세요"
-            android:id="@+id/map_et_search"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            />
-
         <Spinner
             android:id="@+id/policeSpin"
             android:layout_width="match_parent"

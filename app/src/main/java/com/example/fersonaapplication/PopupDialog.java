@@ -11,14 +11,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 public class PopupDialog extends AppCompatDialogFragment {
 
-    private TextView contentTv;
     private String title;
     private int content;
-
     public PopupDialog(String title,int content){
         this.title = title;
         this.content = content;
@@ -48,8 +47,6 @@ public class PopupDialog extends AppCompatDialogFragment {
 
                     }
                 });
-
-        contentTv = view.findViewById(R.id.contentTv);
 
         return builder.create();
     }

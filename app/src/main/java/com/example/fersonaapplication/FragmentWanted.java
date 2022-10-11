@@ -5,22 +5,15 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
-import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,11 +31,6 @@ public class FragmentWanted extends Fragment implements View.OnClickListener {
     private String mParam1;
     private String mParam2;
 
-    // GridView
-//    ArrayList<WantedVO> data = new ArrayList<>();
-//    private GridView wantedGridview;
-//    private GridViewAdapter adapter;
-
     // RecyclerView
     ArrayList<WantedVO> wList = new ArrayList<>();
     private RecyclerView wantedRv;
@@ -50,7 +38,6 @@ public class FragmentWanted extends Fragment implements View.OnClickListener {
     private GridLayoutManager gManager;
 
     ImageView userImg;
-
 
     public FragmentWanted() {
         // Required empty public constructor
@@ -88,8 +75,6 @@ public class FragmentWanted extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_wanted, container, false);
 
-//        wantedGridview = view.findViewById(R.id.wantedGv);
-//        adapter = new GridViewAdapter();
         wantedRv = view.findViewById(R.id.wantedRv);
         int numberOfColumns = 3; // 한줄에 3개의 컬럼을 추가합니다.
         gManager = new GridLayoutManager(getActivity().getApplicationContext(), numberOfColumns);
@@ -97,45 +82,23 @@ public class FragmentWanted extends Fragment implements View.OnClickListener {
 
         userImg = view.findViewById(R.id.userImg);
 
-        wList.add(new WantedVO("1", R.drawable.wantedimg1));
-        wList.add(new WantedVO("2", R.drawable.wantedimg2));
-        wList.add(new WantedVO("3", R.drawable.wantedimg3));
-        wList.add(new WantedVO("4", R.drawable.wantedimg4));
-        wList.add(new WantedVO("5", R.drawable.wantedimg5));
-        Log.d("테스트", String.valueOf(wList.size()));
-
-        // GridView 안에 아이템의 정보 담기
-//        adapter.addItem(new WantedVO("1", "신고하기", R.drawable.wantedimg1));
-//        adapter.addItem(new WantedVO("2", "신고하기", R.drawable.wantedimg2));
-//        adapter.addItem(new WantedVO("3", "신고하기", R.drawable.wantedimg3));
-//        adapter.addItem(new WantedVO("4", "신고하기", R.drawable.wantedimg4));
-//        adapter.addItem(new WantedVO("5", "신고하기", R.drawable.wantedimg5));
-//        adapter.addItem(new WantedVO("6", "신고하기", R.drawable.wantedimg1));
-//        adapter.addItem(new WantedVO("7", "신고하기", R.drawable.wantedimg2));
-//        adapter.addItem(new WantedVO("8", "신고하기", R.drawable.wantedimg3));
-//        adapter.addItem(new WantedVO("9", "신고하기", R.drawable.wantedimg4));
-//        adapter.addItem(new WantedVO("10", "신고하기", R.drawable.wantedimg5));
-//        adapter.addItem(new WantedVO("11", "신고하기", R.drawable.wantedimg1));
-//        adapter.addItem(new WantedVO("12", "신고하기", R.drawable.wantedimg2));
-//        adapter.addItem(new WantedVO("13", "신고하기", R.drawable.wantedimg3));
-//        adapter.addItem(new WantedVO("14", "신고하기", R.drawable.wantedimg4));
-
+//        wList.add(new WantedVO("1", R.drawable.wantedimg1));
+//        wList.add(new WantedVO("2", R.drawable.wantedimg2));
+//        wList.add(new WantedVO("3", R.drawable.wantedimg3));
+//        wList.add(new WantedVO("4", R.drawable.wantedimg4));
+//        wList.add(new WantedVO("5", R.drawable.wantedimg5));
+//        Log.d("테스트", String.valueOf(wList.size()));
 
         // RecyclerView
-
-        // 주석풀면 에러뜸
-//        for (int i = 0; i < wList.size(); i++) {
-//            if(wList != null){
-//                addItem("imgName",(i+1));
-//            }else{
-//                Log.d("FragmentWanted","item null");
-//            }
-//        }
+        for (int i = 0; i < 5; i++) {
+            if(wList != null){
+                addItem("wantedimg",(i+1));
+            }else{
+                Log.d("FragmentWanted","item null");
+            }
+        }
 
         //리스트뷰에 Adapter 설정
-        // GridView
-//        wantedGridview.setAdapter(adapter);
-
         wadapter = new WantedAdapter(wList);
         wantedRv.setAdapter(wadapter);
         Log.d("FragmentWanted","WantedAdapter 연결");
@@ -146,10 +109,8 @@ public class FragmentWanted extends Fragment implements View.OnClickListener {
 
 
     public void addItem(String imgName,int imgId) {
-        Log.d("FragmentWanted","addItem");
-        WantedVO item = new WantedVO("imgName",imgId);
-        item.setName(imgName);
-        item.setResId(imgId);
+        int resId = getResources().getIdentifier(imgName + imgId, "drawable", getActivity().getPackageName());
+        WantedVO item = new WantedVO("num", "이름", resId);
         if(item != null){
             wList.add(item);
         }else{
@@ -168,63 +129,5 @@ public class FragmentWanted extends Fragment implements View.OnClickListener {
                 break;
         }
     }
-
-    /* 그리드뷰 어댑터 */
-//    class GridViewAdapter extends BaseAdapter {
-//        ArrayList<WantedVO> items = new ArrayList<WantedVO>();
-//
-//        public void addItem(WantedVO item) {
-//            items.add(item);
-//        }
-//
-//        @Override
-//        public Object getItem(int position) {
-//            return items.get(position);
-//        }
-//
-//        @Override
-//        public long getItemId(int position) {
-//            return position;
-//        }
-//
-//        @Override
-//        public View getView(int position, View convertView, ViewGroup viewGroup) {
-//            final Context context = viewGroup.getContext();
-//            final WantedVO bearItem = items.get(position);
-//            ImageView wantedImg;
-//            TextView wantedTv;
-//
-//            Log.d("FragmentWanted","getView");
-//            if(convertView == null) {
-//                LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//                convertView = inflater.inflate(R.layout.wanted_ltem, viewGroup, false);
-//
-//                wantedImg = convertView.findViewById(R.id.wantedItemImg);
-//                wantedTv = convertView.findViewById(R.id.wantedItemTv);
-//
-//                wantedImg.setImageResource(bearItem.getResId());
-//                wantedTv.setText(bearItem.getName());
-//
-//                Log.d("FragmentWanted", "getView() - [ "+position+" ] "+bearItem.getName());
-//
-//            } else {
-//                View view = new View(context);
-//                view = (View) convertView;
-//            }
-//
-//            convertView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Log.d("FragmentWanted","convertView Onclick"+position);
-//                }
-//            });
-//            return convertView;  //뷰 객체 반환
-//        }
-//
-//        @Override
-//        public int getCount() {
-//            return items.size();
-//        }
-//    }
 
 }

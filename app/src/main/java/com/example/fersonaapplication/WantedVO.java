@@ -15,6 +15,7 @@ public class WantedVO {
 
     public WantedVO(String num, int imgId) {
         this.num = num;
+        this.resId = imgId;
     }
 
     public String getNum() {
@@ -37,5 +38,6 @@ public class WantedVO {
     public void setResId(int resId) {
         this.resId = resId;
     }
+
 
 }

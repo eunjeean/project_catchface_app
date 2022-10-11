@@ -2,6 +2,7 @@ package com.example.fersonaapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -36,15 +37,18 @@ public class MainActivity2 extends AppCompatActivity{
                 switch (item.getItemId()){
                     case R.id.tab1:
 //                        Toast.makeText(MainActivity2.this, "공개수배", Toast.LENGTH_SHORT).show();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fl, new FragmentWanted()).commit();
+                        changeFragment(new FragmentWanted());
+//                        getSupportFragmentManager().beginTransaction().replace(R.id.fl, new FragmentWanted()).commit();
                         break;
                     case R.id.tab2:
 //                        Toast.makeText(MainActivity2.this, "신고하기", Toast.LENGTH_SHORT).show();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fl,new FragmentReport()).commit();
+                        changeFragment(new FragmentReport());
+//                        getSupportFragmentManager().beginTransaction().replace(R.id.fl,new FragmentReport()).commit();
                         break;
                     case R.id.tab3:
 //                        Toast.makeText(MainActivity2.this, "지도", Toast.LENGTH_SHORT).show();
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fl, new FragmentMap()).commit();
+                        changeFragment(new FragmentMap());
+//                        getSupportFragmentManager().beginTransaction().replace(R.id.fl, new FragmentMap()).commit();
                         break;
                 }
 
@@ -53,6 +57,10 @@ public class MainActivity2 extends AppCompatActivity{
         });
 
 
+    }
+
+    public void changeFragment(Fragment fragment){
+        getSupportFragmentManager().beginTransaction().replace(R.id.fl, fragment).commit();
     }
 
 }

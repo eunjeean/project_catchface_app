@@ -13,7 +13,9 @@
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/drawable/ic_menu.xml" value="0.1145" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/drawable/icon_map.xml" value="0.217" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/drawable/icon_menu_wanted.xml" value="0.23" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/drawable/icon_policemap.xml" value="0.167" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/drawable/icon_report.xml" value="0.23" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/drawable/icon_user.xml" value="0.26" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/drawable/main_city_border.xml" value="0.158" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/drawable/main_image_police.xml" value="0.102" />
@@ -34,7 +36,7 @@
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/layout/activity_mypage2.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/layout/activity_notice.xml" value="0.21979166666666666" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/layout/activity_police_find.xml" value="0.21979166666666666" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/layout/activity_popup_dialog.xml" value="0.33" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/layout/activity_popup_dialog.xml" value="0.25" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/layout/activity_report.xml" value="0.3023255813953488" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/layout/activity_report2.xml" value="0.25" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/f_ersona_application/app/src/main/res/layout/activity_wanted.xml" value="0.25" />

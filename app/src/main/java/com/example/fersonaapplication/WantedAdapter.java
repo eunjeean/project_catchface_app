@@ -20,11 +20,13 @@ import java.util.List;
 
 public class WantedAdapter extends RecyclerView.Adapter<WantedAdapter.ViewHolder>{
     private int selectedPosition = -1;
+    MainActivity2 mainActivity2;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         LinearLayout wantedLl,wantedItemLl;
         ImageView wantedItemImg;
         TextView wantedItemTv;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -43,6 +45,7 @@ public class WantedAdapter extends RecyclerView.Adapter<WantedAdapter.ViewHolder
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         Context context = parent.getContext();
+        mainActivity2 = (MainActivity2)parent.getContext();
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         View view = inflater.inflate(R.layout.wanted_ltem, parent, false);
@@ -82,7 +85,7 @@ public class WantedAdapter extends RecyclerView.Adapter<WantedAdapter.ViewHolder
                 Log.d("WantedAdapter","onLongClick");
                 selectedPosition = position;
                 notifyDataSetChanged();
-//                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fl, new FragmentReport()).commit();
+                mainActivity2.changeFragment(new FragmentReport());
 
                 return true;
             }

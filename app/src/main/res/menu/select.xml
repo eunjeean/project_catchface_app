@@ -4,12 +4,12 @@
     <item
         android:id="@+id/tab1"
         android:enabled="true"
-        android:icon="@android:drawable/ic_menu_my_calendar"
+        android:icon="@drawable/icon_menu_wanted"
         android:title="공개수배" />
     <item
         android:id="@+id/tab2"
         android:enabled="true"
-        android:icon="@android:drawable/ic_dialog_alert"
+        android:icon="@drawable/icon_report"
         android:title="신고하기" />
     <item
         android:id="@+id/tab3"

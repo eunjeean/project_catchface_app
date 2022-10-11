@@ -67,7 +67,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Log.d("login","click_loginBtn");
                 id = loginIdEt.getText().toString();
                 pw = loginPwEt.getText().toString();
-                url = "http://121.147.52.96:5000/login";
+                url = "http://211.227.224.250:5000/login";
 
                 StringRequest request = new StringRequest(
                         Request.Method.POST, url,

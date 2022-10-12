@@ -19,6 +19,8 @@
         android:theme="@style/Theme.FersonaApplication"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
+
         <activity
             android:name=".FragmentMap"
             android:exported="false" />
@@ -78,10 +80,22 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- 네이티브 앱 키 추가 -->
+        </activity>
+
+        <!-- 지도 API - 네이티브 앱 키 추가 -->
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="284dc42f564705bb72402327b6b2d81d" />
+
+
+        <!--   FCM - 서비스를 추가하고 인텐트 필터를 설정한다.   -->
+        <service android:name=".MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>

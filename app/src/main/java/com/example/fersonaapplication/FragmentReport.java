@@ -54,6 +54,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -86,13 +87,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
     EditText monMakeEt, reportConEt, repAdrET;
     Button step1Btn, step2Btn, step3Btn, step4Btn, wantedviewBtn, infoViewBtn, step5Btn, submitBtn;
     ImageButton voiceBtn;
-    ImageView wantedImg;
-    ImageView monResultImg;
-    ImageView userImg;
-    ImageView monMake1Img;
-    ImageView monMake2Img;
-    ImageView monMake3Img;
-    ImageView monMake4Img;
+    ImageView wantedImg, monResultImg, userImg, monMake1Img, monMake2Img, monMake3Img, monMake4Img;
     RadioButton rd1, rd2, rd3, rd4, rd5, rd6, rd7, rd8, rd9;
     Spinner wantedSpin;
     TextView dateTv, timeTv, nameTv, phoneTv, wantedcontentTv, reportGetTv, reportGetAdrTv;
@@ -105,12 +100,11 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
     SpeechRecognizer mRecognizer;
     String reportCont = null;
     String reportWanted = null;
-    public static String loginAll, id, pw, name, date, city, dong, phone;
+    public static String id, pw, name, date, city, dong, phone, rep_cate, rep_con, rep_date1, rep_date,rep_time1,rep_time, mem_id, rep_adr;
     public static String shared = "fersona";
     public static String mon_id = "00";
     public static String rep_pro = "접수대기";
     public static String want_id = "want1";
-    public static String rep_cate, rep_con, rep_date,rep_time, mem_id, rep_adr;
     StringRequest request;
 
     @Override
@@ -140,7 +134,6 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         wantedviewBtn.setOnClickListener(this);
         infoViewBtn.setOnClickListener(this);
         submitBtn.setOnClickListener(this);
-
 
         // LoginActivity에서 로그인 정보 불러오기
         loginContent();
@@ -199,6 +192,10 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                 rd5.setButtonTintList(ColorStateList.valueOf(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.pointOrange)));
             }
         });
+
+        if(requestQueue==null){
+            requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
+        }
 
         submitBtn.setVisibility(View.GONE);
 
@@ -266,8 +263,17 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                 dateTv.setVisibility(View.VISIBLE);
                 rd3.setChecked(true);
                 rd3.setButtonTintList(ColorStateList.valueOf(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.pointOrange)));
-                dateTv.setText(String.format("%d/%d/%d", year, month + 1, day));
-                rep_date = String.format("%d/%d/%d", year, month + 1, day);
+                rep_date1 = String.format("%d/%d/%d", year, month + 1, day);
+                dateTv.setText(rep_date1);
+
+                String year1 = Integer.toString(year);
+                String month1 = Integer.toString(month+1); // 핸드폰 연결해서 확인해봐야 함!
+                if(month1.length()==1){ month1 = "0"+month1; }
+                String day1 = Integer.toString(day);
+                if(day1.length()==1){ day1 = "0"+day1; }
+                rep_date = year1 + month1 + day1;
+
+
             }
         });
     }
@@ -288,11 +294,13 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                     min = repTime.getCurrentMinute();
                 }
                 if (hour >= 12) {
-                    rep_time = String.format("PM " + "%d : %d", hour, min);
+                    rep_time1 = String.format("PM " + "%d : %d", hour, min);
+                    rep_time = String.format("%d:%d", hour, min);
                 } else {
-                    rep_time =String.format("AM " + "%d : %d", hour, min);
+                    rep_time1 =String.format("AM " + "%d : %d", hour, min);
+                    rep_time = String.format("%d:%d", hour, min);
                 }
-                timeTv.setText(rep_time);
+                timeTv.setText(rep_time1);
 
 
             }
@@ -434,7 +442,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                 infoPopup.show(getActivity().getSupportFragmentManager(), "개인정보 수집동의");
                 break;
             case R.id.submitBtn:
-//                reportCont = reportConEt.getText().toString();
+                reportCont = reportConEt.getText().toString();
                 Log.d("ReportPage submitBtn", "" + reportWanted + " , " + reportCont + " , " + dateTv.getText() + " , " + timeTv.getText());
 //                submitBtn.setBackgroundResource(R.color.subGray);
 
@@ -484,7 +492,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                                 @Override
                                 public void onResponse(String response) {
                                     Toast.makeText(getActivity().getApplicationContext(), "신고하기 연결 성공😊", Toast.LENGTH_SHORT).show();
-                                    Log.d("신고", "성공");
+                                    Log.d("신고", response);
                                 }
                             },
                             new Response.ErrorListener() {
@@ -498,8 +506,8 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                         @Override
                         protected Map<String, String> getParams() throws AuthFailureError {
                             Map<String, String> params = new HashMap<>();
-                            params.put("rep_cate", rep_cate);
                             Log.d("신고", rep_cate);
+                            params.put("rep_cate", rep_cate);
                             params.put("rep_con", rep_con);
                             params.put("rep_date", rep_date);
                             params.put("rep_time", rep_time);

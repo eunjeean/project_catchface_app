@@ -51,7 +51,9 @@ public class MonRAdapter extends RecyclerView.Adapter<MonRAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         MonFaceListVO item = mList.get(position);
-        holder.wantedItemImg.setImageResource(R.drawable.wantedimg_list_test);   // 기본 파일로 이미지 띄움
+//        holder.wantedItemImg.setImageResource(R.drawable.wantedimg_list_test);   // 기본 파일로 이미지 띄움
+        holder.wantedItemImg.setImageResource(mList.get(position).getImgId());
+        Log.d("테스트","position : "+mList.get(position).getImgId());
 
         if (selectedPosition == position) {
             holder.wantedItemImg.setBackgroundResource(R.color.pointOrange);

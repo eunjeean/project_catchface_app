@@ -63,10 +63,10 @@ public class MonFaceListActivity extends AppCompatActivity implements View.OnCli
         reportMoveBtn.setOnClickListener(this);
 
 
-        // RecyclerView
-        for(int i=0;i<4;i++){
-            addItem("img");
-        }
+//        // RecyclerView
+//        for(int i=0;i<4;i++){
+//            addItem("img");
+//        }
 
         adapter = new MonRAdapter(data);
         wantedListRv.setAdapter(adapter);
@@ -74,13 +74,13 @@ public class MonFaceListActivity extends AppCompatActivity implements View.OnCli
 
     }
 
-    public void addItem(String imgName){
-        MonFaceListVO item = new MonFaceListVO();
-
-        item.setMonList(imgName);
-
-        data.add(item);
-    }
+//    public void addItem(String imgName){
+//        MonFaceListVO item = new MonFaceListVO();
+//
+//        item.setMonList(imgName);
+//
+//        data.add(item);
+//    }
 
     @Override
     public void onClick(View view) {

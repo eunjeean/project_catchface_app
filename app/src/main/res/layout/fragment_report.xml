@@ -600,7 +600,7 @@
                     android:buttonTint="@color/pointOrange"
                     android:checked="true"
                     android:enabled="false"
-                    android:text="목격한 상세내용"
+                    android:text="몽타주 상세내용"
                     android:textColor="@color/mainNavy"
                     android:textSize="16sp"
                     android:textStyle="bold" />

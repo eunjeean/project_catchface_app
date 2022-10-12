@@ -36,17 +36,14 @@ public class MainActivity2 extends AppCompatActivity{
 
                 switch (item.getItemId()){
                     case R.id.tab1:
-//                        Toast.makeText(MainActivity2.this, "공개수배", Toast.LENGTH_SHORT).show();
                         changeFragment(new FragmentWanted());
 //                        getSupportFragmentManager().beginTransaction().replace(R.id.fl, new FragmentWanted()).commit();
                         break;
                     case R.id.tab2:
-//                        Toast.makeText(MainActivity2.this, "신고하기", Toast.LENGTH_SHORT).show();
                         changeFragment(new FragmentReport());
 //                        getSupportFragmentManager().beginTransaction().replace(R.id.fl,new FragmentReport()).commit();
                         break;
                     case R.id.tab3:
-//                        Toast.makeText(MainActivity2.this, "지도", Toast.LENGTH_SHORT).show();
                         changeFragment(new FragmentMap());
 //                        getSupportFragmentManager().beginTransaction().replace(R.id.fl, new FragmentMap()).commit();
                         break;

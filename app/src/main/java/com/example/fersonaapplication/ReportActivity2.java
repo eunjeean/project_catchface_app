@@ -144,10 +144,10 @@ public class ReportActivity2 extends AppCompatActivity implements View.OnClickLi
         monMake3Btn.setOnClickListener(this);
         monMake4Btn.setOnClickListener(this);
 
-        // RecyclerView
-        for(int i=0;i<4;i++){
-            addItem("img");
-        }
+//        // RecyclerView
+//        for(int i=0;i<4;i++){
+//            addItem("img");
+//        }
 
         adapter = new MonRAdapter(data);
         wantedListRv.setAdapter(adapter);
@@ -188,13 +188,13 @@ public class ReportActivity2 extends AppCompatActivity implements View.OnClickLi
 
     }
 
-    public void addItem(String imgName){
-        MonFaceListVO item = new MonFaceListVO();
-
-        item.setMonList(imgName);
-
-        data.add(item);
-    }
+//    public void addItem(String imgName){
+//        MonFaceListVO item = new MonFaceListVO();
+//
+//        item.setMonList(imgName);
+//
+//        data.add(item);
+//    }
 
     // 범죄유형 체크
     private void WantedCheck() {

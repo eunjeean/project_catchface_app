@@ -148,7 +148,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         // RecyclerView
         for (int i = 0; i < 4; i++) {
             if (data != null) {
-                addItem("img");
+                addItemWanted("wantedimg",(i+1));
             } else {
                 Log.d("FragmentReport", "item null");
             }
@@ -218,15 +218,23 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
     }
 
 
-    public void addItem(String imgName) {
-        MonFaceListVO item = new MonFaceListVO();
-        item.setMonList(imgName);
-        if (item != null) {
+    public void addItemWanted(String imgName, int imgId) {
+//        MonFaceListVO item = new MonFaceListVO();
+//        item.setMonList(imgName);
+//        if (item != null) {
+//            data.add(item);
+//        } else {
+//            Log.d("FragmentReport", "item null");
+//        }
+        int resId = getResources().getIdentifier(imgName + imgId, "drawable", getActivity().getPackageName());
+        MonFaceListVO item = new MonFaceListVO("num", resId);
+        if(item != null){
             data.add(item);
-        } else {
-            Log.d("FragmentReport", "item null");
+        }else{
+            Log.d("FragmentWanted","item null");
         }
     }
+
 
     // 범죄유형 체크
     private void WantedCheck() {
@@ -556,6 +564,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                 break;
 
         }
+
     }
 
     // 음성 인식

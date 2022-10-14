@@ -188,8 +188,8 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
             protected Map<String, String> getParams() throws AuthFailureError {
                 // Map : dictionary, json과 비슷한 key, value로 이루어져 있음
                 Map<String, String> params = new HashMap<>();
-                params.put("id", id);
-                params.put("pw", pw);
+//                params.put("id", id);
+//                params.put("pw", pw);
 
                 return params;
             }

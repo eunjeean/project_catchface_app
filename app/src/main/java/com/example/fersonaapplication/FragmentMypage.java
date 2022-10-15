@@ -216,6 +216,7 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
 
     // 서버에서 report 정보 가져오기
     private void getReportContent(JSONArray array) throws JSONException {
+
         rep_no_1 = array.getJSONArray(0).getString(0);
         rep_cate_1 = array.getJSONArray(0).getString(1);
         rep_con_1 = array.getJSONArray(0).getString(2);

@@ -80,13 +80,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 try {
                                     JSONArray array = new JSONArray(response);
                                     loginAll = response;
-                                    id = array.getString(0);
-                                    pw = array.getString(1);
-                                    name = array.getString(2);
-                                    date = array.getString(3);
-                                    city = array.getString(4);
-                                    dong = array.getString(5);
-                                    phone = array.getString(6);
+                                    id = array.getString(1);
+                                    pw = array.getString(2);
+                                    name = array.getString(3);
+                                    date = array.getString(4);
+                                    city = array.getString(5);
+                                    dong = array.getString(6);
+                                    phone = array.getString(7);
                                 } catch (JSONException e) {  e.printStackTrace(); }
 
                                 SharedPreferences sharedPreferences = getSharedPreferences(shared, MODE_PRIVATE);    // test 이름의 기본모드 설정

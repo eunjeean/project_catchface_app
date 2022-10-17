@@ -152,8 +152,10 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
                 }else{
                     wantedListRv.setVisibility(View.VISIBLE);
                 }
-                for(int i=0; i<20; i++){
+                for(int i=1; i<4; i++){
                     MyReportListVO item = new MyReportListVO();
+                    item.setNum(""+i);
+                    // Flask 연결하기
                     //범죄유형
                     item.setWantedCate("강도");
                     //신고날짜

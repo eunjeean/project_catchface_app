@@ -26,6 +26,7 @@ public class MyReportAdapter  extends RecyclerView.Adapter<MyReportAdapter.ViewH
             myreportDateTv = itemView.findViewById(R.id.myreportDateTv);
         }
         public void setItem(MyReportListVO item){
+            myreportNumTv.setText(item.getNum());
             myreportCateTv.setText(item.getWantedCate());
             myreportDateTv.setText(item.getReportDate());
         }

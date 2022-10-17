@@ -63,14 +63,9 @@ public class FragmentWanted extends Fragment implements View.OnClickListener {
     private GridLayoutManager gManager;
 
     LinearLayout callLl;
-    ImageView userImg;
-
+    ImageView noticeImg,userImg;
 
     public static String id, pw, name;
-
-
-
-
 
     public FragmentWanted() {
         // Required empty public constructor
@@ -105,10 +100,9 @@ public class FragmentWanted extends Fragment implements View.OnClickListener {
         wantedRv.setLayoutManager(gManager);
 
         callLl = view.findViewById(R.id.callLl);
+
+        noticeImg = view.findViewById(R.id.noticeImg);
         userImg = view.findViewById(R.id.userImg);
-
-        callLl.setOnClickListener(this);
-
 
         // RecyclerView
         for (int i = 0; i < 12; i++) {
@@ -124,7 +118,9 @@ public class FragmentWanted extends Fragment implements View.OnClickListener {
         wantedRv.setAdapter(wadapter);
         Log.d("FragmentWanted","WantedAdapter 연결");
 
+        callLl.setOnClickListener(this);
         userImg.setOnClickListener(this);
+        noticeImg.setOnClickListener(this);
         return view;
     }
 
@@ -154,6 +150,9 @@ public class FragmentWanted extends Fragment implements View.OnClickListener {
                     return;
                 }
                 startActivity(intent);
+                break;
+            case R.id.noticeImg:
+                Log.d("FragmentWanted","noticeImg");
                 break;
             case R.id.userImg:
                 Log.d("FragmentWanted", "userImg");

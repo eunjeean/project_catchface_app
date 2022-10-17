@@ -91,7 +91,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
     EditText monMakeEt, reportConEt, repAdrET;
     Button step1Btn, step2Btn, step3Btn, step4Btn, wantedviewBtn, infoViewBtn, step5Btn, submitBtn;
     ImageButton voiceBtn;
-    ImageView wantedImg, wantResultImg, monResultImg, userImg, monMake1Img, monMake2Img, monMake3Img, monMake4Img;
+    ImageView noticeImg, userImg,wantedImg, wantResultImg, monResultImg, monMake1Img, monMake2Img, monMake3Img, monMake4Img;
     RadioButton rd1, rd2, rd3, rd4, rd5, rd6, rd7, rd8, rd9;
     Spinner wantedSpin;
     TextView dateTv, timeTv, nameTv, phoneTv, wantedcontentTv, reportGetTv, reportGetAdrTv;
@@ -129,6 +129,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         // viewFindViewById 너무너무 길어서 메소드 만들어버려썽용! 맨 밑에 있습니당!ㅎㅎ
         viewFindViewById(view);
 
+        noticeImg.setOnClickListener(this);
         userImg.setOnClickListener(this);
         step1Btn.setOnClickListener(this);
         step2Btn.setOnClickListener(this);
@@ -416,6 +417,9 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.noticeImg:
+                Log.d("FragmentReport","noticeImg");
+                break;
             case R.id.userImg:
                 Log.d("FragmentReport", "userImg");
                 requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fl, new FragmentMypage()).commit();
@@ -861,6 +865,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         wantedImg = view.findViewById(R.id.wantedImg); // step3 > 몽타주 이미지
         monResultImg = view.findViewById(R.id.monResultImg);
         wantResultImg = view.findViewById(R.id.wantResultImg);
+        noticeImg = view.findViewById(R.id.noticeImg);
         userImg = view.findViewById(R.id.userImg);
 
         rd1 = view.findViewById(R.id.rd1);

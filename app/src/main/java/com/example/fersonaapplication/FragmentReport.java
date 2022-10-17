@@ -91,7 +91,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
     EditText monMakeEt, reportConEt, repAdrET;
     Button step1Btn, step2Btn, step3Btn, step4Btn, wantedviewBtn, infoViewBtn, step5Btn, submitBtn;
     ImageButton voiceBtn;
-    ImageView wantedImg, monResultImg, userImg, monMake1Img, monMake2Img, monMake3Img, monMake4Img;
+    ImageView wantedImg, wantResultImg, monResultImg, userImg, monMake1Img, monMake2Img, monMake3Img, monMake4Img;
     RadioButton rd1, rd2, rd3, rd4, rd5, rd6, rd7, rd8, rd9;
     Spinner wantedSpin;
     TextView dateTv, timeTv, nameTv, phoneTv, wantedcontentTv, reportGetTv, reportGetAdrTv;
@@ -110,7 +110,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
     public static String rep_pro = "접수대기";
     public static String want_id = "want1";
     StringRequest request;
-    public static String mon_char, url, monId1,monId2,monId3,monId4, monImg1,monImg2,monImg3,monImg4, wantId1,wantId2,wantId3,wantId4;
+    public static String mon_char, url, monId1,monId2,monId3,monId4, monImg1,monImg2,monImg3,monImg4, wantImg1,wantImg2,wantImg3,wantImg4;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -143,11 +143,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         // LoginActivity에서 로그인 정보 불러오기
         loginContent();
 
-        // 몽타주 4개 이미지 리스트
-        monMake1Img.setImageResource(R.drawable.montage1);
-        monMake2Img.setImageResource(R.drawable.montage2);
-        monMake3Img.setImageResource(R.drawable.montage3);
-        monMake4Img.setImageResource(R.drawable.montage4);
+
         monMake1Img.setOnClickListener(this);
         monMake2Img.setOnClickListener(this);
         monMake3Img.setOnClickListener(this);
@@ -233,11 +229,12 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                             monImg2 = array.getJSONArray(1).getString(5);
                             monImg3 = array.getJSONArray(2).getString(5);
                             monImg4 = array.getJSONArray(3).getString(5);
-                            wantId1 = array.getJSONArray(0).getString(1);
-                            wantId2 = array.getJSONArray(0).getString(2);
-                            wantId3 = array.getJSONArray(0).getString(3);
-                            wantId4 = array.getJSONArray(0).getString(4);
-                            Log.d("selectMon4", monId1 + monImg1 + wantId1 + " " + mon_char);
+                            wantImg1 = array.getJSONArray(0).getString(1);
+                            wantImg2 = array.getJSONArray(0).getString(2);
+                            wantImg3 = array.getJSONArray(0).getString(3);
+                            wantImg4 = array.getJSONArray(0).getString(4);
+
+                            Log.d("selectMon4", monId1 + monImg1 + wantImg1 + " " + mon_char);
 
                         } catch (JSONException e) {  e.printStackTrace(); }
 
@@ -252,10 +249,10 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                         editor.putString("monImg2", monImg2);
                         editor.putString("monImg3", monImg3);
                         editor.putString("monImg4", monImg4);
-                        editor.putString("wantId1", wantId1);
-                        editor.putString("wantId2", wantId2);
-                        editor.putString("wantId3", wantId3);
-                        editor.putString("wantId4", wantId4);
+                        editor.putString("wantId1", wantImg1);
+                        editor.putString("wantId2", wantImg2);
+                        editor.putString("wantId3", wantImg3);
+                        editor.putString("wantId4", wantImg4);
                         editor.putString("mon_char", mon_char);
 
                         editor.commit();    //최종 커밋. 커밋을 해야 저장이 된다.
@@ -295,6 +292,16 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                 return params;
             }
         };
+
+
+
+
+
+
+
+
+
+
 
         request.setShouldCache(false);
         requestQueue.add(request);
@@ -438,11 +445,19 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
             case R.id.step2Btn:
                 Log.d("FragmentReport", "step2");
                 mon_char = monMakeEt.getText().toString();
+
                 // 입력한 특징에 따른 몽타주 4개 생성 및 wantImg 불러오기
                 selectMon4();
 
-//                monMake1Img = "R.drawable." + monMake1Img;
-//                monMake1Img.setImageResource(monMake1Img);
+
+                // 몽타주 4개 이미지 리스트
+                monMake1Img.setImageResource(R.drawable.montage1);
+                monMake2Img.setImageResource(R.drawable.montage2);
+                monMake3Img.setImageResource(R.drawable.montage3);
+                monMake4Img.setImageResource(R.drawable.montage4);
+
+//                monMake1Img = "R.drawable." + monImg1;
+//                monMake1Img.setImageResource(monImg1);
 //                monMake2Img.setImageResource();
 //                monMake3Img.setImageResource();
 //                monMake4Img.setImageResource();
@@ -844,6 +859,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
 
         wantedImg = view.findViewById(R.id.wantedImg); // step3 > 몽타주 이미지
         monResultImg = view.findViewById(R.id.monResultImg);
+        wantResultImg = view.findViewById(R.id.wantResultImg);
         userImg = view.findViewById(R.id.userImg);
 
         rd1 = view.findViewById(R.id.rd1);

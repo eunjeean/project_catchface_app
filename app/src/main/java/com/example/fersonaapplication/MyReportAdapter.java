@@ -1,5 +1,6 @@
 package com.example.fersonaapplication;
 
+import android.content.ClipData;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,9 +25,15 @@ public class MyReportAdapter  extends RecyclerView.Adapter<MyReportAdapter.ViewH
             myreportCateTv = itemView.findViewById(R.id.myreportCateTv);
             myreportDateTv = itemView.findViewById(R.id.myreportDateTv);
         }
+        public void setItem(MyReportListVO item){
+            myreportNumTv.setText(item.getNum());
+            myreportCateTv.setText(item.getWantedCate());
+            myreportDateTv.setText(item.getReportDate());
+        }
     }
 
-    private ArrayList<MyReportListVO> mList = null;
+//    private ArrayList<MyReportListVO> mList = null;
+    ArrayList<MyReportListVO> mList = new ArrayList<MyReportListVO>();
 
     public MyReportAdapter(ArrayList<MyReportListVO> mList) {
         this.mList = mList;
@@ -47,15 +54,25 @@ public class MyReportAdapter  extends RecyclerView.Adapter<MyReportAdapter.ViewH
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         MyReportListVO item = mList.get(position);
-        holder.myreportNumTv.setText("1");
-        holder.myreportCateTv.setText("사기");
-        holder.myreportDateTv.setText("22.09.20");
-    }
 
+//        holder.myreportNumTv.setText("1");
+//        holder.myreportCateTv.setText("사기");
+//        holder.myreportDateTv.setText("22.09.20");
+
+        holder.setItem(item);
+    }
 
     @Override
     public int getItemCount() {
         return mList.size();
+    }
+
+    public void addItem(MyReportListVO item){
+        mList.add(item);
+    }
+
+    public void removeAllItem(){
+        mList.clear();
     }
 
 }

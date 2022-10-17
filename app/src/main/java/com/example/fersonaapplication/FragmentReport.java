@@ -84,6 +84,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
     private RecyclerView wantedListRv;
     private MonRAdapter adapter;
 
+    RequestQueue requestQueue;
     ScrollView scrollView;
     FragmentMypage fragmentMypage;
     LinearLayout mainLl, step1Ll, step2Ll, step3Ll, step4Ll, step5Ll;
@@ -103,9 +104,6 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
     SpeechRecognizer mRecognizer;
     String reportCont = null;
     String reportWanted = null;
-
-    // volley
-    RequestQueue requestQueue;
     public static String id, pw, name, date, city, dong, phone, rep_cate, rep_con, rep_date1, rep_date,rep_time1,rep_time, mem_id, rep_adr;
     public static String shared = "fersona";
     public static String mon_id = "00";
@@ -131,9 +129,6 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         // viewFindViewById 너무너무 길어서 메소드 만들어버려썽용! 맨 밑에 있습니당!ㅎㅎ
         viewFindViewById(view);
 
-
-
-
         userImg.setOnClickListener(this);
         step1Btn.setOnClickListener(this);
         step2Btn.setOnClickListener(this);
@@ -149,6 +144,10 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         loginContent();
 
         // 몽타주 4개 이미지 리스트
+        monMake1Img.setImageResource(R.drawable.montage1);
+        monMake2Img.setImageResource(R.drawable.montage2);
+        monMake3Img.setImageResource(R.drawable.montage3);
+        monMake4Img.setImageResource(R.drawable.montage4);
         monMake1Img.setOnClickListener(this);
         monMake2Img.setOnClickListener(this);
         monMake3Img.setOnClickListener(this);
@@ -158,7 +157,8 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         // RecyclerView
         for (int i = 0; i < 4; i++) {
             if (data != null) {
-                addItemWanted("wantedimg",(i+1));
+                addItemWanted("wantedimg", (i + 1));
+                Log.d("FragmentReport", "item not null");
             } else {
                 Log.d("FragmentReport", "item null");
             }
@@ -194,7 +194,6 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
 
         ReportDate(); // 사건발생일자
         ReportTime(); // 사건발생시간
-
         // 신고발생위치 작성
         repAdrET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -207,10 +206,6 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         if(requestQueue==null){
             requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
         }
-
-
-
-
 
         submitBtn.setVisibility(View.GONE);
 
@@ -320,22 +315,17 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         mem_id = id;
     }
 
+
     public void addItemWanted(String imgName, int imgId) {
-//        MonFaceListVO item = new MonFaceListVO();
-//        item.setMonList(imgName);
-//        if (item != null) {
-//            data.add(item);
-//        } else {
-//            Log.d("FragmentReport", "item null");
-//        }
         int resId = getResources().getIdentifier(imgName + imgId, "drawable", getActivity().getPackageName());
         MonFaceListVO item = new MonFaceListVO("num", resId);
-        if(item != null){
+        if (item != null) {
             data.add(item);
-        }else{
-            Log.d("FragmentWanted","item null");
+        } else {
+            Log.d("FragmentWanted", "item null");
         }
     }
+
 
     // 범죄유형 체크
     private void WantedCheck() {
@@ -471,6 +461,8 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                     step2Ll.setVisibility(View.VISIBLE);
                     step5Btn.setVisibility(view.VISIBLE);
                 }
+                // 몽타주 이미지 선택
+                montageClick();
 
                 break;
             case R.id.step3Btn:
@@ -531,21 +523,8 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                 rep_adr = repAdrET.getText().toString();
                 reportGetAdrTv.setText(rep_adr);
                 // 몽타주
-                // monMake1Btn monMake2Btn monMake3Btn monMake4Btn
+                montageClick();
 
-                if (monMake1Img.isSelected() == true) {
-                    // 몽타주 1번째 이미지 보여주기
-//                    mon_id = monMake1Img.toString();
-                } else if (monMake2Img.isSelected() == true) {
-                    // 몽타주 2번째 이미지 보여주기
-//                    mon_id = monMake2Img.toString();
-                } else if (monMake3Img.isSelected() == true) {
-                    // 몽타주 3번째 이미지 보여주기
-//                    mon_id = monMake3Img.toString();
-                } else if (monMake4Img.isSelected() == true) {
-                    // 몽타주 4번째 이미지 보여주기
-//                    mon_id = monMake4Img.toString();
-                }
                 break;
             case R.id.wantedviewBtn:
                 Log.d("FragmentReport", "신고내용 공유동의");
@@ -652,31 +631,69 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
 
 //                몽타주 이미지 클릭
             case R.id.monMake1Img:
-                Log.d("몽타주 이미지 클릭", "monMake1Img");
-                if (monMake1Img.isSelected() == false) {
-                    monMake1Img.setBackgroundResource(R.color.pointOrange);
-                    monMake2Img.setColorFilter(Color.parseColor("#55293241"));
-                    monMake3Img.setColorFilter(Color.parseColor("#55293241"));
-                    monMake4Img.setColorFilter(Color.parseColor("#55293241"));
-                } else {
-                    monMake1Img.setBackgroundResource(R.color.white);
-                    monMake2Img.setBackgroundResource(R.color.white);
-                    monMake3Img.setBackgroundResource(R.color.white);
-                    monMake4Img.setBackgroundResource(R.color.white);
+                Log.d("몽타주 이미지", "1번 Click " + monMake1Img.isClickable());
+                if(monMake1Img.isClickable()==false){
+                    monMake1Img.setClickable(true);
+                    Toast.makeText(getActivity().getApplicationContext(), "몽타주 1번을 선택하였습니다.", Toast.LENGTH_SHORT).show();
+                    montageClick();
                 }
                 break;
             case R.id.monMake2Img:
-                Log.d("몽타주 이미지 클릭", "monMake2Img");
+                Log.d("몽타주 이미지", "2번 Click " + monMake2Img.isClickable());
+                if(monMake2Img.isClickable()==false){
+                    monMake2Img.setClickable(true);
+                    Toast.makeText(getActivity().getApplicationContext(), "몽타주 2번을 선택하였습니다.", Toast.LENGTH_SHORT).show();
+                    montageClick();
+                }
                 break;
             case R.id.monMake3Img:
-                Log.d("몽타주 이미지 클릭", "monMake3Img");
+                Log.d("몽타주 이미지", "3번 Click " + monMake3Img.isClickable());
+                if(monMake3Img.isClickable()==false){
+                    monMake3Img.setClickable(true);
+                    Toast.makeText(getActivity().getApplicationContext(), "몽타주 3번을 선택하였습니다.", Toast.LENGTH_SHORT).show();
+                    montageClick();
+                }
                 break;
             case R.id.monMake4Img:
-                Log.d("몽타주 이미지 클릭", "monMake4Img");
+                Log.d("몽타주 이미지", "4번 Click " + monMake4Img.isClickable());
+                if(monMake4Img.isClickable()==false){
+                    monMake4Img.setClickable(true);
+                    Toast.makeText(getActivity().getApplicationContext(), "몽타주 4번을 선택하였습니다.", Toast.LENGTH_SHORT).show();
+                    montageClick();
+                }
                 break;
 
         }
 
+    }
+
+    private void montageClick() {
+        Log.d("몽타주", "montageClick 메소드");
+        if (monMake1Img.isClickable() == true) {
+            // 몽타주 1번째 이미지 보여주기
+            Log.d("몽타주 이미지", "1Img " + monMake1Img.isClickable());
+//                    mon_id = monMake1Img.toString();
+            wantedImg.setImageResource(R.drawable.montage1);
+            monResultImg.setImageResource(R.drawable.montage1);
+        } else if (monMake2Img.isClickable() == true) {
+            // 몽타주 2번째 이미지 보여주기
+            Log.d("몽타주 이미지", "2Img" + monMake2Img.isClickable());
+//                    mon_id = monMake2Img.toString();
+            wantedImg.setImageResource(R.drawable.montage2);
+            monResultImg.setImageResource(R.drawable.montage2);
+        } else if (monMake3Img.isClickable() == true) {
+            // 몽타주 3번째 이미지 보여주기
+            Log.d("몽타주 이미지", "3Img" + monMake3Img.isClickable());
+//                    mon_id = monMake3Img.toString();
+            wantedImg.setImageResource(R.drawable.montage3);
+            monResultImg.setImageResource(R.drawable.montage3);
+        } else if (monMake4Img.isClickable() == true) {
+            // 몽타주 4번째 이미지 보여주기
+            Log.d("몽타주 이미지", "4Img" + monMake4Img.isClickable());
+//                    mon_id = monMake4Img.toString();
+            wantedImg.setImageResource(R.drawable.montage4);
+            monResultImg.setImageResource(R.drawable.montage4);
+        }
     }
 
     // 음성 인식
@@ -781,7 +798,6 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
             Log.d("ReportPage", "uri:" + String.valueOf(uri));
             try {
                 //Uri파일을 Bitmap으로 만들어서 ImageView에 집어 넣는다.
-//                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), uri);
                 wantedImg.setImageBitmap(bitmap);
             } catch (IOException e) {

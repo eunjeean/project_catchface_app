@@ -1,7 +1,9 @@
 package com.example.fersonaapplication;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,9 +15,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -30,7 +34,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class FragmentMap extends Fragment implements AdapterView.OnItemSelectedListener {
+public class FragmentMap extends Fragment implements AdapterView.OnItemSelectedListener, View.OnClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -48,6 +52,7 @@ public class FragmentMap extends Fragment implements AdapterView.OnItemSelectedL
     ArrayList<Document> documentArrayList = new ArrayList<>(); //지역명 검색 결과 리스트
     String policeSelect = null;
     MapPOIItem marker;
+    ImageView callImg;
 
     public FragmentMap() {
         // Required empty public constructor
@@ -78,6 +83,8 @@ public class FragmentMap extends Fragment implements AdapterView.OnItemSelectedL
 
         // map 검색
         mapViewContainer = view.findViewById(R.id.mapView);
+        // 112 전화
+        callImg = view.findViewById(R.id.callImg);
 
         recyclerView = view.findViewById(R.id.map_recyclerview);
 
@@ -100,6 +107,8 @@ public class FragmentMap extends Fragment implements AdapterView.OnItemSelectedL
         // 위도 경도 설정
         MapPoint markPoint = MapPoint.mapPointWithGeoCoord(35.1104947, 126.8777619);
         MarkPoint(markPoint);
+
+        callImg.setOnClickListener(this);
 
         return view;
     }
@@ -154,5 +163,23 @@ public class FragmentMap extends Fragment implements AdapterView.OnItemSelectedL
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
         Log.d("FragmentMap", "onNothingSelected " + adapterView);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.callImg:
+                Intent intent = new Intent(Intent.ACTION_CALL,Uri.parse("tel:112"));
+                //사용자에게 권한승인요청
+                if ( ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.CALL_PHONE) !=
+                        PackageManager.PERMISSION_GRANTED ) {
+                    //권한 요청
+                    ActivityCompat.requestPermissions(getActivity(),
+                            new String[]{Manifest.permission.CALL_PHONE}, 0);
+                    return;
+                }
+                startActivity(intent);
+                break;
+        }
     }
 }

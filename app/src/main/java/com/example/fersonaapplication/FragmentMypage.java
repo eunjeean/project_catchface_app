@@ -121,8 +121,6 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
             addItem("reportCate","reportDate");
         }
 
-
-
         adapter = new MyReportAdapter(data);
         wantedListRv.setAdapter(adapter);
         wantedListRv.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
@@ -337,6 +335,22 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
                 }else{
                     wantedListRv.setVisibility(View.VISIBLE);
                 }
+                for(int i=1; i<4; i++){
+                    MyReportListVO item = new MyReportListVO();
+                    item.setNum(""+i);
+                    // Flask 연결하기
+                    //범죄유형
+                    item.setWantedCate("강도");
+                    //신고날짜
+                    item.setReportDate("22.01.01");
+
+                    // 데이터 등록
+                    adapter.addItem(item);
+                }
+                // 적용
+                adapter.notifyDataSetChanged();
+                // 애니메이션 실행
+                wantedListRv.startLayoutAnimation();
                 break;
         }
     }

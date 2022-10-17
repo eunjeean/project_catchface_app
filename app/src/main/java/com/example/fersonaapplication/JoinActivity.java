@@ -30,9 +30,9 @@ import java.util.Map;
 
 public class JoinActivity extends AppCompatActivity implements View.OnClickListener {
 
-    TextView passwordCkTv,phoneTimeTv,joinTv;
-    EditText joinIdEt, joinPwEt, joinPwCkEt,joinNameEt, phoneEt,phoneCkEt;
-    Button idCheckBtn, phoneBtn, submitBtn;
+    TextView passwordCkTv,joinTv;
+    EditText joinIdEt, joinPwEt, joinPwCkEt,joinNameEt, phoneEt;
+    Button idCheckBtn, submitBtn;
     DatePicker joinDate;
     ImageView logoImg;
     RequestQueue requestQueue;
@@ -49,7 +49,6 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
         logoImg = findViewById(R.id.logoImg);
 
         passwordCkTv = findViewById(R.id.passwordCkTv);
-        phoneTimeTv = findViewById(R.id.phoneTimeTv);
         joinTv = findViewById(R.id.joinTv);
 
         joinIdEt = findViewById(R.id.joinIdEt);
@@ -57,14 +56,12 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
         joinPwCkEt = findViewById(R.id.joinPwCkEt);
         joinNameEt = findViewById(R.id.joinNameEt);
         phoneEt = findViewById(R.id.phoneEt);
-        phoneCkEt = findViewById(R.id.phoneCkEt);
 
         joinDate = findViewById(R.id.joinDate);
         citySpin = findViewById(R.id.citySpin);
         dongSpin = findViewById(R.id.dongSpin);
 
         idCheckBtn = findViewById(R.id.idCheckBtn);
-        phoneBtn = findViewById(R.id.phoneBtn);
         submitBtn = findViewById(R.id.submitBtn);
 
         dateRb = findViewById(R.id.dateRb);
@@ -72,7 +69,6 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
 
         logoImg.setOnClickListener(this);
         idCheckBtn.setOnClickListener(this);
-        phoneBtn.setOnClickListener(this);
         submitBtn.setOnClickListener(this);
 
         joinDate_show(); // 회원생년월일 스피너
@@ -84,6 +80,7 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
         if(requestQueue==null){
             requestQueue = Volley.newRequestQueue(getApplicationContext());
         }
+
 
 
     }
@@ -103,10 +100,6 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.idCheckBtn:
                 Log.d("Join","아이디체크");
                 id_check(); // 아이디 중복 확인
-                break;
-
-            case R.id.phoneCkEt:
-                Log.d("Join","핸드폰인증");
                 break;
 
             case R.id.submitBtn:
@@ -150,7 +143,6 @@ public class JoinActivity extends AppCompatActivity implements View.OnClickListe
                 }else{
                     liveRb.setChecked(false);
                     liveRb.setButtonTintList(getResources().getColorStateList(R.color.btnGray));
-
                 }
             }
 

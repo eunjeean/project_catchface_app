@@ -456,7 +456,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                 monMake3Img.setImageResource(R.drawable.montage3);
                 monMake4Img.setImageResource(R.drawable.montage4);
 
-//                monMake1Img = "R.drawable." + monImg1;
+                monMake1Img = "R.drawable." + monImg1;
 //                monMake1Img.setImageResource(monImg1);
 //                monMake2Img.setImageResource();
 //                monMake3Img.setImageResource();
@@ -690,6 +690,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
 //                    mon_id = monMake1Img.toString();
             wantedImg.setImageResource(R.drawable.montage1);
             monResultImg.setImageResource(R.drawable.montage1);
+            wantResultImg.setImageResource(R.drawable.montage1);
         } else if (monMake2Img.isClickable() == true) {
             // 몽타주 2번째 이미지 보여주기
             Log.d("몽타주 이미지", "2Img" + monMake2Img.isClickable());

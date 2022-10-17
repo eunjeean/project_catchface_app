@@ -69,6 +69,10 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
     public static String rep_no_1, rep_cate_1, rep_con_1, rep_date_1, rep_time_1, rep_adr_1, mon_id_1, want_id_1, rep_pro_1, rep_wri_1;
     public static String rep_no_2, rep_cate_2, rep_con_2, rep_date_2, rep_time_2, rep_adr_2, mon_id_2, want_id_2, rep_pro_2, rep_wri_2;
     public static String rep_no_3, rep_cate_3, rep_con_3, rep_date_3, rep_time_3, rep_adr_3, mon_id_3, want_id_3, rep_pro_3, rep_wri_3;
+    public static String rep_no_4, rep_cate_4, rep_con_4, rep_date_4, rep_time_4, rep_adr_4, mon_id_4, want_id_4, rep_pro_4, rep_wri_4;
+    public static String rep_no_5, rep_cate_5, rep_con_5, rep_date_5, rep_time_5, rep_adr_5, mon_id_5, want_id_5, rep_pro_5, rep_wri_5;
+    public static String position_1, position_2, position_3, position_4, position_5;
+
     RequestQueue requestQueue;
     StringRequest request;
 
@@ -202,17 +206,6 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
         requestQueue.add(request);
 
 
-
-
-
-
-
-
-
-
-
-
-
         return view;
     }
 
@@ -231,6 +224,7 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
         want_id_1 = array.getJSONArray(0).getString(8);
         rep_pro_1 = array.getJSONArray(0).getString(9);
         rep_wri_1 = array.getJSONArray(0).getString(10);
+        position_1 = array.getJSONArray(0).getString(11);
 
         rep_no_2 = array.getJSONArray(1).getString(0);
         rep_cate_2 = array.getJSONArray(1).getString(1);
@@ -243,6 +237,8 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
         want_id_2 = array.getJSONArray(1).getString(8);
         rep_pro_2 = array.getJSONArray(1).getString(9);
         rep_wri_2 = array.getJSONArray(1).getString(10);
+        position_2 = array.getJSONArray(1).getString(11);
+
 
         rep_no_3 = array.getJSONArray(2).getString(0);
         rep_cate_3 = array.getJSONArray(2).getString(1);
@@ -255,6 +251,36 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
         want_id_3 = array.getJSONArray(2).getString(8);
         rep_pro_3 = array.getJSONArray(2).getString(9);
         rep_wri_3 = array.getJSONArray(2).getString(10);
+        position_3 = array.getJSONArray(2).getString(11);
+
+
+        rep_no_4 = array.getJSONArray(3).getString(0);
+        rep_cate_4 = array.getJSONArray(3).getString(1);
+        rep_con_4 = array.getJSONArray(3).getString(2);
+        rep_date_4 = array.getJSONArray(3).getString(3);
+        rep_time_4 = array.getJSONArray(3).getString(4);
+        mem_id = array.getJSONArray(3).getString(5);
+        rep_adr_4 = array.getJSONArray(3).getString(6);
+        mon_id_4 = array.getJSONArray(3).getString(7);
+        want_id_4 = array.getJSONArray(3).getString(8);
+        rep_pro_4 = array.getJSONArray(3).getString(9);
+        rep_wri_4 = array.getJSONArray(3).getString(10);
+        position_4 = array.getJSONArray(3).getString(11);
+
+
+        rep_no_5 = array.getJSONArray(4).getString(0);
+        rep_cate_5 = array.getJSONArray(4).getString(1);
+        rep_con_5 = array.getJSONArray(4).getString(2);
+        rep_date_5 = array.getJSONArray(4).getString(3);
+        rep_time_5 = array.getJSONArray(4).getString(4);
+        mem_id = array.getJSONArray(4).getString(5);
+        rep_adr_5 = array.getJSONArray(4).getString(6);
+        mon_id_5 = array.getJSONArray(4).getString(7);
+        want_id_5 = array.getJSONArray(4).getString(8);
+        rep_pro_5 = array.getJSONArray(4).getString(9);
+        rep_wri_5 = array.getJSONArray(4).getString(10);
+        position_5 = array.getJSONArray(4).getString(11);
+
     }
 
     // report 정보 SharedPreferences.Editor
@@ -291,6 +317,30 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
         editor.putString("want_id_3", want_id_3);
         editor.putString("rep_pro_3", rep_pro_3);
         editor.putString("rep_wri_3", rep_wri_3);
+
+        editor.putString("rep_no_4", rep_no_4);
+        editor.putString("rep_cate_4", rep_cate_4);
+        editor.putString("rep_con_4", rep_con_4);
+        editor.putString("rep_date_4", rep_date_4);
+        editor.putString("rep_time_4", rep_time_4);
+        editor.putString("rep_adr_4", rep_adr_4);
+        editor.putString("mon_id_4", mon_id_4);
+        editor.putString("want_id_4", want_id_4);
+        editor.putString("rep_pro_4", rep_pro_4);
+        editor.putString("rep_wri_4", rep_wri_4);
+
+        editor.putString("rep_no_5", rep_no_5);
+        editor.putString("rep_cate_5", rep_cate_5);
+        editor.putString("rep_con_5", rep_con_5);
+        editor.putString("rep_date_5", rep_date_5);
+        editor.putString("rep_time_5", rep_time_5);
+        editor.putString("rep_adr_5", rep_adr_5);
+        editor.putString("mon_id_5", mon_id_5);
+        editor.putString("want_id_5", want_id_5);
+        editor.putString("rep_pro_5", rep_pro_5);
+        editor.putString("rep_wri_5", rep_wri_5);
+
+        editor.commit();
     }
 
     // LoginActivity에서 로그인 정보 불러오기

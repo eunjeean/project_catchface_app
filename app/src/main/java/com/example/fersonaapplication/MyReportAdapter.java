@@ -1,8 +1,10 @@
 package com.example.fersonaapplication;
 
+import android.app.Activity;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,12 +19,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class MyReportAdapter  extends RecyclerView.Adapter<MyReportAdapter.ViewHolder>{
+
+    private int sendPosition = -1;
+    private int mContext;
+    public static String shared = "fersona";
+    public static String rep_no_1, rep_cate_1, rep_con_1, rep_date_1, rep_time_1, rep_adr_1, mon_id_1, want_id_1, rep_pro_1, rep_wri_1;
+    public static String position_1, position_2, position_3, position_4, position_5;
+
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         CardView myReportCv;
         TextView myreportNumTv;
         TextView myreportCateTv;
         TextView myreportDateTv;
+        String shared = "fersona";
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -61,6 +71,24 @@ public class MyReportAdapter  extends RecyclerView.Adapter<MyReportAdapter.ViewH
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         MyReportListVO item = mList.get(position);
 
+//        String pos1 = ((MyReportActivity) Activity.mContext).position_1;
+
+
+//        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(shared, Context.MODE_PRIVATE);
+//        rep_no_1 = sharedPreferences.getString("rep_no_1", "");
+//        rep_cate_1 = sharedPreferences.getString("rep_cate_1", "");
+//        rep_con_1 = sharedPreferences.getString("rep_con_1", "");
+//        rep_date_1 = sharedPreferences.getString("rep_date_1", "");
+//        rep_time_1 = sharedPreferences.getString("rep_time_1", "");
+//        rep_adr_1 = sharedPreferences.getString("rep_adr_1", "");
+//        mon_id_1 = sharedPreferences.getString("mon_id_1", "");
+//        want_id_1 = sharedPreferences.getString("want_id_1", "");
+//        rep_pro_1 = sharedPreferences.getString("rep_pro_1", "");
+//        rep_wri_1 = sharedPreferences.getString("rep_wri_1", "");
+//        position_1 = sharedPreferences.getString("position_1", "");
+
+
+
 //        holder.myreportNumTv.setText("1");
 //        holder.myreportCateTv.setText("사기");
 //        holder.myreportDateTv.setText("22.09.20");
@@ -69,7 +97,10 @@ public class MyReportAdapter  extends RecyclerView.Adapter<MyReportAdapter.ViewH
         holder.myReportCv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Log.d("MyReportAdapter item","클릭"+position);
+                Log.d("MyReportAdapter item","클릭"+position);
+                sendPosition = position;
+
+
 
                 notifyDataSetChanged();
             }
@@ -88,5 +119,6 @@ public class MyReportAdapter  extends RecyclerView.Adapter<MyReportAdapter.ViewH
     public void removeAllItem(){
         mList.clear();
     }
+
 
 }

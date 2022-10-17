@@ -110,7 +110,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
     public static String rep_pro = "접수대기";
     public static String want_id = "want1";
     StringRequest request;
-    public static String mon_char, url, monId1,monId2,monId3,monId4, monImg1,monImg2,monImg3,monImg4, wantImg1,wantImg2,wantImg3,wantImg4;
+    String mon_char, url, monId1,monId2,monId3,monId4, monImg1,monImg2,monImg3,monImg4, wantImg1,wantImg2,wantImg3,wantImg4;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -210,7 +210,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
     }
 
     // 입력한 특징에 따른 몽타주 4개 생성 및 wantImg 불러오기
-    private void selectMon4() {
+    public void selectMon4() {
         url = "http://121.147.52.96:5000/selectMon4";
 
         StringRequest request = new StringRequest(
@@ -235,7 +235,9 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                             wantImg3 = array.getJSONArray(0).getString(3);
                             wantImg4 = array.getJSONArray(0).getString(4);
 
-                            Log.d("selectMon4", monId1 + monImg1 + wantImg1 + " " + mon_char);
+                            Log.d("selectMon4", monId1 + " " + monId2 + " " + monId3 + " " + monId4);
+                            Log.d("selectMon4", monImg1 + " " + monImg2 + " " + monImg3 + " " + monImg4);
+                            Log.d("selectMon4", wantImg1 + " " + wantImg2 + " " + wantImg3 + " " + wantImg4);
 
                         } catch (JSONException e) {  e.printStackTrace(); }
 
@@ -257,6 +259,22 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                         editor.putString("mon_char", mon_char);
 
                         editor.commit();    //최종 커밋. 커밋을 해야 저장이 된다.
+
+                        //monImg1 관련 이미지초기화 여기에서 진행되어야 한다
+                        int monId1 = getResources().getIdentifier(monImg1, "drawable", getActivity().getPackageName());
+                        int monId2 = getResources().getIdentifier(monImg2, "drawable", getActivity().getPackageName());
+                        int monId3 = getResources().getIdentifier(monImg3, "drawable", getActivity().getPackageName());
+                        int monId4 = getResources().getIdentifier(monImg4, "drawable", getActivity().getPackageName());
+                        monMake1Img.setImageResource(monId1);
+                        monMake2Img.setImageResource(monId2);
+                        monMake3Img.setImageResource(monId3);
+                        monMake4Img.setImageResource(monId4);
+                        int wanId1 = getResources().getIdentifier(wantImg1, "drawable", getActivity().getPackageName());
+                        int wanId2 = getResources().getIdentifier(wantImg2, "drawable", getActivity().getPackageName());
+                        int wanId3 = getResources().getIdentifier(wantImg3, "drawable", getActivity().getPackageName());
+                        int wanId4 = getResources().getIdentifier(wantImg4, "drawable", getActivity().getPackageName());
+//                        monMake1Img.setImageResource(monId1);
+
 
                     }
                 },
@@ -293,13 +311,6 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                 return params;
             }
         };
-
-
-
-
-
-
-
 
 
 
@@ -453,15 +464,25 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                 // 입력한 특징에 따른 몽타주 4개 생성 및 wantImg 불러오기
                 selectMon4();
 
-
+                Log.d("name", monId1 + " " + monId2 + " " + monId3 + " " + monId4);
                 // 몽타주 4개 이미지 리스트
-                monMake1Img.setImageResource(R.drawable.montage1);
-                monMake2Img.setImageResource(R.drawable.montage2);
-                monMake3Img.setImageResource(R.drawable.montage3);
-                monMake4Img.setImageResource(R.drawable.montage4);
+//                monMake1Img.setImageResource(R.drawable.montage1);
+//                monMake2Img.setImageResource(R.drawable.montage2);
+//                monMake3Img.setImageResource(R.drawable.montage3);
+//                monMake4Img.setImageResource(R.drawable.montage4);
+
+                Log.d("name", monImg1 +" ");
+//
+//                int resId1 = getResources().getIdentifier(monImg1, "drawable", getActivity().getPackageName());
+//                int resId2 = getResources().getIdentifier(monImg2, "drawable", getActivity().getPackageName());
+//                int resId3 = getResources().getIdentifier(monImg3, "drawable", getActivity().getPackageName());
+//                int resId4 = getResources().getIdentifier(monImg4, "drawable", getActivity().getPackageName());
+//                monMake1Img.setImageResource(resId1);
+//                monMake2Img.setImageResource(resId2);
+//                monMake3Img.setImageResource(resId3);
+//                monMake4Img.setImageResource(resId4);
 
 //                monMake1Img = "R.drawable." + monImg1;
-//                monMake1Img.setImageResource(monImg1);
 //                monMake2Img.setImageResource();
 //                monMake3Img.setImageResource();
 //                monMake4Img.setImageResource();
@@ -865,8 +886,8 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         wantedImg = view.findViewById(R.id.wantedImg); // step3 > 몽타주 이미지
         monResultImg = view.findViewById(R.id.monResultImg);
         wantResultImg = view.findViewById(R.id.wantResultImg);
-        noticeImg = view.findViewById(R.id.noticeImg);
         userImg = view.findViewById(R.id.userImg);
+        noticeImg = view.findViewById(R.id.noticeImg);
 
         rd1 = view.findViewById(R.id.rd1);
         rd2 = view.findViewById(R.id.rd2);

@@ -269,6 +269,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                         monMake2Img.setImageResource(monId2);
                         monMake3Img.setImageResource(monId3);
                         monMake4Img.setImageResource(monId4);
+
                         int wanId1 = getResources().getIdentifier(wantImg1, "drawable", getActivity().getPackageName());
                         int wanId2 = getResources().getIdentifier(wantImg2, "drawable", getActivity().getPackageName());
                         int wanId3 = getResources().getIdentifier(wantImg3, "drawable", getActivity().getPackageName());

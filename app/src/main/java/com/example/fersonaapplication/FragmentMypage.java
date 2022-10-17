@@ -62,13 +62,13 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
     ConstraintLayout myPageCl,myReportCl;
     TextView myIdTv, phoneTv;
     EditText nameTv, addressTv;
+
+    // volley
     public static String a, id, pw, name, date, city, dong, phone, url, mem_id;
     public static String shared = "fersona";
     public static String rep_no_1, rep_cate_1, rep_con_1, rep_date_1, rep_time_1, rep_adr_1, mon_id_1, want_id_1, rep_pro_1, rep_wri_1;
     public static String rep_no_2, rep_cate_2, rep_con_2, rep_date_2, rep_time_2, rep_adr_2, mon_id_2, want_id_2, rep_pro_2, rep_wri_2;
     public static String rep_no_3, rep_cate_3, rep_con_3, rep_date_3, rep_time_3, rep_adr_3, mon_id_3, want_id_3, rep_pro_3, rep_wri_3;
-
-
     RequestQueue requestQueue;
     StringRequest request;
 
@@ -156,6 +156,8 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
                         // report 정보 SharedPreferences.Editor
                         editorPutReportContent(editor);
 
+                        editor.putString("mem_id", id);
+
                         editor.commit();    //최종 커밋. 커밋을 해야 저장이 된다.
 //                        startActivity(mypageIntent);
 
@@ -188,8 +190,8 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
             protected Map<String, String> getParams() throws AuthFailureError {
                 // Map : dictionary, json과 비슷한 key, value로 이루어져 있음
                 Map<String, String> params = new HashMap<>();
-//                params.put("id", id);
-//                params.put("pw", pw);
+                params.put("mem_id", id);
+                params.put("mem_pw", pw);
 
                 return params;
             }

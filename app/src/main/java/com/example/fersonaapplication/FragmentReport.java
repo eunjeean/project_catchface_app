@@ -49,10 +49,13 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
+import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -60,6 +63,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -80,7 +84,6 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
     private RecyclerView wantedListRv;
     private MonRAdapter adapter;
 
-    RequestQueue requestQueue;
     ScrollView scrollView;
     FragmentMypage fragmentMypage;
     LinearLayout mainLl, step1Ll, step2Ll, step3Ll, step4Ll, step5Ll;
@@ -100,12 +103,16 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
     SpeechRecognizer mRecognizer;
     String reportCont = null;
     String reportWanted = null;
+
+    // volley
+    RequestQueue requestQueue;
     public static String id, pw, name, date, city, dong, phone, rep_cate, rep_con, rep_date1, rep_date,rep_time1,rep_time, mem_id, rep_adr;
     public static String shared = "fersona";
     public static String mon_id = "00";
     public static String rep_pro = "접수대기";
     public static String want_id = "want1";
     StringRequest request;
+    public static String mon_char, url, monId1,monId2,monId3,monId4, monImg1,monImg2,monImg3,monImg4, wantId1,wantId2,wantId3,wantId4;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -123,6 +130,9 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
 
         // viewFindViewById 너무너무 길어서 메소드 만들어버려썽용! 맨 밑에 있습니당!ㅎㅎ
         viewFindViewById(view);
+
+
+
 
         userImg.setOnClickListener(this);
         step1Btn.setOnClickListener(this);
@@ -184,6 +194,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
 
         ReportDate(); // 사건발생일자
         ReportTime(); // 사건발생시간
+
         // 신고발생위치 작성
         repAdrET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -197,9 +208,101 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
             requestQueue = Volley.newRequestQueue(getActivity().getApplicationContext());
         }
 
+
+
+
+
         submitBtn.setVisibility(View.GONE);
 
         return view;
+    }
+
+    // 입력한 특징에 따른 몽타주 4개 생성 및 wantImg 불러오기
+    private void selectMon4() {
+        url = "http://121.147.52.96:5000/selectMon4";
+
+        StringRequest request = new StringRequest(
+                Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Toast.makeText(getActivity().getApplicationContext(), "몽타주 생성 성공😊", Toast.LENGTH_SHORT).show();
+                        try {
+                            JSONArray array = new JSONArray(response);
+
+                            monId1 = array.getJSONArray(0).getString(0);
+                            monId2 = array.getJSONArray(1).getString(0);
+                            monId3 = array.getJSONArray(2).getString(0);
+                            monId4 = array.getJSONArray(3).getString(0);
+                            monImg1 = array.getJSONArray(0).getString(5);
+                            monImg2 = array.getJSONArray(1).getString(5);
+                            monImg3 = array.getJSONArray(2).getString(5);
+                            monImg4 = array.getJSONArray(3).getString(5);
+                            wantId1 = array.getJSONArray(0).getString(1);
+                            wantId2 = array.getJSONArray(0).getString(2);
+                            wantId3 = array.getJSONArray(0).getString(3);
+                            wantId4 = array.getJSONArray(0).getString(4);
+                            Log.d("selectMon4", monId1 + monImg1 + wantId1 + " " + mon_char);
+
+                        } catch (JSONException e) {  e.printStackTrace(); }
+
+                        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(shared, Context.MODE_PRIVATE);    // test 이름의 기본모드 설정
+                        SharedPreferences.Editor editor = sharedPreferences.edit(); //sharedPreferences를 제어할 editor를 선언
+
+                        editor.putString("monId1", monId1);
+                        editor.putString("monId2", monId2);
+                        editor.putString("monId3", monId3);
+                        editor.putString("monId4", monId4);
+                        editor.putString("monImg1", monImg1);
+                        editor.putString("monImg2", monImg2);
+                        editor.putString("monImg3", monImg3);
+                        editor.putString("monImg4", monImg4);
+                        editor.putString("wantId1", wantId1);
+                        editor.putString("wantId2", wantId2);
+                        editor.putString("wantId3", wantId3);
+                        editor.putString("wantId4", wantId4);
+                        editor.putString("mon_char", mon_char);
+
+                        editor.commit();    //최종 커밋. 커밋을 해야 저장이 된다.
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getActivity().getApplicationContext(), "몽타주 생성 실패😣", Toast.LENGTH_SHORT).show();
+                    }
+                }
+        ){
+            // 안드로이드에서 한글 인코딩
+            @Override
+            protected Response<String> parseNetworkResponse(NetworkResponse response) {
+                try {
+                    String utf8String = new String(response.data, "UTF-8");
+                    return Response.success(utf8String, HttpHeaderParser.parseCacheHeaders(response));
+                } catch (UnsupportedEncodingException e) {
+                    // log error
+                    return Response.error(new ParseError(e));
+                } catch (Exception e) {
+                    // log error
+                    return Response.error(new ParseError(e));
+                }
+            }
+
+            // getParams 라는 메서드 오버라이딩 : alt + insert
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                // Map : dictionary, json과 비슷한 key, value로 이루어져 있음
+                Map<String, String> params = new HashMap<>();
+                params.put("mon_char", mon_char);
+//                params.put("mem_pw", pw);
+
+                return params;
+            }
+        };
+
+        request.setShouldCache(false);
+        requestQueue.add(request);
     }
 
     // LoginActivity에서 로그인 정보 불러오기
@@ -217,7 +320,6 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
         mem_id = id;
     }
 
-
     public void addItemWanted(String imgName, int imgId) {
 //        MonFaceListVO item = new MonFaceListVO();
 //        item.setMonList(imgName);
@@ -234,7 +336,6 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
             Log.d("FragmentWanted","item null");
         }
     }
-
 
     // 범죄유형 체크
     private void WantedCheck() {
@@ -346,6 +447,17 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                 break;
             case R.id.step2Btn:
                 Log.d("FragmentReport", "step2");
+                mon_char = monMakeEt.getText().toString();
+                // 입력한 특징에 따른 몽타주 4개 생성 및 wantImg 불러오기
+                selectMon4();
+
+//                monMake1Img = "R.drawable." + monMake1Img;
+//                monMake1Img.setImageResource(monMake1Img);
+//                monMake2Img.setImageResource();
+//                monMake3Img.setImageResource();
+//                monMake4Img.setImageResource();
+
+
                 step1Ll.setVisibility(View.GONE);
                 step3Ll.setVisibility(View.GONE);
                 step4Ll.setVisibility(View.GONE);

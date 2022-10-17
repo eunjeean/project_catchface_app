@@ -456,7 +456,7 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                 monMake3Img.setImageResource(R.drawable.montage3);
                 monMake4Img.setImageResource(R.drawable.montage4);
 
-                monMake1Img = "R.drawable." + monImg1;
+//                monMake1Img = "R.drawable." + monImg1;
 //                monMake1Img.setImageResource(monImg1);
 //                monMake2Img.setImageResource();
 //                monMake3Img.setImageResource();

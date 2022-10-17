@@ -34,7 +34,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-public class FragmentMap extends Fragment implements AdapterView.OnItemSelectedListener, View.OnClickListener {
+public class FragmentMap extends Fragment implements AdapterView.OnItemSelectedListener{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -52,7 +52,6 @@ public class FragmentMap extends Fragment implements AdapterView.OnItemSelectedL
     ArrayList<Document> documentArrayList = new ArrayList<>(); //지역명 검색 결과 리스트
     String policeSelect = null;
     MapPOIItem marker;
-    ImageView callImg;
 
     public FragmentMap() {
         // Required empty public constructor
@@ -83,8 +82,6 @@ public class FragmentMap extends Fragment implements AdapterView.OnItemSelectedL
 
         // map 검색
         mapViewContainer = view.findViewById(R.id.mapView);
-        // 112 전화
-        callImg = view.findViewById(R.id.callImg);
 
         recyclerView = view.findViewById(R.id.map_recyclerview);
 
@@ -107,8 +104,6 @@ public class FragmentMap extends Fragment implements AdapterView.OnItemSelectedL
         // 위도 경도 설정
         MapPoint markPoint = MapPoint.mapPointWithGeoCoord(35.1104947, 126.8777619);
         MarkPoint(markPoint);
-
-        callImg.setOnClickListener(this);
 
         return view;
     }
@@ -165,21 +160,4 @@ public class FragmentMap extends Fragment implements AdapterView.OnItemSelectedL
         Log.d("FragmentMap", "onNothingSelected " + adapterView);
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.callImg:
-                Intent intent = new Intent(Intent.ACTION_CALL,Uri.parse("tel:112"));
-                //사용자에게 권한승인요청
-                if ( ActivityCompat.checkSelfPermission(getActivity().getApplicationContext(), Manifest.permission.CALL_PHONE) !=
-                        PackageManager.PERMISSION_GRANTED ) {
-                    //권한 요청
-                    ActivityCompat.requestPermissions(getActivity(),
-                            new String[]{Manifest.permission.CALL_PHONE}, 0);
-                    return;
-                }
-                startActivity(intent);
-                break;
-        }
-    }
 }

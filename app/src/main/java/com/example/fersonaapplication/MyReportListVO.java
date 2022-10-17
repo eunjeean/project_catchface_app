@@ -4,6 +4,11 @@ public class MyReportListVO {
     private String wantedCate; // 범죄유형
     private String reportDate; // 신고날짜
 
+    public MyReportListVO() {
+        this.wantedCate = wantedCate;
+        this.reportDate = reportDate;
+    }
+
     public String getWantedCate() {
         return wantedCate;
     }

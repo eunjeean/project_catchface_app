@@ -58,7 +58,7 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
     private MyReportAdapter adapter;
 
     ImageView logo;
-    Button mypageBtn, myReportBtn;
+    Button mypageBtn, myReportBtn,logoutBtn;
     ConstraintLayout myPageCl,myReportCl;
     TextView myIdTv, phoneTv;
     EditText nameTv, addressTv;
@@ -96,6 +96,7 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
 
         mypageBtn = view.findViewById(R.id.mypageBtn);
         myReportBtn = view.findViewById(R.id.myReportBtn);
+        logoutBtn = view.findViewById(R.id.logoutBtn);
 
         myPageCl = view.findViewById(R.id.myPageCl);
         myReportCl = view.findViewById(R.id.myReportCl);
@@ -110,7 +111,8 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
 
         mypageBtn.setOnClickListener(this);
         myReportBtn.setOnClickListener(this);
-
+        logoutBtn.setOnClickListener(this);
+        wantedListRv.setOnClickListener(this);
 
         // LoginActivity에서 로그인 정보 불러오기
         loginContext();
@@ -118,7 +120,8 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
 
         // RecyclerView
         for(int i=0;i<5;i++){
-            addItem("reportCate","reportDate");
+            Toast.makeText(getActivity(), "나의 신고목록 페이지입니다😊", Toast.LENGTH_SHORT).show();
+//            addItem("reportCate","reportDate");
         }
 
         adapter = new MyReportAdapter(data);
@@ -335,23 +338,38 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
                 }else{
                     wantedListRv.setVisibility(View.VISIBLE);
                 }
-                for(int i=1; i<4; i++){
-                    MyReportListVO item = new MyReportListVO();
-                    item.setNum(""+i);
-                    // Flask 연결하기
-                    //범죄유형
-                    item.setWantedCate("강도");
-                    //신고날짜
-                    item.setReportDate("22.01.01");
-
-                    // 데이터 등록
-                    adapter.addItem(item);
-                }
-                // 적용
-                adapter.notifyDataSetChanged();
-                // 애니메이션 실행
-                wantedListRv.startLayoutAnimation();
+                myReportAni();
+                break;
+            case R.id.logoutBtn:
+                Toast.makeText(getActivity(), "로그아웃되었습니다😀", Toast.LENGTH_SHORT).show();
+                Intent logoutIntent = new Intent(getActivity().getApplicationContext(),LoginActivity.class);
+                startActivity(logoutIntent);
                 break;
         }
+    }
+
+    private void myReportAni() {
+        Log.d("FragmentMypage","myReportAni");
+        if(adapter.mList.size()==3){
+            Log.d("FragmentMypage","목록3이상");
+        }else{
+            for(int i=1; i<6; i++){
+                MyReportListVO item = new MyReportListVO();
+                item.setNum(i+"");
+                // Flask 연결하기
+                //범죄유형
+                item.setWantedCate("강도");
+                //신고날짜
+                item.setReportDate("22.01.01");
+
+                // 데이터 등록
+                adapter.addItem(item);
+            }
+        }
+
+        // 적용
+        adapter.notifyDataSetChanged();
+        // 애니메이션 실행
+        wantedListRv.startLayoutAnimation();
     }
 }

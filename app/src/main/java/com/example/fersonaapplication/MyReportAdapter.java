@@ -2,12 +2,16 @@ package com.example.fersonaapplication;
 
 import android.content.ClipData;
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -15,12 +19,14 @@ import java.util.ArrayList;
 public class MyReportAdapter  extends RecyclerView.Adapter<MyReportAdapter.ViewHolder>{
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+        CardView myReportCv;
         TextView myreportNumTv;
         TextView myreportCateTv;
         TextView myreportDateTv;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            myReportCv = itemView.findViewById(R.id.myReportCv);
             myreportNumTv = itemView.findViewById(R.id.myreportNumTv);
             myreportCateTv = itemView.findViewById(R.id.myreportCateTv);
             myreportDateTv = itemView.findViewById(R.id.myreportDateTv);
@@ -60,6 +66,14 @@ public class MyReportAdapter  extends RecyclerView.Adapter<MyReportAdapter.ViewH
 //        holder.myreportDateTv.setText("22.09.20");
 
         holder.setItem(item);
+        holder.myReportCv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Log.d("MyReportAdapter item","클릭"+position);
+
+                notifyDataSetChanged();
+            }
+        });
     }
 
     @Override

@@ -42,7 +42,7 @@
                     android:textSize="16sp" />
 
                 <RadioButton
-                    android:id="@+id/rd6"
+                    android:id="@+id/rd2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/pointOrange"
@@ -94,7 +94,7 @@
                     android:textSize="16sp" />
 
                 <RadioButton
-                    android:id="@+id/rd8"
+                    android:id="@+id/rd3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/pointOrange"
@@ -116,7 +116,7 @@
                     android:textSize="15sp" />
 
                 <RadioButton
-                    android:id="@+id/rd9"
+                    android:id="@+id/rd4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/pointOrange"
@@ -138,7 +138,7 @@
                     android:textSize="15sp" />
 
                 <RadioButton
-                    android:id="@+id/rd7"
+                    android:id="@+id/rd5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/pointOrange"

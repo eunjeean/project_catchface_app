@@ -400,11 +400,12 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
 
     private void myReportAni() {
         Log.d("FragmentMypage","myReportAni");
-        if(adapter.mList.size()==3){
-            Log.d("FragmentMypage","목록3이상");
+        if(adapter.mList.size()>=5){
+            Log.d("FragmentMypage","목록5이상");
         }else{
             for(int i=1; i<6; i++){
                 MyReportListVO item = new MyReportListVO();
+                // 목록 순번
                 item.setNum(i+"");
                 // Flask 연결하기
                 //범죄유형
@@ -421,5 +422,6 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
         adapter.notifyDataSetChanged();
         // 애니메이션 실행
         wantedListRv.startLayoutAnimation();
+
     }
 }

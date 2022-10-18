@@ -90,7 +90,7 @@
                 <EditText
                     android:id="@+id/monMakeEt"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="310dp"
                     android:background="@drawable/btn_sub_border"
                     android:gravity="center"
                     android:hint="( 예시 )\n눈썹이 얇고 눈이 길게 찢어져있다. 입술이 얇고 얼굴이 조금 길고 앞머리가 짧다."

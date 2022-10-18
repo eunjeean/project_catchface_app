@@ -68,8 +68,8 @@ public class MyReportAdapter  extends RecyclerView.Adapter<MyReportAdapter.ViewH
     }
     // position에 해당하는 데이터를 뷰홀더의 아이템뷰에 표시
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        MyReportListVO item = mList.get(position);
+    public void onBindViewHolder(@NonNull ViewHolder holder, int pos) {
+        MyReportListVO item = mList.get(pos);
 
 //        String pos1 = ((MyReportActivity) Activity.mContext).position_1;
 
@@ -97,8 +97,8 @@ public class MyReportAdapter  extends RecyclerView.Adapter<MyReportAdapter.ViewH
         holder.myReportCv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("MyReportAdapter item","클릭"+position);
-                sendPosition = position;
+                Log.d("MyReportAdapter item","클릭"+pos);
+                sendPosition = pos;
 
 
 

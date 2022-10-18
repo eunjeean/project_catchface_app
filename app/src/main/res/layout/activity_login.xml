@@ -15,29 +15,41 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <ImageView
+        android:id="@+id/logoIconImg"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/logo_icon_white"
+        app:layout_constraintBottom_toTopOf="@+id/logoImg"
+        app:layout_constraintEnd_toEndOf="@+id/loginIdEt"
+        app:layout_constraintStart_toStartOf="@+id/loginIdEt" />
+
+    <ImageView
         android:id="@+id/logoImg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
         android:src="@drawable/logo_mainw"
         app:layout_constraintBottom_toTopOf="@+id/loginIdEt"
         app:layout_constraintEnd_toEndOf="@+id/loginIdEt"
-        app:layout_constraintStart_toStartOf="@+id/loginIdEt"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/loginIdEt" />
 
 
     <EditText
         android:id="@+id/loginIdEt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/background_white"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:background="@drawable/btn_sub_border"
         android:ems="10"
         android:hint="ID를 입력해주세요"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:padding="4dp"
+        android:padding="8dp"
         android:textColor="@color/black"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -46,15 +58,17 @@
         android:id="@+id/loginPwEt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/background_white"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:background="@drawable/btn_sub_border"
         android:ems="10"
         android:hint="PW를 입력해주세요"
         android:inputType="textPassword"
         android:minHeight="48dp"
-        android:padding="4dp"
+        android:padding="8dp"
         android:textColor="@color/black"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginIdEt" />
@@ -65,6 +79,7 @@
         android:layout_height="wrap_content"
         android:buttonTint="#FFFFFF"
         android:text="자동로그인"
+        android:layout_marginTop="8dp"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="18sp"

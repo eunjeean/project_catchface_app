@@ -270,11 +270,14 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
                         monMake3Img.setImageResource(monId3);
                         monMake4Img.setImageResource(monId4);
 
+//                        monId1
+
                         int wanId1 = getResources().getIdentifier(wantImg1, "drawable", getActivity().getPackageName());
                         int wanId2 = getResources().getIdentifier(wantImg2, "drawable", getActivity().getPackageName());
                         int wanId3 = getResources().getIdentifier(wantImg3, "drawable", getActivity().getPackageName());
                         int wanId4 = getResources().getIdentifier(wantImg4, "drawable", getActivity().getPackageName());
 //                        monMake1Img.setImageResource(monId1);
+                        wantResultImg.setImageResource(R.drawable.wantedimg39);
 
 
                     }
@@ -673,11 +676,9 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
 //                몽타주 이미지 클릭
             case R.id.monMake1Img:
                 Log.d("몽타주 이미지", "1번 Click " + monMake1Img.isClickable());
-                if(monMake1Img.isClickable()==false){
-                    monMake1Img.setClickable(true);
-                    Toast.makeText(getActivity().getApplicationContext(), "몽타주 1번을 선택하였습니다.", Toast.LENGTH_SHORT).show();
-                    montageClick();
-                }
+                Toast.makeText(getActivity().getApplicationContext(), "몽타주 1번을 선택하였습니다.", Toast.LENGTH_SHORT).show();
+                monMake1Img.setClickable(true);
+                montageClick();
                 break;
             case R.id.monMake2Img:
                 Log.d("몽타주 이미지", "2번 Click " + monMake2Img.isClickable());
@@ -714,9 +715,9 @@ public class FragmentReport extends Fragment implements View.OnClickListener {
             // 몽타주 1번째 이미지 보여주기
             Log.d("몽타주 이미지", "1Img " + monMake1Img.isClickable());
 //                    mon_id = monMake1Img.toString();
-            wantedImg.setImageResource(R.drawable.montage1);
-            monResultImg.setImageResource(R.drawable.montage1);
-            wantResultImg.setImageResource(R.drawable.montage1);
+            wantedImg.setImageResource(R.drawable.mon_516);
+            monResultImg.setImageResource(R.drawable.mon_516);
+            wantResultImg.setImageResource(R.drawable.wantedimg39);
         } else if (monMake2Img.isClickable() == true) {
             // 몽타주 2번째 이미지 보여주기
             Log.d("몽타주 이미지", "2Img" + monMake2Img.isClickable());

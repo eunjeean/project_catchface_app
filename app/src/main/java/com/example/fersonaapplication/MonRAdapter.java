@@ -52,10 +52,25 @@ public class MonRAdapter extends RecyclerView.Adapter<MonRAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         MonFaceListVO item = mList.get(position);
 //        holder.wantedItemImg.setImageResource(R.drawable.wantedimg_list_test);   // 기본 파일로 이미지 띄움
-        holder.wantedItemImg.setImageResource(mList.get(position).getImgId());
+//        holder.wantedItemImg.setImageResource(mList.get(position).getImgId());
         Log.d("테스트","position : "+mList.get(position).getImgId());
+        Log.d("테스트","item : "+item.getImgId());
+
+        if(item.getImgId()==2131230944){
+            holder.wantedItemImg.setImageResource(R.drawable.wantedimg24);
+        }
+        if(item.getImgId()==2131230954){
+            holder.wantedItemImg.setImageResource(R.drawable.wantedimg10);
+        }
+        if(item.getImgId()==2131230957){
+            holder.wantedItemImg.setImageResource(R.drawable.wantedimg15);
+        }
+        if(item.getImgId()==2131230959){
+            holder.wantedItemImg.setImageResource(R.drawable.wantedimg39);
+        }
 
         if (selectedPosition == position) {
+            Log.d("테스트","selectedPosition : "+selectedPosition);
             holder.wantedItemImg.setBackgroundResource(R.color.pointOrange);
         } else {
             holder.wantedItemImg.setBackgroundResource(R.color.white);
@@ -64,7 +79,6 @@ public class MonRAdapter extends RecyclerView.Adapter<MonRAdapter.ViewHolder> {
         holder.wantedItemImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 selectedPosition = position;
                 notifyDataSetChanged();
 

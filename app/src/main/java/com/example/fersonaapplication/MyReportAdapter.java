@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
@@ -97,10 +98,8 @@ public class MyReportAdapter  extends RecyclerView.Adapter<MyReportAdapter.ViewH
         holder.myReportCv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("MyReportAdapter item","클릭"+pos);
-                sendPosition = pos;
-
-
+                sendPosition = holder.getAdapterPosition();
+                Log.d("MyReportAdapter item","sendPosition "+sendPosition+" pos "+pos);
 
                 notifyDataSetChanged();
             }

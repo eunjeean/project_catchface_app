@@ -16,10 +16,10 @@
         <Spinner
             android:id="@+id/policeSpin"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
             android:entries="@array/police_Spin"
-            android:textAlignment="center"
-            android:layout_gravity="center" />
+            android:textAlignment="center" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/map_recyclerview"

@@ -340,6 +340,48 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
         editor.putString("rep_pro_5", rep_pro_5);
         editor.putString("rep_wri_5", rep_wri_5);
 
+        for(int i=1; i<6; i++){
+            MyReportListVO item = new MyReportListVO();
+
+            String rep_cate = "rep_cate_" + i;
+            // 목록 순번
+            item.setNum(i+"");
+//            item.setNum(rep_no_5+"");
+            // Flask 연결하기
+            //범죄유형
+//                item.setWantedCate("강도");
+                item.setWantedCate(rep_cate);
+            //신고날짜
+//                item.setReportDate("22.01.01");
+                item.setReportDate(rep_wri_4);
+
+                if(i==1){
+                    item.setWantedCate(rep_cate_1);
+                    item.setReportDate(rep_wri_1);
+                }
+                if(i==2){
+                    item.setWantedCate(rep_cate_2);
+                    item.setReportDate(rep_wri_2);
+                }
+                if(i==3){
+                    item.setWantedCate(rep_cate_3);
+                    item.setReportDate(rep_wri_3);
+                }
+                if(i==4){
+                    item.setWantedCate(rep_cate_4);
+                    item.setReportDate(rep_wri_4);
+                }
+                if(i==5){
+                    item.setWantedCate(rep_cate_5);
+                    item.setReportDate(rep_wri_5);
+                }
+
+            // 데이터 등록
+            adapter.addItem(item);
+        }
+
+
+
         editor.commit();
     }
 
@@ -409,9 +451,11 @@ public class FragmentMypage extends Fragment implements View.OnClickListener {
                 item.setNum(i+"");
                 // Flask 연결하기
                 //범죄유형
-                item.setWantedCate("강도");
+//                item.setWantedCate("강도");
+//                item.setWantedCate(rep_cate_4);
                 //신고날짜
-                item.setReportDate("22.01.01");
+//                item.setReportDate("22.01.01");
+//                item.setReportDate(rep_wri_4);
 
                 // 데이터 등록
                 adapter.addItem(item);

@@ -3,21 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.fersonaapplication">
 
-    <!-- 지도 -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <!-- 인터넷권한 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <!-- 진동센서 -->
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/app_logo"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -26,11 +20,10 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".MyReportActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SplashActivity"
-            android:exported="false" />
+            android:name=".MapActivity2"
+            android:exported="false"
+            android:label="@string/title_activity_map2"
+            android:theme="@style/Theme.FersonaApplication.NoActionBar" />
         <activity
             android:name=".FragmentMap"
             android:exported="false" />
@@ -90,17 +83,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- 지도 API - 네이티브 앱 키 추가 -->
+        </activity> <!-- 네이티브 앱 키 추가 -->
         <meta-data
             android:name="com.kakao.sdk.AppKey"
-            android:value="284dc42f564705bb72402327b6b2d81d" /> <!-- FCM - 서비스를 추가하고 인텐트 필터를 설정한다. -->
-        <service
-            android:name=".MyFirebaseMessagingService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>
+            android:value="284dc42f564705bb72402327b6b2d81d" />
     </application>
 
 </manifest>

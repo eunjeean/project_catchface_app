@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">CatchFace</string>
+
+    <!-- 경고 -->
+    <string name="warring1">* 제보와 관계없는 이미지가 등록될 경우, 삭제될 수 있습니다.</string>
+    <string name="warring2">* 긴급을 필요로하는 제보 도는 신고인 경우, 112(무료)로 연락을 주시기 바랍니다.</string>
+
+    <!--- 범죄유형 -->
+    <string-array name="wanted_Spinner">
+        <item>선택</item>
+        <item>뺑소니사건</item>
+        <item>강도</item>
+        <item>절도</item>
+        <item>살인</item>
+        <item>사기</item>
+        <item>폭력</item>
+        <item>성범죄</item>
+        <item>기타</item>
+    </string-array>
+
+    <!--  회원가입 거주지(시)  -->
+    <string-array name="city_Spinner">
+        <item>선택(시)</item>
+        <item>서울</item>
+        <item>광주</item>
+        <item>부산</item>
+        <item>인천</item>
+        <item>대전</item>
+        <item>대구</item>
+    </string-array>
+
+    <!--  회원가입 거주지(동)  -->
+    <string-array name="dong_Spinner">
+        <item>선택(동)</item>
+        <item>월곡동</item>
+        <item>두암동</item>
+        <item>대의동</item>
+        <item>동림동</item>
+        <item>계림동</item>
+        <item>봉선동</item>
+    </string-array>
+
+    <!-- 몽타주생성 -->
+    <string name="monMake">인물에 대한 상세내용을 작성해주세요.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="map">위치찾기😀</string>
+    <string name="share">신고내용공유동의🤩</string>
+    <string name="info">개인정보수집동의Test😀</string>
+
+</resources>
